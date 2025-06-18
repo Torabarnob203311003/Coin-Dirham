@@ -40,3 +40,19 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Navbar and ThemeToggle animation helpers */
+.navbar-animate {
+  opacity: 0;
+  transform: scale(0.85);
+  filter: blur(16px);
+  animation: navbarFadeIn 0.6s cubic-bezier(0.4,0,0.2,1) 0.1s forwards;
+}
+
+@keyframes navbarFadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+}
