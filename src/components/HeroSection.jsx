@@ -8,7 +8,7 @@ function HeroSection() {
     >
       {/* Overlapping icon image as before, not centered absolute */}
       <img 
-        src="/src/assets/icon.png" 
+        src="/icon.png" 
         alt="" 
         className="h-[600px] w-[600px] object-contain drop-shadow-2xl contrast-200 brightness-125 opacity-80 pointer-events-none select-none" 
         style={{ filter: 'drop-shadow(0 0 40px #000) contrast(2) brightness(1.25)', transform: 'translateX(680px) translateY(50px)' }}
