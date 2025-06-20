@@ -13,7 +13,7 @@ function HeroSection() {
           src="/icon.png" 
           alt="" 
           className="h-[600px] w-[600px] object-contain drop-shadow-2xl contrast-200 brightness-125 opacity-80 pointer-events-none select-none" 
-          style={{ filter: 'drop-shadow(0 0 40px #000) contrast(2) brightness(1.25)', transform: 'translateX(680px) translateY(50px)' }}
+          style={{ filter: 'drop-shadow(0 0 40px #000) contrast(2) brightness(1.25)', transform: 'translateX(530px) translateY(40px)' }}
         />
         {/* Foreground text content */}
         <div className="absolute top-5 left-80 z-10  mt-7 w-full flex flex-col items-start" style={{color: '#FFF', fontFamily: 'Funnel Sans', fontSize: '120px', fontStyle: 'normal', fontWeight: 300, lineHeight: '120px'}}>
@@ -54,32 +54,53 @@ function HeroSection() {
         </div>
       </div>
       {/* Card section - styled as in screenshot */}
-      <div className="flex-shrink-0 w-full md:w-[381px] md:h-[420px] bg-[rgba(18,40,32,0.75)] rounded-3xl backdrop-blur-xl shadow-2xl mt-8 md:mt-20 md:ml-12 p-6 relative z-20">
-        {/* Close icon */}
+      <div
+        className="rounded-[32px] p-6 md:p-8 backdrop-blur-2xl shadow-2xl flex flex-col justify-between border border-[rgba(255,255,255,0.18)] mt-16 md:mt-0 md:ml-8"
+        style={{
+          width: '381px',
+          height: '420px',
+          boxShadow: '0 4px 32px 0 rgba(255,255,255,0.15), 0 1.5px 8px 0 rgba(255,255,255,0.10) inset',
+          backdropFilter: 'blur(22.7px)',
+          transform: 'translateY(50px)',
+        }}
+      >
+        {/* STAR icon styled as requested, now larger */}
         <div className="flex justify-end">
-          <span className="text-white text-2xl cursor-pointer font-thin">&times;</span>
-        </div>
-        {/* Title */}
-        <div className="mt-2">
           <div
             style={{
-              width: '207px',
+              borderRadius: '40px',
+             
+           
+              width: '72px', // increased size
+              height: '72px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <img src="/public/STAR.svg" alt="star" style={{ width: '40px', height: '40px' }} />
+          </div>
+        </div>
+        {/* Title - moved up with smaller margin */}
+        <div className="mt-0">
+          <div
+            style={{
               color: '#FFF',
               fontFamily: 'Funnel Sans',
               fontSize: '40px',
               fontStyle: 'normal',
               fontWeight: 300,
               lineHeight: '40px',
+              textAlign: 'left',
             }}
           >
-            A Digital<br />Dollar
+            A Digital <br /> Dollar 
           </div>
         </div>
-        {/* Description styled as in screenshot */}
+        {/* Description styled as in screenshot, border removed */}
         <div
           style={{
-            background: 'rgba(0,0,0,0.20)',
-            border: '2px solid #3FC5FF',
+    
             borderRadius: '6px',
             color: '#FFF',
             fontFamily: 'Funnel Sans',
@@ -90,17 +111,25 @@ function HeroSection() {
             padding: '12px 10px',
             width: '100%',
             boxSizing: 'border-box',
+            textAlign: 'left',
           }}
         >
-          With the stability and trust of traditional currency combined<br />with the openess and freedom of cryptocurrency
+          With the stability and trust of traditional currency combined with the openess and freedom of cryptocurrency
         </div>
         {/* Button */}
         <div className="flex items-center justify-end mt-8">
           <button
-            className="flex items-center border border-white text-white rounded-full px-6 py-2 hover:bg-white hover:text-black transition"
+            className="flex items-center border border-white text-white rounded-full  transition"
+            style={{
+              display: 'inline-flex',
+              padding: '11.5px 15.881px 15.5px 34px',
+              justifyContent: 'flex-end',
+              alignItems: 'flex-end',
+              gap: '19px',
+            }}
           >
             More details
-            <span className="ml-2 text-xl">&#8594;</span>
+            <span className="text-xl">&#8594;</span>
           </button>
         </div>
       </div>

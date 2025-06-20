@@ -194,7 +194,7 @@ export default function Navbar() {
               lineHeight: 'normal'
             }}
           >
-            <option value="en">EN</option>
+            <option value="en">En</option>
             <option value="fr">FR</option>
           </select>
         </div>
