@@ -3,7 +3,7 @@ import Marquee from './Marquee'
 
 function HeroSection() {
   return (
-    <div className="flex flex-col md:flex-row items-start justify-center w-full max-h-screen text-center relative" style={{ color: '#FFF', fontFamily: 'Funnel Sans', fontStyle: 'normal', fontWeight: 300 }}>
+    <div className="flex flex-col md:flex-row items-start justify-center w-full max-h-screen text-center relative mt-10" style={{ color: '#FFF', fontFamily: 'Funnel Sans', fontStyle: 'normal', fontWeight: 300 }}>
       {/* Main text content */}
       <div
         className="flex flex-col items-center justify-center w-full text-center"

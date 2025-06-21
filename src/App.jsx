@@ -16,7 +16,7 @@ function App() {
         }}
       >
         <Navbar />
-        <HeroSection />
+        <HeroSection  />
         <InfoBar />
       </div>
     </ThemeProvider>
