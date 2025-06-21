@@ -1,4 +1,5 @@
 import React from 'react'
+import Marquee from './Marquee'
 
 function HeroSection() {
   return (
@@ -133,7 +134,13 @@ function HeroSection() {
           </button>
         </div>
       </div>
+      {/* Empty div for marquee */}
+      <div> 
+
+      </div>
+    
     </div>
+    
   )
 }
 

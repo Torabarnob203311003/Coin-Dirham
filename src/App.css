@@ -56,3 +56,11 @@
     filter: blur(0px);
   }
 }
+
+@keyframes moveLeftToRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.animate-left-to-right {
+  animation: moveLeftToRight 18s linear infinite;
+}

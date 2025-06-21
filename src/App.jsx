@@ -2,6 +2,8 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import BG1 from "./assets/BG1.png";
+import Marquee from "./components/Marquee";
+import InfoBar from "./components/InfoBar";
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       >
         <Navbar />
         <HeroSection />
+        <InfoBar />
       </div>
     </ThemeProvider>
   );
