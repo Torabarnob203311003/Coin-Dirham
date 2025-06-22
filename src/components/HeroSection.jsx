@@ -1,7 +1,45 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 import Marquee from './Marquee'
 
 function HeroSection() {
+  const fgTextRef = useRef(null)
+  const cardRef = useRef(null)
+  const iconRef = useRef(null)
+
+  useEffect(() => {
+    // Animate foreground text (pop-up)
+    if (fgTextRef.current) {
+      import('gsap').then(({ default: gsap }) => {
+        gsap.fromTo(
+          fgTextRef.current,
+          { opacity: 0, scale: 0.8 },
+          { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' }
+        )
+      })
+    }
+    // Animate card (from right, blur to clear)
+    if (cardRef.current) {
+      import('gsap').then(({ default: gsap }) => {
+        gsap.fromTo(
+          cardRef.current,
+          { opacity: 0, x: 100, filter: 'blur(16px)' },
+          { opacity: 1, x: 0, filter: 'blur(0px)', duration: 1, delay: 0.4, ease: 'power3.out' }
+        )
+      })
+    }
+    // Animate icon image (continuous 360deg rotation)
+    if (iconRef.current) {
+      import('gsap').then(({ default: gsap }) => {
+        gsap.to(iconRef.current, {
+          rotate: 360,
+          duration: 36, // slower rotation (was 8)
+          repeat: -1,
+          ease: 'linear'
+        })
+      })
+    }
+  }, [])
+
   return (
     <div className="flex flex-col md:flex-row items-start justify-center w-full max-h-screen text-center relative mt-10" style={{ color: '#FFF', fontFamily: 'Funnel Sans', fontStyle: 'normal', fontWeight: 300 }}>
       {/* Main text content */}
@@ -11,13 +49,18 @@ function HeroSection() {
       >
         {/* Overlapping icon image as before, not centered absolute */}
         <img 
+          ref={iconRef}
           src="/icon.png" 
           alt="" 
           className="h-[600px] w-[600px] object-contain drop-shadow-2xl contrast-200 brightness-125 opacity-80 pointer-events-none select-none" 
           style={{ filter: 'drop-shadow(0 0 40px #000) contrast(2) brightness(1.25)', transform: 'translateX(530px) translateY(40px)' }}
         />
         {/* Foreground text content */}
-        <div className="absolute top-5 left-80 z-10  mt-7 w-full flex flex-col items-start" style={{color: '#FFF', fontFamily: 'Funnel Sans', fontSize: '120px', fontStyle: 'normal', fontWeight: 300, lineHeight: '120px'}}>
+        <div
+          ref={fgTextRef}
+          className="absolute top-5 left-80 z-10  mt-7 w-full flex flex-col items-start"
+          style={{color: '#FFF', fontFamily: 'Funnel Sans', fontSize: '120px', fontStyle: 'normal', fontWeight: 300, lineHeight: '120px'}}
+        >
           <span className='-ms-16'>
             Stable
             <img
@@ -56,6 +99,7 @@ function HeroSection() {
       </div>
       {/* Card section - styled as in screenshot */}
       <div
+        ref={cardRef}
         className="rounded-[32px] p-6 md:p-8 backdrop-blur-2xl shadow-2xl flex flex-col justify-between border border-[rgba(255,255,255,0.18)] mt-16 md:mt-0 md:ml-8"
         style={{
           width: '381px',

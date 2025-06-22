@@ -1,5 +1,7 @@
 import React from "react";
+import { BsArrowRight } from "react-icons/bs";
 import tokenBitcoin from "../assets/token_bitcoin.svg"; // Adjust the path if needed
+import crousupLogo from "../assets/Course Up.svg"; // Replace with your actual logo path
 
 function CardSection() {
   return (
@@ -51,16 +53,30 @@ function CardSection() {
             verticalAlign: "middle",
           }}
         />
-        type of cryptocurrency that is referred to as a stable coin
+        type of cryptocurrency 
+        <br  />that is referred to as a stable coin
         <span className="inline-block align-middle mx-2">
-          {/* Right arrow SVG */}
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-            <path d="M18 36L30 24L18 12" stroke="#F3F3F3" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <BsArrowRight size={72} color="#FFF" style={{ verticalAlign: "middle"}} />
         </span>
-        .
-        <br />
-        This Means 1 DirhamCoin = 1 USD Dollar
+        
+        This <br />Means
+        <img
+          src={crousupLogo}
+          alt="CrousUp Logo"
+          style={{
+            width: "113px",
+            height: "56px",
+            flexShrink: 0,
+            verticalAlign: "middle",
+            margin: "0 12px",
+            display: "inline-block",
+            borderRadius: "100px",
+            background: "linear-gradient(267deg, rgba(96, 96, 96, 0.32) 15.44%, rgba(198, 198, 198, 0.10) 97.33%)",
+            backgroundColor: "#606060",
+            padding: "8px"
+          }}
+        />
+        DirhamCoin = USD Dollar
       </div>
     </div>
   );
