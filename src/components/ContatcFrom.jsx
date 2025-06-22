@@ -1,20 +1,86 @@
+import React, { useRef, useEffect } from 'react';
 import { CircleArrowRight, MoveRight } from 'lucide-react';
-import React from 'react';
 
 const ContactForm = () => {
+    const leftDivRef = useRef(null);
+    const formRef = useRef(null);
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        import('gsap').then(({ default: gsap }) => {
+            // Section fade/slide in when component mounts (only content, not bg)
+            if (sectionRef.current) {
+                gsap.fromTo(
+                    sectionRef.current,
+                    { opacity: 0, y: 60 },
+                    { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" }
+                );
+            }
+        });
+    }, []);
+
+    useEffect(() => {
+        let animationPlayed = false;
+
+        function handleMouseEnter() {
+            if (animationPlayed) return;
+            animationPlayed = true;
+            import('gsap').then(({ default: gsap }) => {
+                // Left div animation on mouse enter
+                if (leftDivRef.current) {
+                    gsap.fromTo(
+                        leftDivRef.current,
+                        { opacity: 0, y: 40 },
+                        { opacity: 1, y: 0, duration: 1.2, ease: "power2.out" }
+                    );
+                }
+                // Form animation on mouse enter
+                if (formRef.current) {
+                    gsap.fromTo(
+                        formRef.current.children,
+                        { opacity: 0, y: 40 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1,
+                            stagger: 0.28,
+                            delay: 0.4,
+                            ease: "power2.out"
+                        }
+                    );
+                }
+            });
+        }
+
+        const section = sectionRef.current;
+        if (section) {
+            section.addEventListener("mouseenter", handleMouseEnter);
+        }
+        // Initial state: hidden
+        if (leftDivRef.current) leftDivRef.current.style.opacity = 0;
+        if (formRef.current) Array.from(formRef.current.children).forEach(child => child.style.opacity = 0);
+
+        return () => {
+            if (section) {
+                section.removeEventListener("mouseenter", handleMouseEnter);
+            }
+        };
+    }, []);
 
     return (
         <div>
             <div
-                className="min-h-screen bg-[#000000] bg-cover pt-20  "
+                className="min-h-screen bg-[#000000] bg-cover pt-20"
                 style={{
-                   backgroundImage: "url('/lf.png')",
-                  // rotate: '-180deg', 
+                    backgroundImage: "url('/lf.png')",
                 }}
             >
-                <div className='flex justify-between items-center'>
+                <div
+                    ref={sectionRef}
+                    className='flex justify-between items-center'
+                >
                     {/* left div */}
-                    <div className='px-20 py-10'>
+                    <div ref={leftDivRef} className='px-20 py-10'>
                         <div className="text-white text-[20px]">
                             <p className="text-sm mb-2">Get access</p>
                             <p className="text-sm">to DirhamCoin <span className="">↗</span></p>
@@ -31,7 +97,7 @@ const ContactForm = () => {
                             </div>
                         </div>
                     </div>
-                    <form className="space-y-20 px-24">
+                    <form ref={formRef} className="space-y-20 px-24">
                         <div className="text-[70px] leading-[70px] text-white">
                             <span className="">Be one of the first</span>
                             <div className=" flex items-center justify-center ">

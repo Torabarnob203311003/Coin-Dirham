@@ -7,13 +7,13 @@ function HeroSection() {
   const iconRef = useRef(null)
 
   useEffect(() => {
-    // Animate foreground text (pop-up)
+    // Animate foreground text (pop-up + left to right)
     if (fgTextRef.current) {
       import('gsap').then(({ default: gsap }) => {
         gsap.fromTo(
           fgTextRef.current,
-          { opacity: 0, scale: 0.8 },
-          { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.7)' }
+          { opacity: 0, x: -120 },
+          { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }
         )
       })
     }
@@ -27,15 +27,27 @@ function HeroSection() {
         )
       })
     }
-    // Animate icon image (continuous 360deg rotation)
+    // Animate icon image: pop up on load, then rotate infinitely
     if (iconRef.current) {
       import('gsap').then(({ default: gsap }) => {
-        gsap.to(iconRef.current, {
-          rotate: 360,
-          duration: 36, // slower rotation (was 8)
-          repeat: -1,
-          ease: 'linear'
-        })
+        gsap.fromTo(
+          iconRef.current,
+          { scale: 0.7, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'back.out(1.7)',
+            onComplete: () => {
+              gsap.to(iconRef.current, {
+                rotate: 360,
+                duration: 36,
+                repeat: -1,
+                ease: 'linear'
+              })
+            }
+          }
+        )
       })
     }
   }, [])
