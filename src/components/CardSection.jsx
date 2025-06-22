@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import tokenBitcoin from "../assets/token_bitcoin.svg";
 import crousupLogo from "../assets/Course Up.svg";
+import GridSection from "./GridSection";
 
 function CardSection() {
   const textRef = useRef(null);
@@ -176,7 +177,12 @@ function CardSection() {
           }}
         />
         DirhamCoin = USD Dollar
+     
+      <div>
+        <GridSection />
       </div>
+      </div>
+     
     </div>
   );
 }
