@@ -2,7 +2,7 @@ import React from 'react'
 
 function GridSection() {
   return (
-    <div className="min-h-screen bg-[#101a16] flex items-center justify-center py-8 px-2">
+    <div className="min-h-screen flex items-center justify-center py-8 px-2">
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-4 grid-rows-4 md:grid-rows-2 gap-6">
         {/* 01. Fast */}
         <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md shadow-lg p-7 flex flex-col justify-between min-h-[180px] overflow-hidden">

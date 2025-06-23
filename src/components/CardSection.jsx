@@ -87,7 +87,7 @@ function CardSection() {
     <div
       className="w-full min-h-[300px] flex flex-col items-center justify-center bg-cover bg-center overflow-x-hidden relative"
       style={{
-        backgroundImage: 'url(/src/assets/BG2.jpg)',
+        backgroundImage: 'url(/BG2.jpg)',
         filter: "brightness(0.9) contrast(1.2)",
       }}
     >
