@@ -8,6 +8,7 @@ import CardSection from "./components/CardSection";
 import ContactForm from "./components/ContatcFrom";
 import Footer from "./components/Footer";
 import Scan from "./components/Scan";
+import GridSection from "./components/GridSection";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       </div>
       <div>
         <CardSection />
+       
       </div>
       <div>
         <Scan />
