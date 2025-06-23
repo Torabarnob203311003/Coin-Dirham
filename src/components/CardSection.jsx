@@ -178,7 +178,7 @@ function CardSection() {
         />
         DirhamCoin = USD Dollar
      
-      <div>
+      <div className=" mt-20 mb-20">
         <GridSection />
       </div>
       </div>

@@ -2,12 +2,12 @@ import React from 'react'
 
 function GridSection() {
   return (
-    <div className="grid grid-cols-6 grid-rows-6 gap-4">
+    <div className="grid grid-cols-6 grid-rows-6 gap-3">
       <div className="col-span-2 row-span-4 flex items-start justify-start bg-white rounded-lg shadow">
         <img src="/Grid1.png" alt="Grid 1" className="max-w-full max-h-full object-contain" />
       </div>
       <div className="col-span-2 row-span-6 col-start-5 row-start-1">
-        <div className="w-80 h-64 bg-gray-900 rounded-2xl border border-gray-600 p-6 flex flex-col relative overflow-hidden items-start justify-start text-left">
+        <div className="w-full h-full bg-gray-900 rounded-2xl border border-gray-600 p-6 flex flex-col relative overflow-hidden items-start justify-start text-left">
           {/* Background gradient/design element */}
           <div className="absolute top-0 right-0 w-40 h-40 opacity-20">
             <div className="w-full h-full bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600 rounded-full blur-xl transform rotate-45 scale-150"></div>
@@ -27,9 +27,25 @@ function GridSection() {
           </div>
         </div>
       </div>
-      <div className="col-span-2 row-span-2 col-start-1 row-start-5 flex items-start justify-start text-left">6</div>
+      <div className="col-span-2 row-span-2 col-start-1 row-start-5 flex items-start justify-start text-left rounded-3xl  bg-gradient-to-br from-[#1BAE6C] to-[#03160D">
+        <div className="flex justify-center items-center gap-8 ">
+                    <div>
+                        <img
+                            src="/src/assets/Footer.svg"
+                            alt=""
+                            className="w-[66px] h-[66px] object-contain"
+                        />
+                    </div>
+                    <h1
+ 
+                        className="text-[53px] font-normal"
+                    >
+                        DirhamCoin
+                    </h1>
+           </div>
+        </div>
       <div className="col-span-2 row-span-3 col-start-3 row-start-1">
-        <div className="w-80 h-48 bg-gray-900 rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
+        <div className="w-full h-full bg-gray-900 rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
           {/* Number in upper left corner */}
           <div className="text-gray-400 text-sm font-medium mb-4">
             02.
@@ -45,7 +61,9 @@ function GridSection() {
           </div>
         </div>
       </div>
-      <div className="col-span-2 row-span-3 col-start-3 row-start-4 flex items-start justify-start text-left">   <div className="w-80 h-48 bg-gray-900 rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
+      <div className=" col-span-2 row-span-3 col-start-3 row-start-4 flex items-start justify-start text-left"> 
+        
+          <div className="w-full h-full bg-gray-900 rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
           {/* Number in upper left corner */}
           <div className="text-gray-400 text-sm font-medium mb-4">
             02.
@@ -59,7 +77,8 @@ function GridSection() {
               Dollar Coin will foster an ecosystem of products and services made to help people use digital currency in their everyday lives.
             </p>
           </div>
-        </div></div>
+        </div>
+        </div>
     </div>
   );
 }
