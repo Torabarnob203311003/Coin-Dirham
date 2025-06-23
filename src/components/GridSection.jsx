@@ -25,6 +25,26 @@ function GridSection() {
     <div className="grid grid-cols-6 grid-rows-6 gap-3">
       <div className="col-span-2 row-span-4 flex items-start justify-start  rounded-lg shadow">
         <img src="/Grid1.png" alt="Grid 1" className="max-w-full max-h-full object-contain" />
+        {/* Fast text styled */}
+        <span
+          style={{
+            width: 74,
+            height: 27,
+            position: "absolute",
+            top: "32px",
+            left: "32px",
+            fontFamily: "Funnel Sans",
+            fontWeight: 300,
+            fontSize: "40px",
+            lineHeight: "120%",
+            letterSpacing: "0%",
+            color: "#101a16",
+            background: "transparent"
+          }}
+          className="block"
+        >
+          Fast
+        </span>
       </div>
       <div className="col-span-2 row-span-6 col-start-5 row-start-1">
         <div className="w-full h-full  rounded-2xl border border-gray-600 p-6 flex flex-col relative overflow-hidden items-start justify-start text-left">
@@ -53,10 +73,35 @@ function GridSection() {
           </div>
           {/* Main content */}
           <div className="flex-1 flex flex-col justify-end relative z-10 items-start text-left">
-            <h2 className="text-white text-2xl font-bold mb-4 text-left">
+            <h2
+              style={{
+                width: 120,
+                fontFamily: "Funnel Sans",
+                fontWeight: 300,
+                fontSize: "40px",
+                lineHeight: "120%",
+                letterSpacing: "0%",
+                color: "#fff",
+                background: "transparent"
+              }}
+              className="mb-4 text-left"
+            >
               Secure
             </h2>
-            <p className="text-gray-400 text-sm leading-relaxed text-left">
+            <p
+              style={{
+                width: 514,
+                height: 56,
+                fontFamily: "Funnel Sans",
+                fontWeight: 600,
+                fontSize: "20px",
+                lineHeight: "140%",
+                letterSpacing: "0%",
+                
+                background: "transparent"
+              }}
+              className="text-left text-gray-400"
+            >
               Dollar Coin is a currency built on ERC-20 token for the Ethereum blockchain with security in mind.
             </p>
           </div>
@@ -67,7 +112,7 @@ function GridSection() {
           background: "linear-gradient(135deg, #03160D 0%, #1BAE6C 100%)"
         }}
       >
-        <div className="flex justify-center items-center gap-8 mt-8 w-full">
+        <div className="flex justify-center items-center gap-8 mt-8 pt-11 w-full">
           <div className="items-center justify-center">
             <img
               src="/src/assets/Footer.svg"
@@ -75,7 +120,7 @@ function GridSection() {
               className="w-[46px] h-[66px] object-contain"
             />
           </div>
-          <h1 className="text-[53px] font-normal text-white">
+          <h1 className="text-[53px] font-normal  text-white">
             DirhamCoin
           </h1>
         </div>
@@ -87,34 +132,83 @@ function GridSection() {
             02.
           </div>
           {/* Main content */}
-          <div className="flex-1 flex flex-col justify-center items-start text-left">
-            <h2 className="text-white text-2xl font-bold mb-4 text-left">
+          <div className="flex-1 flex flex-col justify-center items-start mt-36 text-left">
+            <h2
+              style={{
+                width: 180,
+                fontFamily: "Funnel Sans",
+                fontWeight: 300,
+                fontSize: "40px",
+                lineHeight: "120%",
+                letterSpacing: "0%",
+                color: "#fff",
+                background: "transparent"
+              }}
+              className="mb-4 text-left"
+            >
               Scalable
             </h2>
-            <p className="text-gray-400 text-sm leading-relaxed text-left">
+            <p
+              style={{
+                width: 514,
+                height: 84,
+                fontFamily: "Funnel Sans",
+                fontWeight: 300,
+                fontSize: "20px",
+                lineHeight: "140%",
+                letterSpacing: "0%",
+              
+                background: "transparent"
+              }}
+              className="text-left text-gray-400"
+            >
               Dollar Coin will foster an ecosystem of products and services made to help people use digital currency in their everyday lives.
             </p>
           </div>
         </div>
       </div>
       <div className=" col-span-2 row-span-3 col-start-3 row-start-4 flex items-start justify-start text-left"> 
-        
-          <div className="w-full h-full bg-gray-900 rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
+        <div className="w-full h-full bg-gray-900 rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
           {/* Number in upper left corner */}
           <div className="text-gray-400 text-sm font-medium mb-4">
             04.
           </div>
           {/* Main content */}
-          <div className="flex-1 flex flex-col justify-center items-start text-left">
-            <h2 className="text-white text-2xl font-bold mb-4 text-left">
-             Stable
+          <div className="flex-1 flex flex-col justify-center items-start mt-20 text-left">
+            <h2
+              style={{
+                width: 120,
+                fontFamily: "Funnel Sans",
+                fontWeight: 300,
+                fontSize: "40px",
+                lineHeight: "120%",
+                letterSpacing: "0%",
+                color: "#fff",
+                background: "transparent"
+              }}
+              className="mb-4 text-left"
+            >
+              Stable
             </h2>
-            <p className="text-gray-400 text-sm leading-relaxed text-left">
-             Dollar Coin is pegged 1:1 to the US Dollar, which means 1 USDD will always be redeemable for 1 USD. It’s the best of fiat on the blockchain.
+            <p
+              style={{
+                width: 514,
+                height: 84,
+                fontFamily: "Funnel Sans",
+                fontWeight: 300,
+                fontSize: "20px",
+                lineHeight: "140%",
+                letterSpacing: "0%",
+              
+                background: "transparent"
+              }}
+              className="text-left text-gray-400"
+            >
+              Dollar Coin is pegged 1:1 to the US Dollar, which means 1 USDD will always be redeemable for 1 USD. It’s the best of fiat on the blockchain.
             </p>
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 }
