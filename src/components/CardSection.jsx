@@ -11,7 +11,7 @@ function CardSection() {
   const arrowRef = useRef(null);
   const crousupRef = useRef(null);
 
-  // Animate on scroll into view
+  // Animate on scroll into view (only once)
   useEffect(() => {
     let ctx;
     let triggered = false;
@@ -69,9 +69,8 @@ function CardSection() {
             }
           }, textRef);
         });
-      } else if (!inView && triggered) {
-        triggered = false;
-        if (ctx) ctx.revert();
+        // Remove scroll listener after first trigger
+        window.removeEventListener("scroll", animate);
       }
     }
     window.addEventListener("scroll", animate, { passive: true });

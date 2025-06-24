@@ -3,27 +3,45 @@ import gsap from 'gsap'
 
 function GridSection() {
   const iconRef = useRef(null);
+  const cardRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+  const triggered = useRef(false);
 
   useEffect(() => {
-    if (iconRef.current) {
-      gsap.fromTo(
-        iconRef.current,
-        { opacity: 0, x: 100, y: -100, scale: 0.7 },
-        {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          scale: 1,
-          duration: 1,
-          ease: 'power3.out'
-        }
-      );
+    function animate() {
+      const grid = document.querySelector('.grid');
+      if (!grid || triggered.current) return;
+      const rect = grid.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (inView) {
+        triggered.current = true;
+        // Pop out animation for each card (iconRef animation removed)
+        cardRefs.forEach((ref, i) => {
+          if (ref.current) {
+            gsap.fromTo(
+              ref.current,
+              { opacity: 0, scale: 0.85, y: 40 },
+              {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                duration: 0.7,
+                delay: 0.15 * i,
+                ease: 'power3.out'
+              }
+            );
+          }
+        });
+        window.removeEventListener("scroll", animate);
+      }
     }
+    window.addEventListener("scroll", animate, { passive: true });
+    animate();
+    return () => window.removeEventListener("scroll", animate);
   }, []);
 
   return (
     <div className="grid grid-cols-6 grid-rows-6 gap-3">
-      <div className="col-span-2 row-span-4 flex items-start justify-start  rounded-lg shadow">
+      <div ref={cardRefs[0]} className="col-span-2 row-span-4 flex items-start justify-start rounded-lg shadow relative">
         <img src="/Grid1.png" alt="Grid 1" className="max-w-full max-h-full object-contain" />
         {/* Fast text styled */}
         <span
@@ -43,17 +61,18 @@ function GridSection() {
           }}
           className="block"
         >
-          Fast
+          {/* ...existing code or text... */}
         </span>
       </div>
-      <div className="col-span-2 row-span-6 col-start-5 row-start-1">
-        <div className="w-full h-full  rounded-2xl border border-gray-600 p-6 flex flex-col relative overflow-hidden items-start justify-start text-left">
+      <div ref={cardRefs[1]} className="col-span-2 row-span-6 col-start-5 row-start-1">
+        <div className="w-full h-full rounded-2xl border border-gray-600 p-6 flex flex-col relative overflow-hidden items-start justify-start text-left">
           {/* Background gradient/design element */}
           <div className="absolute top-0 right-0 w-40 h-40 opacity-20">
             <div className="w-full h-full bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600 rounded-full blur-xl transform rotate-45 scale-150"></div>
           </div>
           {/* Icon in top right without GSAP transition */}
           <img
+            ref={iconRef}
             src="/icon.png"
             alt="icon"
             className="absolute z-20"
@@ -68,7 +87,20 @@ function GridSection() {
             }}
           />
           {/* Number icon add */}
-          <div className="text-gray-400 text-sm font-medium relative z-10 mb-4">
+          <div
+            style={{
+              width: 27,
+              height: 14,
+              fontFamily: "Funnel Sans",
+              fontWeight: 300,
+              fontSize: "20px",
+              lineHeight: "120%",
+              letterSpacing: "0%",
+             
+              background: "transparent"
+            }}
+            className="relative z-10 mb-4 text-gray-300"
+          >
             03.
           </div>
           {/* Main content */}
@@ -97,17 +129,16 @@ function GridSection() {
                 fontSize: "20px",
                 lineHeight: "140%",
                 letterSpacing: "0%",
-                
                 background: "transparent"
               }}
-              className="text-left text-gray-400"
+              className="text-left text-gray-300"
             >
               Dollar Coin is a currency built on ERC-20 token for the Ethereum blockchain with security in mind.
             </p>
           </div>
         </div>
       </div>
-      <div className="col-span-2 row-span-2 col-start-1 row-start-5 flex items-start justify-center text-left rounded-3xl"
+      <div ref={cardRefs[2]} className="col-span-2 row-span-2 col-start-1 row-start-5 flex items-start justify-center text-left rounded-3xl"
         style={{
           background: "linear-gradient(135deg, #03160D 0%, #1BAE6C 100%)"
         }}
@@ -125,10 +156,23 @@ function GridSection() {
           </h1>
         </div>
       </div>
-      <div className="col-span-2 row-span-3 col-start-3 row-start-1">
+      <div ref={cardRefs[3]} className="col-span-2 row-span-3 col-start-3 row-start-1">
         <div className="w-full h-full rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
           {/* Number in upper left corner */}
-          <div className="text-gray-400 text-sm font-medium mb-4">
+          <div
+            style={{
+              width: 27,
+              height: 14,
+              fontFamily: "Funnel Sans",
+              fontWeight: 300,
+              fontSize: "20px",
+              lineHeight: "120%",
+              letterSpacing: "0%",
+             
+              background: "transparent"
+            }}
+            className="mb-4 text-gray-300"
+          >
             02.
           </div>
           {/* Main content */}
@@ -157,20 +201,32 @@ function GridSection() {
                 fontSize: "20px",
                 lineHeight: "140%",
                 letterSpacing: "0%",
-              
                 background: "transparent"
               }}
-              className="text-left text-gray-400"
+              className="text-left text-gray-300"
             >
               Dollar Coin will foster an ecosystem of products and services made to help people use digital currency in their everyday lives.
             </p>
           </div>
         </div>
       </div>
-      <div className=" col-span-2 row-span-3 col-start-3 row-start-4 flex items-start justify-start text-left"> 
+      <div className=" col-span-2 row-span-3 col-start-3 row-start-4 flex items-start justify-start text-left">
         <div className="w-full h-full bg-gray-900 rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
           {/* Number in upper left corner */}
-          <div className="text-gray-400 text-sm font-medium mb-4">
+          <div
+            style={{
+              width: 27,
+              height: 14,
+              fontFamily: "Funnel Sans",
+              fontWeight: 300,
+              fontSize: "20px",
+              lineHeight: "120%",
+              letterSpacing: "0%",
+             
+              background: "transparent"
+            }}
+            className="mb-4  text-gray-300"
+          >
             04.
           </div>
           {/* Main content */}
@@ -199,10 +255,9 @@ function GridSection() {
                 fontSize: "20px",
                 lineHeight: "140%",
                 letterSpacing: "0%",
-              
                 background: "transparent"
               }}
-              className="text-left text-gray-400"
+              className="text-left text-gray-300"
             >
               Dollar Coin is pegged 1:1 to the US Dollar, which means 1 USDD will always be redeemable for 1 USD. It’s the best of fiat on the blockchain.
             </p>

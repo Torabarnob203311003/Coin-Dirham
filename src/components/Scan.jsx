@@ -1,19 +1,9 @@
 import React from "react";
+import FooterLogo from "../assets/footer2.svg";
+import AppleSvg from "../assets/apple.svg";
+import GoogleSvg from "../assets/goggle.svg";
 
 // Placeholder icons (replace with your own assets if available)
-const AppleIcon = () => (
-  <svg width="32" height="32" fill="none" viewBox="0 0 32 32">
-    <circle cx="16" cy="16" r="16" fill="#222" />
-    <path d="M21 24c-1 1-2 1-3 1s-2 0-3-1c-2-2-3-5-3-7 0-2 1-3 3-3 1 0 2 1 3 1s2-1 3-1c2 0 3 1 3 3 0 2-1 5-3 7z" fill="#fff"/>
-    <circle cx="20" cy="12" r="2" fill="#fff"/>
-  </svg>
-);
-const GoogleIcon = () => (
-  <svg width="32" height="32" fill="none" viewBox="0 0 32 32">
-    <circle cx="16" cy="16" r="16" fill="#222" />
-    <text x="9" y="22" fontSize="14" fill="#fff" fontFamily="Arial">G</text>
-  </svg>
-);
 const CoinsAppIcon = () => (
   <svg width="36" height="36" fill="none" viewBox="0 0 36 36">
     <circle cx="18" cy="18" r="18" fill="#1de9b6" />
@@ -42,30 +32,103 @@ const QRCode = () => (
 
 function Scan() {
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-[#0c1813] overflow-hidden px-4">
+    <div
+      className="relative min-h-screen flex flex-col items-center justify-center bg-[#0c1813] overflow-hidden px-4"
+      style={{
+        backgroundImage: "url('/bg3.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat"
+      }}
+    >
       {/* Centered Content */}
-      <div className="flex flex-col items-center justify-center mt-20">
-        <h1 className="text-white text-center font-[Funnel Sans] font-light text-4xl md:text-6xl leading-tight mb-6">
+      <div className="flex flex-col items-center justify-center ">
+        <h1
+          className="text-white text-center font-[Funnel Sans] font-light mb-6"
+          style={{
+            width: 971,
+            height: 300,
+            fontFamily: "Funnel Sans",
+            fontWeight: 300,
+            fontSize: "100px",
+            lineHeight: "100px",
+            letterSpacing: "0%",
+            color: "#fff",
+            margin: "0 auto",
+            maxWidth: "100%",
+            overflowWrap: "break-word"
+          }}
+        >
           Start transacting<br />
           with <span className="inline-flex items-center gap-2">
             DirhamCoin
-            <span className="inline-flex items-center justify-center bg-[#1de9b6] rounded-full w-8 h-8 ml-2">
-              <CoinsAppIcon />
-            </span>
+            <img
+              src={FooterLogo}
+              alt="Footer Logo"
+              className="w-32 h-32 mt-5 ml-2 inline-block align-middle"
+              style={{ filter: "drop-shadow(0 0 10px #000) contrast(1.2) brightness(1.2)" }}
+            />
           </span>
           <br />
-          on Coins App
+          {/* Add Apple and Google SVGs before "on" */}
+          <span className="inline-flex items-center gap-4 mt-4">
+            <span
+              style={{
+                width: "147px",
+                height: "76px",
+                flexShrink: 0,
+                borderRadius: "100px",
+                background: "linear-gradient(267deg, rgba(96, 96, 96, 0.32) 15.44%, rgba(198, 198, 198, 0.10) 97.33%)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "12px"
+              }}
+            >
+              <img
+                src={AppleSvg}
+                alt="Apple"
+                style={{
+                  width: "34px",
+                  height: "34px",
+                  flexShrink: 0
+                }}
+              />
+              <img
+                src={GoogleSvg}
+                alt="Google"
+                style={{
+                  width: "34px",
+                  height: "34px",
+                  flexShrink: 0
+                }}
+              />
+            </span>
+            <span className="ml-4">on Coins App</span>
+          </span>
         </h1>
         <div className="flex items-center justify-center gap-4 mb-4">
-          <span className="inline-flex items-center justify-center bg-[#232b27] rounded-full w-10 h-10">
-            <AppleIcon />
-          </span>
-          <span className="inline-flex items-center justify-center bg-[#232b27] rounded-full w-10 h-10">
-            <GoogleIcon />
-          </span>
+        
+          
         </div>
-        <p className="text-[#b6eada] text-center max-w-2xl mb-8 font-light">
-          But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of...
+       <div className=" mt-24">
+         <p
+          className="text-center mb-8 font-light"
+          style={{
+            width: "800px",
+            color: "#FFF",
+            textAlign: "center",
+            fontFamily: "Funnel Sans",
+            fontSize: "20px",
+            fontStyle: "normal",
+            fontWeight: 300,
+            lineHeight: "140%",
+            opacity: 0.51,
+            marginLeft: "auto",
+            marginRight: "auto"
+          }}
+        >
+          But I must explain to you how all this mistaken idea of denouncing pleasure and praising <br /> pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of...
         </p>
         <div className="flex flex-row gap-4 mb-12">
           <button className="bg-[#1de9b6] text-[#0c1813] font-semibold px-6 py-3 rounded-full shadow hover:bg-[#13c9a7] transition">
@@ -75,6 +138,7 @@ function Scan() {
             Download Whitepaper
           </button>
         </div>
+       </div>
       </div>
       {/* Bottom Left QR Card */}
       <div className="absolute left-6 bottom-6 bg-[#181f1c] bg-opacity-80 rounded-2xl p-5 flex flex-col items-center shadow-lg min-w-[220px]">
@@ -107,4 +171,6 @@ function Scan() {
   );
 }
 
+
 export default Scan;
+
