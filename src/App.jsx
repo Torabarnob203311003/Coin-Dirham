@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import Scan from "./components/Scan";
 import GridSection from "./components/GridSection";
 import LineSection from "./components/lineSection";
+import UseCasesCard from "./components/UseCasesCard";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <CardSection />
        
       </div>
+      <div><UseCasesCard /></div>
       <div className="">
         <Scan />
       </div>
