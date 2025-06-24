@@ -5,6 +5,9 @@ import usecaseImg from '../assets/usecase1.jpg';
 import VectorUsecase from '../assets/vectorusecase.svg';
 import RightArrow from '../assets/rightarrow.png';
 
+import Dot from '../assets/dot.svg';
+import ShareIcon from '../assets/share.svg';
+
 const UseCasesCard = () => {
 
 
@@ -18,10 +21,10 @@ const UseCasesCard = () => {
     }}
   >
       <div
-        className="bg-gradient-to-br from-green-900 via-green-800 to-green-900 rounded-2xl p-8 text-white min-h-[400px] relative overflow-hidden max-w-md mx-auto"
+        className="bg-gradient-to-br from-green-900 via-green-800 to-green-900 rounded-2xl p-8 text-white min-h-[400px] relative overflow-hidden"
         style={{
-          width: "989px",
-          height: "580px",
+          width: "789px",
+          height: "780px",
           flexShrink: 0,
           borderRadius: "40px",
           background: `linear-gradient(0deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.62) 100%), url(${usecaseImg}) lightgray 50% / cover no-repeat`,
@@ -49,7 +52,7 @@ const UseCasesCard = () => {
       </div>
 
       {/* Description */}
-      <div className="mb-12 space-y-4">
+      <div className="mb-12 space-y-4 mt-72">
         <p
           className="leading-relaxed text-sm"
           style={{
@@ -89,28 +92,60 @@ const UseCasesCard = () => {
 
       {/* Bottom section */}
       <div className="absolute bottom-8 left-8 right-8">
-        {/* Dots indicator */}
-        <div className="flex space-x-2 mb-6">
-          <div className="w-2 h-2 bg-white rounded-full"></div>
-          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-          <div className="w-2 h-2 bg-green-400 rounded-full"></div>
-        </div>
-
-        {/* Tab navigation */}
-        <div className="flex items-center justify-between">
-          <div className="flex space-x-8">
-            <span className="text-sm text-white font-semibold">Exchange</span>
-            <span className="text-sm text-green-300">Stable</span>
+        {/* Dots indicator and tab navigation in a row */}
+        <div className="flex items-center justify-between mb-6">
+          <img
+            src={Dot}
+            alt="dot"
+            style={{
+              width: "86px",
+              height: "14px",
+              flexShrink: 0
+            }}
+          />
+          <div className="flex space-x-8 ml-6 items-center">
+            <span className="text-sm font-semibold border text-zinc-300 border border-gray-300 rounded-full px-4 py-1">Exchange</span>
+            <span className="text-sm text-zinc-300 border border-gray-300 rounded-full px-4 py-1">Stable</span>
+            <span
+              style={{
+                width: "57px",
+                height: "57px",
+                flexShrink: 0,
+                borderRadius: "100px",
+                border: "1px solid #FFF",
+                background: "rgba(255, 255, 255, 0.02)",
+                backdropFilter: "blur(42.75px)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              <img
+                src={ShareIcon}
+                alt="share"
+                style={{
+                  width: "28px",
+                  height: "28px",
+                  borderRadius: "100px"
+                }}
+              />
+            </span>
           </div>
-          
-          {/* Share button */}
+        </div>
+        {/* Tab navigation (Share button only) */}
+        <div className="flex items-center justify-end">
           <div className="p-2">
-            <Share2 className="w-4 h-4 text-green-300" />
+            
           </div>
         </div>
       </div>
     </div>
 
+ <div>
+  
+ </div>
+                  
+     
   </div>
   );
 };
