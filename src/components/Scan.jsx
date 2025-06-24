@@ -18,18 +18,6 @@ const avatars = [
   "https://randomuser.me/api/portraits/women/46.jpg"
 ];
 
-const QRCode = () => (
-  <svg width="48" height="48" fill="none" viewBox="0 0 48 48">
-    <rect width="48" height="48" rx="8" fill="#222" />
-    <rect x="8" y="8" width="8" height="8" fill="#fff"/>
-    <rect x="32" y="8" width="8" height="8" fill="#fff"/>
-    <rect x="8" y="32" width="8" height="8" fill="#fff"/>
-    <rect x="20" y="20" width="4" height="4" fill="#fff"/>
-    <rect x="24" y="24" width="4" height="4" fill="#fff"/>
-    <rect x="32" y="32" width="8" height="8" fill="#fff"/>
-  </svg>
-);
-
 function Scan() {
   return (
     <div
@@ -175,10 +163,20 @@ function Scan() {
        </div>
       </div>
       {/* Bottom Left QR Card */}
-      <div className="absolute left-6 bottom-6 bg-[#181f1c] bg-opacity-80 rounded-2xl p-5 flex flex-col items-center shadow-lg min-w-[220px]">
-        <QRCode />
-        <div className="mt-3 text-white text-base font-semibold">Scan our QR code</div>
-        <div className="text-[#b6eada] text-xs mt-1">Download on App Store or Google Play.</div>
+      <div className="absolute left-6 bottom-6">
+        <div className="bg-[#181f1c] bg-opacity-80 rounded-2xl p-5 flex flex-row items-center shadow-lg min-w-[220px]">
+          {/* Main div with 2 child divs */}
+          {/* 1st div: QR image */}
+          <div className="flex items-center justify-center">
+            {/* qr.SVG inline */}
+           <img src="/src/assets/qr.svg" alt="" srcset="" />
+          </div>
+          {/* 2nd div: Scan text and subtext */}
+          <div className="flex flex-col justify-center ml-5">
+            <div className="text-white text-base font-semibold">Scan our QR code</div>
+            <div className="text-[#b6eada] text-xs mt-1">Download on App Store or Google Play.</div>
+          </div>
+        </div>
       </div>
       {/* Bottom Right Social Proof Card */}
       <div className="absolute right-6 bottom-6 bg-[#181f1c] bg-opacity-80 rounded-2xl p-5 flex flex-col items-start shadow-lg min-w-[220px]">
