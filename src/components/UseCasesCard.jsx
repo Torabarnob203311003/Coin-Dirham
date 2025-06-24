@@ -242,9 +242,35 @@ const UseCasesCard = () => {
             <div className="w-px h-12 bg-gray-600 mt-2"></div>
           </div>
           <div className="cursor-pointer" onClick={() => setActiveSection('Trade')}>
-            <h3 className={`text-xl font-medium ${activeSection === 'Trade' ? 'text-white' : 'text-gray-500'}`}>Trade</h3>
+            <h3
+              className={`text-xl font-medium ${activeSection === 'Trade' ? 'text-white' : 'text-gray-500'}`}
+              style={
+                activeSection === 'Trade'
+                  ? {
+                      color: "#FFF",
+                      fontFamily: "Funnel Sans",
+                      fontSize: "70px",
+                      fontStyle: "normal",
+                      fontWeight: 300,
+                      lineHeight: "120%",
+                    }
+                  : {}
+              }
+            >
+              Trade
+            </h3>
             {activeSection === 'Trade' && (
-              <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              <p
+                style={{
+                  color: "#FFF",
+                  fontFamily: "Funnel Sans",
+                  fontSize: "20px",
+                  fontStyle: "normal",
+                  fontWeight: 300,
+                  lineHeight: "140%"
+                }}
+                className="leading-relaxed max-w-xs"
+              >
                 Trade DirhamCoin seamlessly on our platform with real-time pricing, deep liquidity, and secure order execution. Enjoy low fees and instant settlement for all your trading needs.
               </p>
             )}
@@ -264,11 +290,35 @@ const UseCasesCard = () => {
             <div className="w-px h-12 bg-gray-600 mt-2"></div>
           </div>
           <div className="cursor-pointer" onClick={() => setActiveSection('Hold')}>
-            <h3 className={`text-xl font-medium mb-2 ${activeSection === 'Hold' ? 'text-white' : 'text-gray-400'}`}>
+            <h3
+              className={`text-xl font-medium mb-2 ${activeSection === 'Hold' ? 'text-white' : 'text-gray-400'}`}
+              style={
+                activeSection === 'Hold'
+                  ? {
+                      color: "#FFF",
+                      fontFamily: "Funnel Sans",
+                      fontSize: "70px",
+                      fontStyle: "normal",
+                      fontWeight: 300,
+                      lineHeight: "120%",
+                    }
+                  : {}
+              }
+            >
               Hold *
             </h3>
             {activeSection === 'Hold' && (
-              <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              <p
+                style={{
+                  color: "#FFF",
+                  fontFamily: "Funnel Sans",
+                  fontSize: "20px",
+                  fontStyle: "normal",
+                  fontWeight: 300,
+                  lineHeight: "140%"
+                }}
+                className="leading-relaxed max-w-xs"
+              >
                 But I must explain to you how all this mistaken idea of 
                 denouncing pleasure and praising pain was born and I 
                 will give you a complete account of the system, and 
@@ -292,11 +342,35 @@ const UseCasesCard = () => {
             <div className="w-px h-12 bg-gray-600 mt-2"></div>
           </div>
           <div className="cursor-pointer" onClick={() => setActiveSection('Buy/Sell')}>
-            <h3 className={`text-xl font-medium mb-2 ${activeSection === 'Buy/Sell' ? 'text-white' : 'text-gray-400'}`}>
+            <h3
+              className={`text-xl font-medium mb-2 ${activeSection === 'Buy/Sell' ? 'text-white' : 'text-gray-400'}`}
+              style={
+                activeSection === 'Buy/Sell'
+                  ? {
+                      color: "#FFF",
+                      fontFamily: "Funnel Sans",
+                      fontSize: "70px",
+                      fontStyle: "normal",
+                      fontWeight: 300,
+                      lineHeight: "120%",
+                    }
+                  : {}
+              }
+            >
               Buy/Sell
             </h3>
             {activeSection === 'Buy/Sell' && (
-              <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              <p
+                style={{
+                  color: "#FFF",
+                  fontFamily: "Funnel Sans",
+                  fontSize: "20px",
+                  fontStyle: "normal",
+                  fontWeight: 300,
+                  lineHeight: "140%"
+                }}
+                className="leading-relaxed max-w-xs"
+              >
                 Execute fast and secure buy or sell orders with competitive rates 
                 and instant settlement for all your DirhamCoin transactions.
               </p>
@@ -316,11 +390,35 @@ const UseCasesCard = () => {
             ></div>
           </div>
           <div className="cursor-pointer" onClick={() => setActiveSection('Transact')}>
-            <h3 className={`text-xl font-medium mb-2 ${activeSection === 'Transact' ? 'text-white' : 'text-gray-400'}`}>
+            <h3
+              className={`text-xl font-medium mb-2 ${activeSection === 'Transact' ? 'text-white' : 'text-gray-400'}`}
+              style={
+                activeSection === 'Transact'
+                  ? {
+                      color: "#FFF",
+                      fontFamily: "Funnel Sans",
+                      fontSize: "70px",
+                      fontStyle: "normal",
+                      fontWeight: 300,
+                      lineHeight: "120%",
+                    }
+                  : {}
+              }
+            >
               Transact
             </h3>
             {activeSection === 'Transact' && (
-              <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+              <p
+                style={{
+                  color: "#FFF",
+                  fontFamily: "Funnel Sans",
+                  fontSize: "20px",
+                  fontStyle: "normal",
+                  fontWeight: 300,
+                  lineHeight: "140%"
+                }}
+                className="leading-relaxed max-w-xs"
+              >
                 Send and receive DirhamCoin instantly with minimal fees 
                 across our secure blockchain network worldwide.
               </p>
