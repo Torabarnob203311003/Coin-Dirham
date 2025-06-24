@@ -111,7 +111,7 @@ function Scan() {
         
           
         </div>
-       <div className=" mt-24">
+       <div className="mt-24">
          <p
           className="text-center mb-8 font-light"
           style={{
@@ -130,11 +130,45 @@ function Scan() {
         >
           But I must explain to you how all this mistaken idea of denouncing pleasure and praising <br /> pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of...
         </p>
-        <div className="flex flex-row gap-4 mb-12">
-          <button className="bg-[#1de9b6] text-[#0c1813] font-semibold px-6 py-3 rounded-full shadow hover:bg-[#13c9a7] transition">
-            Get DirhamCoin
+        <div className="flex flex-row gap-4 mb-12 justify-center items-center w-full">
+          <button
+            className="text-white font-semibold px-6 py-3 rounded-full shadow transition flex items-center"
+            style={{
+              width: "205px",
+              height: "47px",
+              flexShrink: 0,
+              borderRadius: "100.528px",
+              border: "1px solid #1BAE6C",
+              backdropFilter: "blur(76.45132446289062px)"
+            }}
+          >
+            <span className="flex items-center w-full justify-between whitespace-nowrap">
+              <span style={{ marginRight: "18px" }}>Get DirhamCoin</span>
+              <span
+                className="inline-flex items-center justify-center rounded-full p-1"
+                style={{
+                  background: "linear-gradient(135deg, rgba(27, 174, 108, 0.53) 4.72%, rgba(7, 88, 52, 0.53) 79.2%)",
+                  backdropFilter: "blur(8.25px)"
+                }}
+              >
+                <svg width="30" height="30" fill="none" viewBox="0 0 24 24">
+                  <path stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-4-4 4 4-4 4"/>
+                </svg>
+              </span>
+            </span>
           </button>
-          <button className="bg-[#232b27] text-white font-semibold px-6 py-3 rounded-full shadow hover:bg-[#1de9b6] hover:text-[#0c1813] transition">
+          <button
+            className="text-white font-semibold px-6 py-3 rounded-full shadow transition flex items-center"
+            style={{
+              width: "226px",
+              height: "47px",
+              flexShrink: 0,
+              borderRadius: "100.528px",
+              border: "1px solid rgba(255, 255, 255, 0.07)",
+              backdropFilter: "blur(76.45132446289062px)",
+              background: "transparent"
+            }}
+          >
             Download Whitepaper
           </button>
         </div>
