@@ -11,60 +11,65 @@ import ShareIcon from '../assets/share.svg';
 const UseCasesCard = () => {
   const [activeSection, setActiveSection] = useState(null);
   const stepsRef = useRef([]);
-  const progressRef = useRef(null);
+  const intervalRef = useRef(null);
+  const userInteractedRef = useRef(false);
 
+  const sections = ['Trade', 'Hold', 'Buy/Sell', 'Transact'];
+
+  // Auto-animate active section every 2 seconds
   useEffect(() => {
-    let gsapInstance;
     import('gsap').then(gsap => {
       const handleScroll = () => {
         const stepEls = stepsRef.current;
         if (!stepEls || !stepEls.length) return;
 
-        // Get the bounding rect for each step
         let found = false;
         for (let i = 0; i < stepEls.length; i++) {
           const el = stepEls[i];
           if (!el) continue;
           const rect = el.getBoundingClientRect();
-          // If the step is in the middle of the viewport, set as active
           if (!found && rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
             setActiveSection(el.dataset.section);
             found = true;
           }
         }
-
-        // Animate the green progress bar fill
-        if (progressRef.current) {
-          const totalHeight = stepEls[stepEls.length - 1].getBoundingClientRect().bottom - stepEls[0].getBoundingClientRect().top;
-          const scrolled = Math.max(0, window.innerHeight / 2 - stepEls[0].getBoundingClientRect().top);
-          const percent = Math.min(1, Math.max(0, scrolled / totalHeight));
-          gsap.gsap.to(progressRef.current, {
-            scaleY: percent,
-            transformOrigin: "top",
-            duration: 0.3,
-            ease: "power1.out"
-          });
-        }
       };
 
       window.addEventListener('scroll', handleScroll);
-      // Set initial state
-      if (progressRef.current) {
-        gsap.gsap.set(progressRef.current, { scaleY: 0, transformOrigin: "top" });
-      }
       handleScroll();
 
       return () => {
         window.removeEventListener('scroll', handleScroll);
-        if (gsapInstance) gsapInstance.kill();
       };
     });
   }, []);
 
-  // Helper to get the index of the active section
-  const getActiveIndex = () => {
-    const sections = ['Trade', 'Hold', 'Buy/Sell', 'Transact'];
-    return sections.indexOf(activeSection);
+  // Animation: cycle through sections every 2s unless user interacts
+  useEffect(() => {
+    // Start from first section if not set
+    if (activeSection === null) setActiveSection(sections[0]);
+    if (userInteractedRef.current) return;
+
+    import('gsap').then(gsap => {
+      intervalRef.current = setInterval(() => {
+        setActiveSection(prev => {
+          const idx = sections.indexOf(prev);
+          return sections[(idx + 1) % sections.length];
+        });
+      }, 2000);
+    });
+
+    return () => {
+      clearInterval(intervalRef.current);
+    };
+    // eslint-disable-next-line
+  }, [activeSection]);
+
+  // Pause animation on user click
+  const handleSectionClick = (section) => {
+    userInteractedRef.current = true;
+    clearInterval(intervalRef.current);
+    setActiveSection(section);
   };
 
   return (
@@ -74,7 +79,10 @@ const UseCasesCard = () => {
         backgroundImage: `url(${BG3})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
+        backgroundRepeat: "no-repeat",
+        overflow: "auto",
+        scrollbarWidth: "none", // Firefox
+        msOverflowStyle: "none" // IE 10+
       }}
     >
       {/* Card Section */}
@@ -195,38 +203,8 @@ const UseCasesCard = () => {
 
       {/* Gap between the two sections */}
       <div style={{ width: "48px" }}></div>
-      {/* Steps/Sections beside the card with animated progress bar */}
+      {/* Steps/Sections beside the card */}
       <div className="relative flex flex-col justify-center space-y-8 text-left" style={{ minHeight: "600px" }}>
-        {/* Progress bar background */}
-        <div style={{
-          position: "absolute",
-          left: "-32px",
-          top: "0",
-          height: "100%",
-          width: "6px",
-          background: "#e5e7eb",
-          borderRadius: "3px",
-          zIndex: 0
-        }} />
-        {/* Progress bar fill, now fills up to the clicked/active section */}
-        <div
-          ref={progressRef}
-          style={{
-            position: "absolute",
-            left: "-32px",
-            top: "0",
-            height: "100%",
-            width: "6px",
-            background: "linear-gradient(180deg, #1BAE6C 0%, #012B16 100%)",
-            borderRadius: "3px",
-            zIndex: 1,
-            pointerEvents: "none",
-            // Fill up to the active section
-            transform: `scaleY(${(getActiveIndex() + 1) / 4})`,
-            transformOrigin: "top",
-            transition: "transform 0.4s cubic-bezier(.4,1,.4,1)"
-          }}
-        />
         {/* Steps */}
         <div
           className="flex items-start space-x-4"
@@ -236,12 +214,12 @@ const UseCasesCard = () => {
           <div className="flex flex-col items-center">
             <div
               className={`w-4 h-4 rounded-full ${activeSection === 'Trade' ? 'bg-green-400 shadow-lg' : 'bg-gray-600'}`}
-              onClick={() => setActiveSection('Trade')}
+              onClick={() => handleSectionClick('Trade')}
               style={{ cursor: "pointer" }}
             ></div>
             <div className="w-px h-12 bg-gray-600 mt-2"></div>
           </div>
-          <div className="cursor-pointer" onClick={() => setActiveSection('Trade')}>
+          <div className="cursor-pointer" onClick={() => handleSectionClick('Trade')}>
             <h3
               className={`text-xl font-medium ${activeSection === 'Trade' ? 'text-white' : 'text-gray-500'}`}
               style={
@@ -257,7 +235,7 @@ const UseCasesCard = () => {
                   : {}
               }
             >
-              Trade
+              Trade{activeSection === 'Trade' && ' *'}
             </h3>
             {activeSection === 'Trade' && (
               <p
@@ -284,12 +262,12 @@ const UseCasesCard = () => {
           <div className="flex flex-col items-center">
             <div
               className={`w-4 h-4 rounded-full ${activeSection === 'Hold' ? 'bg-green-400 shadow-lg' : 'bg-gray-600'}`}
-              onClick={() => setActiveSection('Hold')}
+              onClick={() => handleSectionClick('Hold')}
               style={{ cursor: "pointer" }}
             ></div>
             <div className="w-px h-12 bg-gray-600 mt-2"></div>
           </div>
-          <div className="cursor-pointer" onClick={() => setActiveSection('Hold')}>
+          <div className="cursor-pointer" onClick={() => handleSectionClick('Hold')}>
             <h3
               className={`text-xl font-medium mb-2 ${activeSection === 'Hold' ? 'text-white' : 'text-gray-400'}`}
               style={
@@ -305,7 +283,7 @@ const UseCasesCard = () => {
                   : {}
               }
             >
-              Hold *
+              Hold{activeSection === 'Hold' && ' *'}
             </h3>
             {activeSection === 'Hold' && (
               <p
@@ -336,12 +314,12 @@ const UseCasesCard = () => {
           <div className="flex flex-col items-center">
             <div
               className={`w-4 h-4 rounded-full ${activeSection === 'Buy/Sell' ? 'bg-green-400 shadow-lg' : 'bg-gray-600'}`}
-              onClick={() => setActiveSection('Buy/Sell')}
+              onClick={() => handleSectionClick('Buy/Sell')}
               style={{ cursor: "pointer" }}
             ></div>
             <div className="w-px h-12 bg-gray-600 mt-2"></div>
           </div>
-          <div className="cursor-pointer" onClick={() => setActiveSection('Buy/Sell')}>
+          <div className="cursor-pointer" onClick={() => handleSectionClick('Buy/Sell')}>
             <h3
               className={`text-xl font-medium mb-2 ${activeSection === 'Buy/Sell' ? 'text-white' : 'text-gray-400'}`}
               style={
@@ -357,7 +335,7 @@ const UseCasesCard = () => {
                   : {}
               }
             >
-              Buy/Sell
+              Buy/Sell{activeSection === 'Buy/Sell' && ' *'}
             </h3>
             {activeSection === 'Buy/Sell' && (
               <p
@@ -385,11 +363,11 @@ const UseCasesCard = () => {
           <div className="flex flex-col items-center">
             <div
               className={`w-4 h-4 rounded-full ${activeSection === 'Transact' ? 'bg-green-400 shadow-lg' : 'bg-gray-600'}`}
-              onClick={() => setActiveSection('Transact')}
+              onClick={() => handleSectionClick('Transact')}
               style={{ cursor: "pointer" }}
             ></div>
           </div>
-          <div className="cursor-pointer" onClick={() => setActiveSection('Transact')}>
+          <div className="cursor-pointer" onClick={() => handleSectionClick('Transact')}>
             <h3
               className={`text-xl font-medium mb-2 ${activeSection === 'Transact' ? 'text-white' : 'text-gray-400'}`}
               style={
@@ -405,7 +383,7 @@ const UseCasesCard = () => {
                   : {}
               }
             >
-              Transact
+              Transact{activeSection === 'Transact' && ' *'}
             </h3>
             {activeSection === 'Transact' && (
               <p
@@ -426,8 +404,17 @@ const UseCasesCard = () => {
           </div>
         </div>
       </div>
+      <style>
+        {`
+          /* Hide scrollbar for Chrome, Safari and Opera */
+          .min-h-screen::-webkit-scrollbar {
+            display: none;
+          }
+        `}
+      </style>
     </div>
   );
 };
 
 export default UseCasesCard;
+
