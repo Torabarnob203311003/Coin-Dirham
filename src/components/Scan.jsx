@@ -3,6 +3,8 @@ import FooterLogo from "../assets/footer2.svg";
 import AppleSvg from "../assets/apple.svg";
 import GoogleSvg from "../assets/goggle.svg";
 
+
+
 // Placeholder icons (replace with your own assets if available)
 const CoinsAppIcon = () => (
   <svg width="36" height="36" fill="none" viewBox="0 0 36 36">
@@ -21,7 +23,7 @@ const avatars = [
 function Scan() {
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center justify-center bg-[#0c1813] overflow-hidden px-4"
+      className="relative min-h-screen flex flex-col items-center justify-center bg-[#0c1813] overflow-hidden px-4 "
       style={{
         backgroundImage: "url('/bg3.png')",
         backgroundSize: "cover",
@@ -199,6 +201,8 @@ function Scan() {
       <div className="pointer-events-none absolute inset-0 z-0" style={{
         background: "radial-gradient(ellipse at center, #1de9b622 0%, transparent 70%)"
       }} />
+
+    
     </div>
   );
 }

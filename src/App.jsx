@@ -9,6 +9,7 @@ import ContactForm from "./components/ContatcFrom";
 import Footer from "./components/Footer";
 import Scan from "./components/Scan";
 import GridSection from "./components/GridSection";
+import LineSection from "./components/lineSection";
 
 function App() {
   return (
@@ -28,8 +29,11 @@ function App() {
         <CardSection />
        
       </div>
-      <div>
+      <div className="">
         <Scan />
+      </div>
+      <div>
+       <LineSection/>
       </div>
       <div >
          <ContactForm />
