@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Share2 } from 'lucide-react';
+//import { Share2 } from 'lucide-react';
 import BG3 from '../assets/BG3.svg';
 import usecaseImg from '../assets/usecase1.jpg';
 import VectorUsecase from '../assets/vectorusecase.svg';
@@ -16,38 +16,10 @@ const UseCasesCard = () => {
 
   const sections = ['Trade', 'Hold', 'Buy/Sell', 'Transact'];
 
-  // Auto-animate active section every 2 seconds
+  // Animation: cycle through sections every 5s unless user interacts
   useEffect(() => {
-    import('gsap').then(gsap => {
-      const handleScroll = () => {
-        const stepEls = stepsRef.current;
-        if (!stepEls || !stepEls.length) return;
-
-        let found = false;
-        for (let i = 0; i < stepEls.length; i++) {
-          const el = stepEls[i];
-          if (!el) continue;
-          const rect = el.getBoundingClientRect();
-          if (!found && rect.top < window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
-            setActiveSection(el.dataset.section);
-            found = true;
-          }
-        }
-      };
-
-      window.addEventListener('scroll', handleScroll);
-      handleScroll();
-
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    });
-  }, []);
-
-  // Animation: cycle through sections every 2s unless user interacts
-  useEffect(() => {
-    // Start from first section if not set
-    if (activeSection === null) setActiveSection(sections[0]);
+    // Always start with 'Hold' in focus
+    if (activeSection === null) setActiveSection('Hold');
     if (userInteractedRef.current) return;
 
     import('gsap').then(gsap => {
@@ -56,7 +28,7 @@ const UseCasesCard = () => {
           const idx = sections.indexOf(prev);
           return sections[(idx + 1) % sections.length];
         });
-      }, 2000);
+      }, 5000);
     });
 
     return () => {
@@ -74,7 +46,7 @@ const UseCasesCard = () => {
 
   return (
     <div
-      className="relative min-h-screen flex flex-row items-center justify-center px-4"
+      className="relative min-h-screen flex flex-row items-center justify-center "
       style={{
         backgroundImage: `url(${BG3})`,
         backgroundSize: "cover",
@@ -82,21 +54,30 @@ const UseCasesCard = () => {
         backgroundRepeat: "no-repeat",
         overflow: "auto",
         scrollbarWidth: "none", // Firefox
-        msOverflowStyle: "none" // IE 10+
+        msOverflowStyle: "none", // IE 10+
+        filter: "brightness(1.45) contrast(1.15)",
+        //width: "100vw",
+        height: "100vh",
+       padding: "112px", // Add padding around the main div
+        boxSizing: "border-box",
+        gap: "180px" // Add gap between the two main divs
       }}
     >
       {/* Card Section */}
       <div
-        className="bg-gradient-to-br from-green-900 via-green-800 to-green-900 rounded-2xl p-8 text-white min-h-[400px] relative overflow-hidden"
+        className="bg-gradient-to-br from-green-900 via-green-800 to-green-900 rounded-2xl ms-40  p-10 text-white relative overflow-hidden flex flex-col"
         style={{
-          width: "789px",
-          height: "720px",
+          flex: 1,
+          minHeight: "100%",
+          minWidth: "700px",
+        
           flexShrink: 0,
           borderRadius: "40px",
           background: `linear-gradient(0deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.62) 100%), url(${usecaseImg}) lightgray 50% / cover no-repeat`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
+          backgroundRepeat: "no-repeat",
+          marginBottom: "24px" // Add margin to bottom of card section
         }}
       >
         {/* Background decorative elements */}
@@ -201,10 +182,15 @@ const UseCasesCard = () => {
         </div>
       </div>
 
-      {/* Gap between the two sections */}
-      <div style={{ width: "48px" }}></div>
       {/* Steps/Sections beside the card */}
-      <div className="relative flex flex-col justify-center space-y-8 text-left" style={{ minHeight: "600px" }}>
+      <div
+        className="relative flex flex-col justify-center space-y-8  text-left"
+        style={{
+          flex: 1,
+          minHeight: "100%",
+          minWidth: 0
+        }}
+      >
         {/* Steps */}
         <div
           className="flex items-start space-x-4"
@@ -219,7 +205,15 @@ const UseCasesCard = () => {
             ></div>
             <div className="w-px h-12 bg-gray-600 mt-2"></div>
           </div>
-          <div className="cursor-pointer" onClick={() => handleSectionClick('Trade')}>
+          <div
+            className="cursor-pointer"
+            onClick={() => handleSectionClick('Trade')}
+            style={
+              activeSection === 'Hold'
+                ? { opacity: 0.4, color: '#9ca3af' } // gray-400
+                : {}
+            }
+          >
             <h3
               className={`text-xl font-medium ${activeSection === 'Trade' ? 'text-white' : 'text-gray-500'}`}
               style={
@@ -267,7 +261,11 @@ const UseCasesCard = () => {
             ></div>
             <div className="w-px h-12 bg-gray-600 mt-2"></div>
           </div>
-          <div className="cursor-pointer" onClick={() => handleSectionClick('Hold')}>
+          <div
+            className="cursor-pointer"
+            onClick={() => handleSectionClick('Hold')}
+            // No opacity change for Hold when focused
+          >
             <h3
               className={`text-xl font-medium mb-2 ${activeSection === 'Hold' ? 'text-white' : 'text-gray-400'}`}
               style={
@@ -292,10 +290,10 @@ const UseCasesCard = () => {
                   fontFamily: "Funnel Sans",
                   fontSize: "20px",
                   fontStyle: "normal",
-                  fontWeight: 300,
+                  fontWeight: 200,
                   lineHeight: "140%"
                 }}
-                className="leading-relaxed max-w-xs"
+                className="leading-relaxed max-w-xs "
               >
                 But I must explain to you how all this mistaken idea of 
                 denouncing pleasure and praising pain was born and I 
@@ -319,7 +317,15 @@ const UseCasesCard = () => {
             ></div>
             <div className="w-px h-12 bg-gray-600 mt-2"></div>
           </div>
-          <div className="cursor-pointer" onClick={() => handleSectionClick('Buy/Sell')}>
+          <div
+            className="cursor-pointer"
+            onClick={() => handleSectionClick('Buy/Sell')}
+            style={
+              activeSection === 'Hold'
+                ? { opacity: 0.4, color: '#9ca3af' }
+                : {}
+            }
+          >
             <h3
               className={`text-xl font-medium mb-2 ${activeSection === 'Buy/Sell' ? 'text-white' : 'text-gray-400'}`}
               style={
@@ -367,7 +373,15 @@ const UseCasesCard = () => {
               style={{ cursor: "pointer" }}
             ></div>
           </div>
-          <div className="cursor-pointer" onClick={() => handleSectionClick('Transact')}>
+          <div
+            className="cursor-pointer"
+            onClick={() => handleSectionClick('Transact')}
+            style={
+              activeSection === 'Hold'
+                ? { opacity: 0.4, color: '#9ca3af' }
+                : {}
+            }
+          >
             <h3
               className={`text-xl font-medium mb-2 ${activeSection === 'Transact' ? 'text-white' : 'text-gray-400'}`}
               style={
