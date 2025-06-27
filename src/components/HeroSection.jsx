@@ -53,56 +53,89 @@ function HeroSection() {
   }, [])
 
   return (
-    <div className="flex flex-col md:flex-row items-start justify-center w-full max-h-screen text-center relative mt-10" style={{ color: '#FFF', fontFamily: 'Funnel Sans', fontStyle: 'normal', fontWeight: 300 }}>
+    <div
+      className="flex flex-col md:flex-row items-start justify-center w-full max-h-screen text-center relative mt-10 px-2 sm:px-4"
+      style={{ color: '#FFF', fontFamily: 'Funnel Sans', fontStyle: 'normal', fontWeight: 300 }}
+    >
       {/* Main text content */}
       <div
-        className="flex flex-col items-center justify-center w-full text-center"
-        style={{ width: '998px', color: '#FFF', fontFamily: 'Funnel Sans', fontSize: '120px', fontStyle: 'normal', fontWeight: 300, lineHeight: '120px' }}
+        className="flex flex-col items-center justify-center w-full text-center relative"
+        style={{
+          width: '100%',
+          maxWidth: '998px',
+          color: '#FFF',
+          fontFamily: 'Funnel Sans',
+          fontSize: 'clamp(32px, 8vw, 120px)',
+          fontStyle: 'normal',
+          fontWeight: 300,
+          lineHeight: 'clamp(32px, 8vw, 120px)',
+        }}
       >
         {/* Overlapping icon image as before, not centered absolute */}
-        <img 
+        <img
           ref={iconRef}
-          src="/icon.png" 
-          alt="" 
-          className="h-[600px] w-[600px] object-contain drop-shadow-2xl contrast-200 brightness-125 opacity-80 pointer-events-none select-none" 
-          style={{ filter: 'drop-shadow(0 0 40px #000) contrast(2) brightness(1.25)', transform: 'translateX(530px) translateY(40px)' }}
+          src="/icon.png"
+          alt=""
+          className="
+            h-[380px] w-[380px] sm:h-[300px] sm:w-[300px] md:h-[600px] md:w-[600px]
+            object-contain drop-shadow-2xl contrast-200 brightness-125 opacity-80
+            pointer-events-none select-none
+            translate-x-0 translate-y-20
+            sm:translate-x-[100px] sm:translate-y-[50px]
+            md:translate-x-[490px] md:translate-y-[40px]
+          "
+          style={{
+            filter: 'drop-shadow(0 0 40px #000) contrast(2) brightness(1.25)',
+          }}
         />
         {/* Foreground text content */}
         <div
           ref={fgTextRef}
-          className="absolute top-5 left-80 z-10  mt-7 w-full flex flex-col items-start"
-          style={{color: '#FFF', fontFamily: 'Funnel Sans', fontSize: '120px', fontStyle: 'normal', fontWeight: 300, lineHeight: '120px'}}
+          className="absolute top-2 left-2 sm:top-5 sm:left-10 md:top-5 md:left-180 z-10 -mt-16 sm:mt-7 w-full flex flex-col items-start pl-16 sm:pl-0 sm:text-left text-5xl sm:text-9xl leading:[1.2] md:leading-[0.9]"
+          style={{
+            color: '#FFF',
+            fontFamily: 'Funnel Sans',
+            fontStyle: 'normal',
+            fontWeight: 300,
+          }}
         >
-          <span className='-ms-16'>
+          <span className="-ms-4 sm:-ms-8 md:-ms-16">
             Stable
             <img
               src="/src/assets/Group 2.svg"
               alt="arrow"
-              style={{ height: '60px', width: 'auto', verticalAlign: 'middle', display: 'inline', marginLeft: '8px' }}
+              style={{
+                height: 'clamp(20px, 4vw, 60px)',
+                width: 'auto',
+                verticalAlign: 'middle',
+                display: 'inline',
+                marginLeft: '8px',
+              }}
             />
           </span>
-          <span className='ms-10'>Cryptocurrency</span>
-          <span style={{display: 'inline-flex', alignItems: 'center'}}>
+          <span className="ms-4 sm:ms-10">Cryptocurrency</span>
+          <span style={{ display: 'inline-flex', alignItems: 'center', flexWrap: 'wrap' }}>
             <span
-              className='-ms-16'
+              className="-ms-4 sm:-ms-8 md:-ms-16"
               style={{
                 border: '2px solid #fff',
-                borderRadius: '40px',
-                padding: '0 16px',
+                borderRadius: 'clamp(20px, 4vw, 40px)',
+                padding: '0 clamp(8px, 2vw, 16px)',
                 display: 'inline-block',
                 position: 'relative',
-                top: '16px'
+                top: 'clamp(8px, 2vw, 16px)',
+                fontSize: 'clamp(20px, 6vw, 120px)',
               }}
             >
               backed
             </span>
-            <span style={{marginLeft: '8px'}}>by the</span>
+            <span style={{ marginLeft: 'clamp(4px, 1vw, 8px)' }}>by the</span>
           </span>
           <span
-            className='ms-64'
+            className="ms-8 sm:ms-32 md:ms-64"
             style={{
               position: 'relative',
-              top: '1px'
+              top: '1px',
             }}
           >
             US Dollar
@@ -112,30 +145,31 @@ function HeroSection() {
       {/* Card section - styled as in screenshot */}
       <div
         ref={cardRef}
-        className="rounded-[32px] p-6 md:p-8 backdrop-blur-2xl shadow-2xl flex flex-col justify-between border border-[rgba(255,255,255,0.18)] mt-16 md:mt-0 md:ml-8"
+        className="rounded-[24px] sm:rounded-[32px] p-4 sm:p-6 md:p-8 backdrop-blur-2xl shadow-2xl flex flex-col justify-between border border-[rgba(255,255,255,0.18)] -mt-7 ms-40 sm:mt-16 md:mt-14 md:ml-8 max-w-[95vw] sm:max-w-[400px] md:max-w-none mx-auto md:mx-0"
         style={{
-          width: '381px',
-          height: '420px',
+          width: '60%',
+          //height:'50%',
+          //minWidth: '40px',
+          maxWidth: '381px',
+          height: 'clamp(320px, 60vw, 420px)',
           boxShadow: '0 4px 32px 0 rgba(255,255,255,0.15), 0 1.5px 8px 0 rgba(255,255,255,0.10) inset',
           backdropFilter: 'blur(22.7px)',
-          transform: 'translateY(50px)',
+          transform: 'translateY(0px) sm:translateY(25px) md:translateY(50px)',
         }}
       >
         {/* STAR icon styled as requested, now larger */}
         <div className="flex justify-end">
           <div
             style={{
-              borderRadius: '40px',
-             
-           
-              width: '72px', // increased size
-              height: '72px',
+              borderRadius: 'clamp(20px, 4vw, 40px)',
+              width: 'clamp(48px, 12vw, 72px)',
+              height: 'clamp(48px, 12vw, 72px)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
             }}
           >
-            <img src="/public/STAR.svg" alt="star" style={{ width: '40px', height: '40px' }} />
+            <img src="/public/STAR.svg" alt="star" style={{ width: 'clamp(24px, 6vw, 40px)', height: 'clamp(24px, 6vw, 40px)' }} />
           </div>
         </div>
         {/* Title - moved up with smaller margin */}
@@ -144,28 +178,27 @@ function HeroSection() {
             style={{
               color: '#FFF',
               fontFamily: 'Funnel Sans',
-              fontSize: '40px',
+              fontSize: 'clamp(20px, 5vw, 40px)',
               fontStyle: 'normal',
               fontWeight: 300,
-              lineHeight: '40px',
+              lineHeight: 'clamp(24px, 6vw, 40px)',
               textAlign: 'left',
             }}
           >
-            A Digital <br /> Dollar 
+            A Digital <br /> Dollar
           </div>
         </div>
         {/* Description styled as in screenshot, border removed */}
         <div
           style={{
-    
             borderRadius: '6px',
             color: '#FFF',
             fontFamily: 'Funnel Sans',
-            fontSize: '16px',
+            fontSize: 'clamp(14px, 3.5vw, 16px)',
             fontWeight: 300,
-            lineHeight: '22px',
-            marginTop: '18px',
-            padding: '12px 10px',
+            lineHeight: 'clamp(18px, 4.5vw, 22px)',
+            marginTop: 'clamp(12px, 3vw, 18px)',
+            padding: 'clamp(8px, 2vw, 12px) clamp(6px, 1.5vw, 10px)',
             width: '100%',
             boxSizing: 'border-box',
             textAlign: 'left',
@@ -174,27 +207,25 @@ function HeroSection() {
           With the stability and trust of traditional currency combined with the openess and freedom of cryptocurrency
         </div>
         {/* Button */}
-        <div className="flex items-center justify-end mt-8">
+        <div className="flex items-center justify-end mt-4 sm:mt-8">
           <button
-            className="flex items-center border border-white text-white rounded-full  transition"
+            className="flex items-center border border-white text-white rounded-full transition"
             style={{
               display: 'inline-flex',
-              padding: '11.5px 15.881px 15.5px 34px',
+              padding: 'clamp(8px, 2vw, 11.5px) clamp(10px, 2.5vw, 15.881px) clamp(10px, 2.5vw, 15.5px) clamp(20px, 5vw, 34px)',
               justifyContent: 'flex-end',
               alignItems: 'flex-end',
-              gap: '19px',
+              gap: 'clamp(10px, 2.5vw, 19px)',
+              fontSize: 'clamp(12px, 3vw, 16px)',
             }}
           >
             More details
-            <span className="text-xl">&#8594;</span>
+            <span className="text-base sm:text-xl">&#8594;</span>
           </button>
         </div>
       </div>
       {/* Empty div for marquee */}
-      <div> 
-
-      </div>
-    
+      <div></div>
     </div>
     
   )
