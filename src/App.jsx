@@ -16,7 +16,7 @@ function App() {
   return (
     <ThemeProvider>
       <div
-        className="min-h-screen h-screen overflow-hidden bg-zinc-800 w-full bg-cover bg-center transition-all duration-300"
+        className="min-h-screen h-screen overflow-x-hidden bg-zinc-800 w-full bg-cover bg-center transition-all duration-300"
         style={{ 
           backgroundImage: `url(${BG1})`,
           filter: 'contrast(1.38) brightness(1.18)'

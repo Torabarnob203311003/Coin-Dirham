@@ -45,6 +45,10 @@ function LineSection() {
             height: "100%"
           }}
         >
+          <span className='font-thin'>Dirham and Bitcoin are an stable coin</span>
+           <span>
+          <img src={VectorIcon} alt="vector icon" width={32} height={32} />
+        </span>
         <span className='font-thin'>Dirham and Bitcoin are an stable coin</span>
         <span>
           <img src={VectorIcon} alt="vector icon" width={32} height={32} />

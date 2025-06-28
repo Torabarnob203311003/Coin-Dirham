@@ -92,34 +92,49 @@ function CardSection() {
     >
       <div
         ref={textRef}
-        className="text-center max-w-[1396px] mt-36 mx-auto w-full"
+        className="
+          text-center
+          sm:mx-auto
+          sm:px-0
+        
+          mx-9
+          w-[450px]
+          text-[26px]
+          font-light
+          leading-[120%]
+          font-[Funnel Sans]
+          text-[#F3F3F3]
+          sm:w-full
+          sm:max-w-[1396px]
+          sm:text-[70px]
+          sm:font-[300]
+          mt-36
+          whitespace-nowrap
+          sm:whitespace-normal
+        "
         style={{
-          color: "#F3F3F3",
           textAlign: "center",
-          fontFamily: "Funnel Sans",
-          fontSize: "70px",
           fontStyle: "normal",
-          fontWeight: 300,
-          lineHeight: "120%",
         }}
       >
         <span
           ref={dirhamRef}
-          className="inline-flex items-center justify-center border border-[#1BAE6C] rounded-[51.5px] px-6"
+          className="
+            inline-flex items-center justify-center border border-[#1BAE6C] rounded-[51.5px] px-3 
+            w-[158px] h-[31px] flex-shrink-0
+            sm:w-[410px] sm:h-[72px] sm:px-6
+          "
           style={{
-            width: "410px",
-            height: "72px",
-            flexShrink: 0,
             fontFamily: "Funnel Sans",
             fontWeight: 300,
             fontSize: "inherit",
-            lineHeight: "72px", // Ensures vertical centering
-            verticalAlign: "middle", // Align with text baseline
-            marginTop: "0px", // Remove any offset
-            marginBottom: "0px", // Remove any offset
+            lineHeight: "inherit",
+            verticalAlign: "middle",
+            marginTop: "0px",
+            marginBottom: "0px",
             opacity: 1,
-            display: "inline-flex", // Ensures vertical centering with flex
-            alignItems: "center", // Ensures vertical centering with flex
+            display: "inline-flex",
+            alignItems: "center",
             justifyContent: "center"
           }}
         >
