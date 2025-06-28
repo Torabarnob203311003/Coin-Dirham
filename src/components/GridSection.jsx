@@ -8,13 +8,13 @@ function GridSection() {
 
   useEffect(() => {
     function animate() {
-      const grid = document.querySelector('.grid');
+      // Animate mobile cards if visible, otherwise desktop cards
+      const grid = document.querySelector('.mobile-grid') || document.querySelector('.desktop-grid');
       if (!grid || triggered.current) return;
       const rect = grid.getBoundingClientRect();
       const inView = rect.top < window.innerHeight && rect.bottom > 0;
       if (inView) {
         triggered.current = true;
-        // Pop out animation for each card (iconRef animation removed)
         cardRefs.forEach((ref, i) => {
           if (ref.current) {
             gsap.fromTo(
@@ -39,229 +39,328 @@ function GridSection() {
     return () => window.removeEventListener("scroll", animate);
   }, []);
 
+  // Desktop and mobile content
   return (
-    <div className="grid grid-cols-6 grid-rows-6 gap-3">
-      <div ref={cardRefs[0]} className="col-span-2 row-span-4 flex items-start justify-start rounded-lg shadow relative">
-        <img src="/Grid1.png" alt="Grid 1" className="max-w-full max-h-full object-contain" />
-        {/* Fast text styled */}
-        <span
-          style={{
-            width: 74,
-            height: 27,
-            position: "absolute",
-            top: "32px",
-            left: "32px",
-            fontFamily: "Funnel Sans",
-            fontWeight: 300,
-            fontSize: "40px",
-            lineHeight: "120%",
-            letterSpacing: "0%",
-            color: "#101a16",
-            background: "transparent"
-          }}
-          className="block"
-        >
-          {/* ...existing code or text... */}
-        </span>
-      </div>
-      <div ref={cardRefs[1]} className="col-span-2 row-span-6 col-start-5 row-start-1">
-        <div className="w-full h-full rounded-2xl border border-gray-600 p-6 flex flex-col relative overflow-hidden items-start justify-start text-left">
-          {/* Background gradient/design element */}
-          <div className="absolute top-0 right-0 w-40 h-40 opacity-20">
-            <div className="w-full h-full bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600 rounded-full blur-xl transform rotate-45 scale-150"></div>
-          </div>
-          {/* Icon in top right without GSAP transition */}
-          <img
-            ref={iconRef}
-            src="/icon.png"
-            alt="icon"
-            className="absolute z-20"
+    <div>
+      {/* Desktop grid (visible on sm and up) */}
+      <div className="desktop-grid hidden sm:grid grid-cols-6 grid-rows-6 gap-3">
+        <div ref={cardRefs[0]} className="col-span-2 row-span-4 flex items-start justify-start rounded-lg shadow relative">
+          <img src="/Grid1.png" alt="Grid 1" className="max-w-full max-h-full object-contain" />
+          <span
             style={{
-              top: '1rem',
-              right: '1rem',
-              width: '590px',
-              height: '590px',
-              transform: 'translate(250px, -240px)',
-              transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1), top 0.3s, right 0.3s',
-              filter: 'brightness(1.1) contrast(2.1)'
-            }}
-          />
-          {/* Number icon add */}
-          <div
-            style={{
-              width: 27,
-              height: 14,
+              width: 74,
+              height: 27,
+              position: "absolute",
+              top: "32px",
+              left: "32px",
               fontFamily: "Funnel Sans",
               fontWeight: 300,
-              fontSize: "20px",
+              fontSize: "40px",
               lineHeight: "120%",
               letterSpacing: "0%",
-             
+              color: "#101a16",
               background: "transparent"
             }}
-            className="relative z-10 mb-4 text-gray-300"
+            className="block"
           >
-            03.
-          </div>
-          {/* Main content */}
-          <div className="flex-1 flex flex-col justify-end relative z-10 items-start text-left">
-            <h2
+            01.
+          </span>
+        </div>
+        <div ref={cardRefs[1]} className="col-span-2 row-span-6 col-start-5 row-start-1">
+          <div className="w-full h-full rounded-2xl border border-gray-600 p-6 flex flex-col relative overflow-hidden items-start justify-start text-left">
+            <div className="absolute top-0 right-0 w-40 h-40 opacity-20">
+              <div className="w-full h-full bg-gradient-to-br from-green-400 via-emerald-500 to-teal-600 rounded-full blur-xl transform rotate-45 scale-150"></div>
+            </div>
+            <img
+              ref={iconRef}
+              src="/icon.png"
+              alt="icon"
+              className="absolute z-20"
               style={{
-                width: 120,
+                top: '1rem',
+                right: '1rem',
+                width: '590px',
+                height: '590px',
+                transform: 'translate(250px, -240px)',
+                transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1), top 0.3s, right 0.3s',
+                filter: 'brightness(1.1) contrast(2.1)'
+              }}
+            />
+            <div
+              style={{
+                width: 27,
+                height: 14,
                 fontFamily: "Funnel Sans",
                 fontWeight: 300,
-                fontSize: "40px",
+                fontSize: "20px",
                 lineHeight: "120%",
                 letterSpacing: "0%",
-                color: "#fff",
                 background: "transparent"
               }}
-              className="mb-4 text-left"
+              className="relative z-10 mb-4 text-gray-300"
             >
-              Secure
-            </h2>
-            <p
+              03.
+            </div>
+            <div className="flex-1 flex flex-col justify-end relative z-10 items-start text-left">
+              <h2
+                style={{
+                  width: 120,
+                  fontFamily: "Funnel Sans",
+                  fontWeight: 300,
+                  fontSize: "40px",
+                  lineHeight: "120%",
+                  letterSpacing: "0%",
+                  color: "#fff",
+                  background: "transparent"
+                }}
+                className="mb-4 text-left"
+              >
+                Secure
+              </h2>
+              <p
+                style={{
+                  width: 514,
+                  height: 56,
+                  fontFamily: "Funnel Sans",
+                  fontWeight: 600,
+                  fontSize: "20px",
+                  lineHeight: "140%",
+                  letterSpacing: "0%",
+                  background: "transparent"
+                }}
+                className="text-left text-gray-300"
+              >
+                Dollar Coin is a currency built on ERC-20 token for the Ethereum blockchain with security in mind.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div ref={cardRefs[2]} className="col-span-2 row-span-2 col-start-1 row-start-5 flex items-start justify-center text-left rounded-3xl"
+          style={{
+            background: "linear-gradient(135deg, #03160D 0%, #1BAE6C 100%)"
+          }}
+        >
+          <div className="flex justify-center items-center gap-8 mt-8 pt-11 w-full">
+            <div className="items-center justify-center">
+              <img
+                src="/src/assets/Footer.svg"
+                alt=""
+                className="w-[46px] h-[66px] object-contain"
+              />
+            </div>
+            <h1 className="text-[53px] font-normal  text-white">
+              DirhamCoin
+            </h1>
+          </div>
+        </div>
+        <div ref={cardRefs[3]} className="col-span-2 row-span-3 col-start-3 row-start-1">
+          <div className="w-full h-full rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
+            <div
               style={{
-                width: 514,
-                height: 56,
+                width: 27,
+                height: 14,
                 fontFamily: "Funnel Sans",
-                fontWeight: 600,
+                fontWeight: 300,
                 fontSize: "20px",
-                lineHeight: "140%",
+                lineHeight: "120%",
                 letterSpacing: "0%",
                 background: "transparent"
               }}
-              className="text-left text-gray-300"
+              className="mb-4 text-gray-300"
             >
-              Dollar Coin is a currency built on ERC-20 token for the Ethereum blockchain with security in mind.
-            </p>
+              02.
+            </div>
+            <div className="flex-1 flex flex-col justify-center items-start mt-36 text-left">
+              <h2
+                style={{
+                  width: 180,
+                  fontFamily: "Funnel Sans",
+                  fontWeight: 300,
+                  fontSize: "40px",
+                  lineHeight: "120%",
+                  letterSpacing: "0%",
+                  color: "#fff",
+                  background: "transparent"
+                }}
+                className="mb-4 text-left"
+              >
+                Scalable
+              </h2>
+              <p
+                style={{
+                  width: 514,
+                  height: 84,
+                  fontFamily: "Funnel Sans",
+                  fontWeight: 300,
+                  fontSize: "20px",
+                  lineHeight: "140%",
+                  letterSpacing: "0%",
+                  background: "transparent"
+                }}
+                className="text-left text-gray-300"
+              >
+                Dollar Coin will foster an ecosystem of products and services made to help people use digital currency in their everyday lives.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className=" col-span-2 row-span-3 col-start-3 row-start-4 flex items-start justify-start text-left">
+          <div className="w-full h-full bg-gray-900 rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
+            <div
+              style={{
+                width: 27,
+                height: 14,
+                fontFamily: "Funnel Sans",
+                fontWeight: 300,
+                fontSize: "20px",
+                lineHeight: "120%",
+                letterSpacing: "0%",
+                background: "transparent"
+              }}
+              className="mb-4  text-gray-300"
+            >
+              04.
+            </div>
+            <div className="flex-1 flex flex-col justify-center items-start mt-20 text-left">
+              <h2
+                style={{
+                  width: 120,
+                  fontFamily: "Funnel Sans",
+                  fontWeight: 300,
+                  fontSize: "40px",
+                  lineHeight: "120%",
+                  letterSpacing: "0%",
+                  color: "#fff",
+                  background: "transparent"
+                }}
+                className="mb-4 text-left"
+              >
+                Stable
+              </h2>
+              <p
+                style={{
+                  width: 514,
+                  height: 84,
+                  fontFamily: "Funnel Sans",
+                  fontWeight: 300,
+                  fontSize: "20px",
+                  lineHeight: "140%",
+                  letterSpacing: "0%",
+                  background: "transparent"
+                }}
+                className="text-left text-gray-300"
+              >
+                Dollar Coin is pegged 1:1 to the US Dollar, which means 1 USDD will always be redeemable for 1 USD. It’s the best of fiat on the blockchain.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-      <div ref={cardRefs[2]} className="col-span-2 row-span-2 col-start-1 row-start-5 flex items-start justify-center text-left rounded-3xl"
-        style={{
-          background: "linear-gradient(135deg, #03160D 0%, #1BAE6C 100%)"
-        }}
-      >
-        <div className="flex justify-center items-center gap-8 mt-8 pt-11 w-full">
-          <div className="items-center justify-center">
-            <img
-              src="/src/assets/Footer.svg"
-              alt=""
-              className="w-[46px] h-[66px] object-contain"
-            />
-          </div>
-          <h1 className="text-[53px] font-normal  text-white">
-            DirhamCoin
-          </h1>
-        </div>
-      </div>
-      <div ref={cardRefs[3]} className="col-span-2 row-span-3 col-start-3 row-start-1">
-        <div className="w-full h-full rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
-          {/* Number in upper left corner */}
-          <div
+      {/* Mobile grid (vertical stack, visible below sm) */}
+      <div className="mobile-grid flex flex-col gap-8 sm:hidden w-full max-w-md mx-auto">
+        {/* Card 1 */}
+        <div
+          ref={cardRefs[0]}
+          className="rounded-[20px] border border-white border-opacity-50 bg-gray-800 bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-xl p-6"
+          style={{
+            opacity: 0.5,
+          }}
+        >
+          <p
             style={{
-              width: 27,
-              height: 14,
+              color: "#D2D4D7",
               fontFamily: "Funnel Sans",
+              fontSize: 12,
+              fontStyle: "normal",
               fontWeight: 300,
-              fontSize: "20px",
-              lineHeight: "120%",
-              letterSpacing: "0%",
-             
-              background: "transparent"
+              lineHeight: "140%",
             }}
-            className="mb-4 text-gray-300"
+            className="mb-2"
+          >
+            01.
+          </p>
+          <h2 className="text-4xl font-light text-white mb-3">Fast</h2>
+          <p className="text-xl font-semibold text-gray-300 leading-relaxed">
+            All DirhamCoin transactions are fast and cheap, no matter where you are sending, or spending, your money.
+          </p>
+        </div>
+        {/* Card 2 */}
+        <div
+          ref={cardRefs[1]}
+          className="rounded-[20px] border border-white border-opacity-50 bg-gray-800 bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-xl p-6"
+          style={{
+            opacity: 0.5,
+          }}
+        >
+          <p
+            style={{
+              color: "#D2D4D7",
+              fontFamily: "Funnel Sans",
+              fontSize: 12,
+              fontStyle: "normal",
+              fontWeight: 300,
+              lineHeight: "140%",
+            }}
+            className="mb-2"
           >
             02.
-          </div>
-          {/* Main content */}
-          <div className="flex-1 flex flex-col justify-center items-start mt-36 text-left">
-            <h2
-              style={{
-                width: 180,
-                fontFamily: "Funnel Sans",
-                fontWeight: 300,
-                fontSize: "40px",
-                lineHeight: "120%",
-                letterSpacing: "0%",
-                color: "#fff",
-                background: "transparent"
-              }}
-              className="mb-4 text-left"
-            >
-              Scalable
-            </h2>
-            <p
-              style={{
-                width: 514,
-                height: 84,
-                fontFamily: "Funnel Sans",
-                fontWeight: 300,
-                fontSize: "20px",
-                lineHeight: "140%",
-                letterSpacing: "0%",
-                background: "transparent"
-              }}
-              className="text-left text-gray-300"
-            >
-              Dollar Coin will foster an ecosystem of products and services made to help people use digital currency in their everyday lives.
-            </p>
-          </div>
+          </p>
+          <h2 className="text-4xl font-light text-white mb-3">Scalable</h2>
+          <p className="text-xl font-semibold text-gray-300 leading-relaxed">
+            Dollar Coin will foster an ecosystem of products and services made to help people use digital currency in their everyday lives.
+          </p>
         </div>
-      </div>
-      <div className=" col-span-2 row-span-3 col-start-3 row-start-4 flex items-start justify-start text-left">
-        <div className="w-full h-full bg-gray-900 rounded-2xl border border-gray-600 p-6 flex flex-col justify-between relative items-start text-left">
-          {/* Number in upper left corner */}
-          <div
+        {/* Card 3 */}
+        <div
+          ref={cardRefs[2]}
+          className="rounded-[20px] border border-white border-opacity-50 bg-gray-800 bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-xl p-6"
+          style={{
+            opacity: 0.5,
+          }}
+        >
+          <p
             style={{
-              width: 27,
-              height: 14,
+              color: "#D2D4D7",
               fontFamily: "Funnel Sans",
+              fontSize: 12,
+              fontStyle: "normal",
               fontWeight: 300,
-              fontSize: "20px",
-              lineHeight: "120%",
-              letterSpacing: "0%",
-             
-              background: "transparent"
+              lineHeight: "140%",
             }}
-            className="mb-4  text-gray-300"
+            className="mb-2"
+          >
+            03.
+          </p>
+          <h2 className="text-4xl font-light text-white mb-3">Secure</h2>
+          <p className="text-xl font-semibold text-gray-300 leading-relaxed">
+            Dollar Coin is a currency, built as an ERC-20 token on the Ethereum blockchain with security in mind.
+          </p>
+        </div>
+        {/* Card 4 */}
+        <div
+          ref={cardRefs[3]}
+          className="rounded-[20px] border border-white border-opacity-50 bg-gray-800 bg-opacity-70 backdrop-filter backdrop-blur-lg shadow-xl p-6"
+          style={{
+            opacity: 0.5,
+          }}
+        >
+          <p
+            style={{
+              color: "#D2D4D7",
+              fontFamily: "Funnel Sans",
+              fontSize: 12,
+              fontStyle: "normal",
+              fontWeight: 300,
+              lineHeight: "140%",
+            }}
+            className="mb-2"
           >
             04.
-          </div>
-          {/* Main content */}
-          <div className="flex-1 flex flex-col justify-center items-start mt-20 text-left">
-            <h2
-              style={{
-                width: 120,
-                fontFamily: "Funnel Sans",
-                fontWeight: 300,
-                fontSize: "40px",
-                lineHeight: "120%",
-                letterSpacing: "0%",
-                color: "#fff",
-                background: "transparent"
-              }}
-              className="mb-4 text-left"
-            >
-              Stable
-            </h2>
-            <p
-              style={{
-                width: 514,
-                height: 84,
-                fontFamily: "Funnel Sans",
-                fontWeight: 300,
-                fontSize: "20px",
-                lineHeight: "140%",
-                letterSpacing: "0%",
-                background: "transparent"
-              }}
-              className="text-left text-gray-300"
-            >
-              Dollar Coin is pegged 1:1 to the US Dollar, which means 1 USDD will always be redeemable for 1 USD. It’s the best of fiat on the blockchain.
-            </p>
-          </div>
+          </p>
+          <h2 className="text-4xl font-light text-white mb-3">Stable</h2>
+          <p className="text-xl font-semibold text-gray-300 leading-relaxed">
+            Dollar Coin is pegged 1:1 to the US Dollar, which means 1 USDD will always be redeemable for 1 USD. It's the best of fiat on the blockchain.
+          </p>
         </div>
       </div>
     </div>
