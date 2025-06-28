@@ -15,11 +15,17 @@ function CardSection() {
   const mobileTextRef = useRef(null);
   const mobileDirhamRef = useRef(null);
   const mobileBitcoinRef = useRef(null);
+  const mobileArrowRef = useRef(null);
+  const mobileCrousupRef = useRef(null);
 
   // Animate on scroll into view (only once)
   useEffect(() => {
     let ctx;
+    let mobileCtx;
     let triggered = false;
+    let mobileTriggered = false;
+
+    // Desktop animation function
     function animate() {
       if (!textRef.current) return;
       const rect = textRef.current.getBoundingClientRect();
@@ -72,45 +78,100 @@ function CardSection() {
                 { scale: 1, opacity: 1, duration: 0.6, delay: 1.2, ease: "power1.out" }
               );
             }
+          }, textRef);
+        });
+        window.removeEventListener("scroll", animate);
+      }
+    }
 
-            // Mobile animations
-            if (mobileTextRef.current) {
-              const mobileSplit = new SplitText(mobileTextRef.current, { type: "chars,words" });
-              gsap.from(mobileSplit.chars, {
-                opacity: 0,
-                y: 20,
-                stagger: 0.02,
-                duration: 0.5,
-                ease: "power2.out"
-              });
-            }
+    // Mobile animation function
+    function animateMobile() {
+      if (!mobileTextRef.current) return;
+      const rect = mobileTextRef.current.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      if (inView && !mobileTriggered) {
+        mobileTriggered = true;
+        import("gsap").then(async ({ default: gsap }) => {
+          const { SplitText } = await import("gsap/SplitText");
+          gsap.registerPlugin(SplitText);
 
+          mobileCtx = gsap.context(() => {
+            // Animate all text elements with typing effect
+            const mobileTextElements = mobileTextRef.current.querySelectorAll('span:not([data-animated])');
+            mobileTextElements.forEach((element) => {
+              element.setAttribute('data-animated', 'true');
+            });
+            
+            const mobileSplit = new SplitText(mobileTextElements, { type: "chars,words" });
+            gsap.from(mobileSplit.chars, {
+              opacity: 0,
+              y: 20,
+              stagger: 0.02,
+              duration: 0.5,
+              ease: "power2.out"
+            });
+
+            // Animate mobile elements individually
             if (mobileDirhamRef.current) {
               gsap.fromTo(
                 mobileDirhamRef.current,
-                { scale: 0.9, opacity: 0 },
-                { scale: 1, opacity: 1, duration: 0.5, delay: 0.3, ease: "power1.out" }
+                { scale: 0.9, y: 30, opacity: 0 },
+                { scale: 1, y: 0, opacity: 1, duration: 0.6, delay: 0.3, ease: "power2.out" }
               );
             }
 
             if (mobileBitcoinRef.current) {
               gsap.fromTo(
                 mobileBitcoinRef.current,
-                { scale: 0.9, opacity: 0 },
-                { scale: 1, opacity: 1, duration: 0.5, delay: 0.6, ease: "power1.out" }
+                { scale: 0.9, y: 30, opacity: 0 },
+                { scale: 1, y: 0, opacity: 1, duration: 0.6, delay: 0.5, ease: "power2.out" }
               );
             }
-            
-          }, textRef);
+
+            if (mobileArrowRef.current) {
+              gsap.fromTo(
+                mobileArrowRef.current,
+                { scale: 0.9, x: -30, opacity: 0 },
+                { scale: 1, x: 0, opacity: 1, duration: 0.6, delay: 0.7, ease: "power2.out" }
+              );
+            }
+
+            if (mobileCrousupRef.current) {
+              gsap.fromTo(
+                mobileCrousupRef.current,
+                { scale: 0.9, y: 30, opacity: 0 },
+                { scale: 1, y: 0, opacity: 1, duration: 0.6, delay: 0.9, ease: "power2.out" }
+              );
+            }
+
+            // Animate the exchange rate text
+            const exchangeRate = mobileTextRef.current.querySelector('.exchange-rate');
+            if (exchangeRate) {
+              gsap.fromTo(
+                exchangeRate,
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.7, delay: 1.1, ease: "power2.out" }
+              );
+            }
+          }, mobileTextRef);
         });
-        window.removeEventListener("scroll", animate);
+        window.removeEventListener("scroll", animateMobile);
       }
     }
+
+    // Add both scroll listeners
     window.addEventListener("scroll", animate, { passive: true });
+    window.addEventListener("scroll", animateMobile, { passive: true });
+    
+    // Initial checks
     animate();
+    animateMobile();
+    
     return () => {
       window.removeEventListener("scroll", animate);
+      window.removeEventListener("scroll", animateMobile);
       if (ctx) ctx.revert();
+      if (mobileCtx) mobileCtx.revert();
     };
   }, []);
 
@@ -259,7 +320,10 @@ function CardSection() {
         {/* Second Line */}
         <div className="flex items-center justify-center gap-2 flex-wrap">
           <span className="text-[#F3F3F3] text-lg">cryptocurrency</span>
-          <span className="text-[#F3F3F3] text-xl flex items-center">
+          <span
+            ref={mobileArrowRef}
+            className="text-[#F3F3F3] text-xl flex items-center"
+          >
             <BsArrowRight size={20} className="w-[40px] h-[20px] flex-shrink-0" color="#FFF" />
           </span>
           <span className="text-[#F3F3F3] text-lg">that is</span>
@@ -274,6 +338,7 @@ function CardSection() {
         <div className="flex items-center justify-center gap-2 flex-wrap">
           <span className="text-[#F3F3F3] text-lg">coin</span>
           <img
+            ref={mobileCrousupRef}
             src={crousupLogo}
             alt="CrousUp Logo"
             className="inline-block align-middle w-[40px] h-[20px] flex-shrink-0 rounded-full"
@@ -289,7 +354,7 @@ function CardSection() {
         </div>
 
         {/* Exchange Rate */}
-        <div className="mt-8 text-[#F3F3F3] text-lg">
+        <div className="exchange-rate mt-8 text-[#F3F3F3] text-lg">
           <span>1 DirhamCoin </span>
           <span className="text-xl mx-2">=</span>
           <span> 1 USD Dollar</span>
