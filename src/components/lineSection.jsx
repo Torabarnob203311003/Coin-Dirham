@@ -1,68 +1,159 @@
-import React, { useRef, } from 'react'
-import VectorIcon from '../assets/Vector.svg'
-
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap'; // Import GSAP
+import VectorIcon from '../assets/Vector.svg';
 
 function LineSection() {
-  const marqueeRef = useRef(null)
- // const marqueeTween = useRef(null)
+  const marqueeRef = useRef(null);
 
-  
+  // Define the common marquee content block as a reusable component/fragment
+  const MarqueeContent = () => (
+    <>
+      <span className='
+        text-[11px]    // Slightly smaller base font size for smallest screens (e.g., 11px)
+        sm:text-xs    // Small breakpoint font size (e.g., 12px)
+        md:text-sm    // Medium breakpoint font size (e.g., 14px)
+        lg:text-base  // Large breakpoint font size (e.g., 16px)
+        xl:text-lg    // Extra large breakpoint font size (e.g., 18px)
+        2xl:text-4xl  // Even larger for very big screens (reduced from 5xl)
+        font-thin
+      '>
+        Dirham and Bitcoin are an stable coin
+      </span>
+      <span>
+        <img
+          src={VectorIcon}
+          alt="vector icon"
+          className="
+            w-4 h-4   // Base icon size for smallest screens
+            sm:w-5 sm:h-5 // Small breakpoint icon size
+            md:w-6 md:h-6 // Medium breakpoint icon size
+            lg:w-7 lg:h-7 // Large breakpoint icon size
+            xl:w-8 xl:h-8 // Extra large breakpoint icon size
+          "
+        />
+      </span>
+      <span className='
+        text-[11px]
+        sm:text-xs
+        md:text-sm
+        lg:text-base
+        xl:text-lg
+        2xl:text-4xl
+        font-thin
+      '>
+        Dirham and Bitcoin are an stable coin
+      </span>
+      <span>
+        <img
+          src={VectorIcon}
+          alt="vector icon"
+          className="
+            w-4 h-4
+            sm:w-5 sm:h-5
+            md:w-6 md:h-6
+            lg:w-7 lg:h-7
+            xl:w-8 xl:h-8
+          "
+        />
+      </span>
+      <h2 className="
+        text-[11px]
+        sm:text-xs
+        md:text-sm
+        lg:text-base
+        xl:text-lg
+        2xl:text-4xl
+        font-thin
+      ">
+        Buy DirhamCoin on the app at the rate of 1 USD to 1 USD
+        <span className="inline-block align-middle ml-1" style={{ position: "relative", top: "-1px" }}>
+          <img
+            src={VectorIcon}
+            alt="logo"
+            className="
+              w-4 h-4
+              sm:w-5 sm:h-5
+              md:w-6 md:h-6
+              lg:w-7 lg:h-7
+              xl:w-8 xl:h-8
+            "
+          />
+        </span>
+      </h2>
+    </>
+  );
+
+  useEffect(() => {
+    const marqueeElement = marqueeRef.current;
+    if (marqueeElement) {
+      const contentWidth = marqueeElement.scrollWidth / 2;
+
+      const speed = 200; // pixels per second (2x faster as per last request)
+      const duration = contentWidth / speed; // duration in seconds
+
+      gsap.to(marqueeElement, {
+        x: -contentWidth,
+        duration: duration,
+        ease: "none",
+        repeat: -1,
+        onRepeat: () => {
+          gsap.set(marqueeElement, { x: 0 });
+        }
+      });
+    }
+
+    return () => {
+      if (marqueeElement) {
+        gsap.killTweensOf(marqueeElement);
+      }
+    };
+  }, []);
 
   return (
-  <div className=' bg-green-950'
-  style={{
-    backgroundColor: "#012B16",
-  }}>
-
+    <div className='bg-[#0b291a] overflow-hidden'>
       <div
-      className="  py-2"
-      style={{
-        background: "linear-gradient(90deg, #002616 0%, #003B30 50%, #064E2E 100%)",
-        opacity:"0.9" ,
-        transform: "rotate(-1.3deg)",
-        color: "#F3F3F3",
-            width: "1896px",
-    height: "65px",
-        textAlign: "center",
-        fontFamily: "Funnel Sans",
-        fontSize: "46px",
-        fontStyle: "normal",
-        fontWeight: 200,
-        lineHeight: "110%",
-        whiteSpace: "nowrap",
-        overflow: "hidden",
-        position: "relative"
-      }}
-    >
-      <div
+        className="
+          relative
+          py-1
+          sm:py-2
+          md:py-3
+          lg:py-4
+          xl:py-2
+          flex items-center justify-center
+          transform -rotate-[1.2deg]
+          text-white
+          font-[Funnel Sans] font-light
+          whitespace-nowrap overflow-hidden
+          h-10
+          lg:h-[85px]
+        "
+        style={{
+          background: "rgba(6, 78, 46, 1)",
+          opacity: "0.9",
+          flexShrink: 0
+        }}
+      >
+        <div
           ref={marqueeRef}
-          className="flex items-center justify-center space-x-2"
+          className="
+            absolute top-1 left-1 h-full w-max flex items-center
+            space-x-2
+            sm:space-x-4
+            md:space-x-6
+            lg:space-x-8
+            xl:space-x-4
+          "
           style={{
             willChange: "transform",
-            position: "absolute",
-            left: 0,
-            top: 0,
-            height: "100%"
+            transform:"rotate(0.5deg)"
           }}
         >
-          <span className='font-thin'>Dirham and Bitcoin are an stable coin</span>
-           <span>
-          <img src={VectorIcon} alt="vector icon" width={32} height={32} />
-        </span>
-        <span className='font-thin'>Dirham and Bitcoin are an stable coin</span>
-        <span>
-          <img src={VectorIcon} alt="vector icon" width={32} height={32} />
-        </span>
-        <h2 className="font-thin">
-            Buy DirhamCoin on the app at the rate of 1 USD to 1 USD
-            <span className="inline-block align-middle ml-2" style={{ position: "relative", top: "-6px" }}>
-              <img src={VectorIcon} alt="logo" width={32} height={32} />
-            </span>
-        </h2>
+          <MarqueeContent />
+          <MarqueeContent />
+        </div>
       </div>
     </div>
-  </div>
-  )
+  );
 }
 
-export default LineSection
+export default LineSection;
