@@ -1,14 +1,181 @@
 import React, { useState, useRef, useEffect } from 'react';
-//import { Share2 } from 'lucide-react';
 import BG3 from '../assets/BG3.svg';
 import usecaseImg from '../assets/usecase1.jpg';
 import VectorUsecase from '../assets/vectorusecase.svg';
 import RightArrow from '../assets/rightarrow.png';
-
 import Dot from '../assets/dot.svg';
 import ShareIcon from '../assets/share.svg';
 
 const UseCasesCard = () => {
+  // Responsive: show mobile or desktop layout
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // --- MOBILE LAYOUT ---
+  if (isMobile) {
+    return (
+      <div
+        className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white p-4 flex flex-col items-center justify-center font-inter overflow-hidden"
+      >
+        {/* Card Section */}
+        <div
+          className="bg-gradient-to-br from-green-900 via-green-800 to-green-900 rounded-2xl p-6 text-white relative overflow-hidden flex flex-col w-full max-w-md mb-8"
+          style={{
+            borderRadius: "24px",
+            background: `linear-gradient(0deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.62) 100%), url(${usecaseImg}) lightgray 50% / cover no-repeat`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            minHeight: "320px",
+          }}
+        >
+          {/* Background decorative elements */}
+          <div className="absolute top-0 right-0 w-24 h-24 bg-green-700 rounded-full opacity-20 -translate-y-8 translate-x-8"></div>
+          <div className="absolute bottom-0 left-0 w-16 h-16 bg-green-600 rounded-full opacity-20 translate-y-8 -translate-x-8"></div>
+          {/* Header with arrow */}
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-3xl font-bold leading-tight">Our Use</h2>
+              <span className="inline-flex items-center mt-1 text-3xl font-bold leading-tight">
+                <img src={VectorUsecase} alt="" style={{ marginRight: "8px" }} />
+                Cases
+              </span>
+            </div>
+            <img src={RightArrow} alt="right arrow" width={28} height={28} />
+          </div>
+          {/* Description */}
+          <div className="mb-6">
+            <p
+              className="leading-relaxed text-base"
+              style={{
+                color: "#D2D4D7",
+                fontFamily: "Funnel Sans",
+                fontWeight: 300,
+                lineHeight: "140%"
+              }}
+            >
+              All <span
+                style={{
+                  color: "#D2D4D7",
+                  fontFamily: "Funnel Sans",
+                  fontWeight: 600,
+                  lineHeight: "140%"
+                }}
+              >DirhamCoin</span> transactions are fast and Green, no matter where you are sending or spending your money.
+            </p>
+            <p
+              className="text-xs opacity-80 mt-2"
+              style={{
+                color: "#D2D4D7",
+                fontFamily: "Funnel Sans",
+                fontWeight: 300,
+                lineHeight: "140%"
+              }}
+            >
+              Experience seamless transactions with our advanced blockchain technology.
+            </p>
+          </div>
+          {/* Dots and tags */}
+          <div className="flex items-center justify-between mt-auto">
+            <img
+              src={Dot}
+              alt="dot"
+              style={{
+                width: "60px",
+                height: "10px",
+                flexShrink: 0
+              }}
+            />
+            <div className="flex space-x-4 ml-4 items-center">
+              <span className="text-xs font-semibold border text-zinc-300 border border-gray-300 rounded-full px-3 py-0.5">Exchange</span>
+              <span className="text-xs text-zinc-300 border border-gray-300 rounded-full px-3 py-0.5">Stable</span>
+              <span
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  flexShrink: 0,
+                  borderRadius: "100px",
+                  border: "1px solid #FFF",
+                  background: "rgba(255, 255, 255, 0.02)",
+                  backdropFilter: "blur(24px)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                }}
+              >
+                <img
+                  src={ShareIcon}
+                  alt="share"
+                  style={{
+                    width: "18px",
+                    height: "18px",
+                    borderRadius: "100px"
+                  }}
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+        {/* Steps/Sections below the card, with gap */}
+        <div className="w-full max-w-md flex flex-col gap-8">
+          {/* Hold Section */}
+          <div className="flex items-start space-x-4">
+            <div className="flex flex-col items-center">
+              <div
+                className="w-4 h-4 rounded-full bg-green-400 shadow-lg"
+                style={{ cursor: "pointer" }}
+              ></div>
+            </div>
+            <div>
+              <h3
+                className="text-3xl font-medium mb-2 text-white"
+                style={{
+                  fontFamily: "Funnel Sans",
+                  fontWeight: 300,
+                  lineHeight: "120%",
+                }}
+              >
+                Hold *
+              </h3>
+              <p
+                style={{
+                  color: "#FFF",
+                  fontFamily: "Funnel Sans",
+                  fontSize: "16px",
+                  fontStyle: "normal",
+                  fontWeight: 200,
+                  lineHeight: "140%"
+                }}
+                className="leading-relaxed"
+              >
+                But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of
+              </p>
+            </div>
+          </div>
+        </div>
+        {/* Pagination dots */}
+        <div className="flex justify-center mt-8 space-x-2">
+          <div className="w-3 h-3 bg-white rounded-full opacity-70"></div>
+          <div className="w-3 h-3 bg-gray-600 rounded-full"></div>
+          <div className="w-3 h-3 bg-gray-600 rounded-full"></div>
+          <div className="w-3 h-3 bg-gray-600 rounded-full"></div>
+        </div>
+        <style>
+          {`
+            .min-h-screen::-webkit-scrollbar {
+              display: none;
+            }
+          `}
+        </style>
+      </div>
+    );
+  }
+
+  // --- DESKTOP LAYOUT ---
   const [activeSection, setActiveSection] = useState(null);
   const stepsRef = useRef([]);
   const intervalRef = useRef(null);
