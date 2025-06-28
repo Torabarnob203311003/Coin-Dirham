@@ -11,6 +11,11 @@ function CardSection() {
   const arrowRef = useRef(null);
   const crousupRef = useRef(null);
 
+  // Mobile refs
+  const mobileTextRef = useRef(null);
+  const mobileDirhamRef = useRef(null);
+  const mobileBitcoinRef = useRef(null);
+
   // Animate on scroll into view (only once)
   useEffect(() => {
     let ctx;
@@ -26,7 +31,7 @@ function CardSection() {
           gsap.registerPlugin(SplitText);
 
           ctx = gsap.context(() => {
-            // Typing effect for all text
+            // Desktop animations
             const split = new SplitText(textRef.current, { type: "chars,words" });
             gsap.from(split.chars, {
               opacity: 0,
@@ -35,7 +40,7 @@ function CardSection() {
               duration: 0.7,
               ease: "power2.out"
             });
-            // DirhamCoin pop animation
+            
             if (dirhamRef.current) {
               gsap.fromTo(
                 dirhamRef.current,
@@ -43,7 +48,7 @@ function CardSection() {
                 { scale: 1, opacity: 1, duration: 0.6, delay: 0.2, ease: "power1.out" }
               );
             }
-            // Bitcoin pop animation (smooth, no shake)
+            
             if (bitcoinRef.current) {
               gsap.fromTo(
                 bitcoinRef.current,
@@ -51,7 +56,7 @@ function CardSection() {
                 { scale: 1, opacity: 1, duration: 0.6, delay: 0.5, ease: "power1.out" }
               );
             }
-            // ArrowRight pop animation
+            
             if (arrowRef.current) {
               gsap.fromTo(
                 arrowRef.current,
@@ -59,7 +64,7 @@ function CardSection() {
                 { scale: 1, opacity: 1, duration: 0.6, delay: 0.9, ease: "power1.out" }
               );
             }
-            // Crousup logo pop animation (smooth, no shake)
+            
             if (crousupRef.current) {
               gsap.fromTo(
                 crousupRef.current,
@@ -67,14 +72,41 @@ function CardSection() {
                 { scale: 1, opacity: 1, duration: 0.6, delay: 1.2, ease: "power1.out" }
               );
             }
+
+            // Mobile animations
+            if (mobileTextRef.current) {
+              const mobileSplit = new SplitText(mobileTextRef.current, { type: "chars,words" });
+              gsap.from(mobileSplit.chars, {
+                opacity: 0,
+                y: 20,
+                stagger: 0.02,
+                duration: 0.5,
+                ease: "power2.out"
+              });
+            }
+
+            if (mobileDirhamRef.current) {
+              gsap.fromTo(
+                mobileDirhamRef.current,
+                { scale: 0.9, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 0.5, delay: 0.3, ease: "power1.out" }
+              );
+            }
+
+            if (mobileBitcoinRef.current) {
+              gsap.fromTo(
+                mobileBitcoinRef.current,
+                { scale: 0.9, opacity: 0 },
+                { scale: 1, opacity: 1, duration: 0.5, delay: 0.6, ease: "power1.out" }
+              );
+            }
+            
           }, textRef);
         });
-        // Remove scroll listener after first trigger
         window.removeEventListener("scroll", animate);
       }
     }
     window.addEventListener("scroll", animate, { passive: true });
-    // Initial check in case already in view
     animate();
     return () => {
       window.removeEventListener("scroll", animate);
@@ -90,27 +122,24 @@ function CardSection() {
         filter: "brightness(0.9) contrast(1.2)",
       }}
     >
+      {/* Desktop Version - Hidden on mobile */}
       <div
         ref={textRef}
         className="
+          hidden sm:block
           text-center
           sm:mx-auto
           sm:px-0
-        
-          mx-9
-          w-[450px]
-          text-[26px]
-          font-light
-          leading-[120%]
-          font-[Funnel Sans]
-          text-[#F3F3F3]
           sm:w-full
           sm:max-w-[1396px]
           sm:text-[70px]
           sm:font-[300]
           mt-36
-          whitespace-nowrap
-          sm:whitespace-normal
+          font-light
+          leading-[120%]
+          font-[Funnel Sans]
+          text-[#F3F3F3]
+          whitespace-normal
         "
         style={{
           textAlign: "center",
@@ -120,9 +149,8 @@ function CardSection() {
         <span
           ref={dirhamRef}
           className="
-            inline-flex items-center justify-center border border-[#1BAE6C] rounded-[51.5px] px-3 
-            w-[158px] h-[31px] flex-shrink-0
-            sm:w-[410px] sm:h-[72px] sm:px-6
+            inline-flex items-center justify-center border border-[#1BAE6C] rounded-[51.5px] px-6
+            w-[410px] h-[72px]
           "
           style={{
             fontFamily: "Funnel Sans",
@@ -160,7 +188,7 @@ function CardSection() {
           }}
         />
         type of cryptocurrency 
-        <br  />that is referred to as a stable coin
+        <br />that is referred to as a stable coin
         <span
           ref={arrowRef}
           className="inline-block align-middle mx-2"
@@ -191,14 +219,86 @@ function CardSection() {
           }}
         />
         DirhamCoin = USD Dollar
-        
-     
-   
       </div>
-          <div className=" mt-20 mb-20  ms-6 me-6">
-      <GridSection />
+
+      {/* Mobile Version - Visible only on mobile */}
+      <div
+        ref={mobileTextRef}
+        className="
+          block sm:hidden
+          max-w-sm mx-auto text-center text-[#F3F3F3] space-y-4 px-6 mt-20
+          font-[Funnel Sans] text-[18px] font-light leading-[120%]
+        "
+      >
+        {/* First Line */}
+        <div className="flex items-center justify-center gap-2 flex-wrap">
+          <div 
+            ref={mobileDirhamRef}
+            className="border-2 border-[#1BAE6C] rounded-full px-3 py-0 h-[27px] w-[148px] flex items-center justify-center flex-shrink-0"
+          >
+            <span className="text-[#F3F3F3] font-light">DirhamCoin</span>
+          </div>
+          <span className="text-[#F3F3F3] text-lg">is a</span>
+          <img
+            ref={mobileBitcoinRef}
+            src={tokenBitcoin}
+            alt="bitcoin token"
+            className="inline-block align-middle w-[40px] h-[20px] flex-shrink-0 rounded-full"
+            style={{
+              borderRadius: "100px",
+              background: "linear-gradient(269deg, rgba(27, 174, 108, 0.44) -26.56%, rgba(33, 33, 33, 0.35) 99.06%)",
+              backdropFilter: "blur(8.25px)",
+              verticalAlign: "middle",
+              opacity: 1,
+              display: "inline-block"
+            }}
+          />
+          <span className="text-[#F3F3F3] text-lg">type of</span>
+        </div>
+
+        {/* Second Line */}
+        <div className="flex items-center justify-center gap-2 flex-wrap">
+          <span className="text-[#F3F3F3] text-lg">cryptocurrency</span>
+          <span className="text-[#F3F3F3] text-xl flex items-center">
+            <BsArrowRight size={20} className="w-[40px] h-[20px] flex-shrink-0" color="#FFF" />
+          </span>
+          <span className="text-[#F3F3F3] text-lg">that is</span>
+        </div>
+
+        {/* Third Line */}
+        <div className="flex items-center justify-center gap-2 flex-wrap">
+          <span className="text-[#F3F3F3] text-lg">referred to as a stable</span>
+        </div>
+
+        {/* Fourth Line */}
+        <div className="flex items-center justify-center gap-2 flex-wrap">
+          <span className="text-[#F3F3F3] text-lg">coin</span>
+          <img
+            src={crousupLogo}
+            alt="CrousUp Logo"
+            className="inline-block align-middle w-[40px] h-[20px] flex-shrink-0 rounded-full"
+            style={{
+              borderRadius: "100px",
+              background: "linear-gradient(267deg, rgba(96, 96, 96, 0.32) 15.44%, rgba(198, 198, 198, 0.10) 97.33%)",
+              backgroundColor: "#606060",
+              padding: "2px",
+              opacity: 1
+            }}
+          />
+          <span className="text-[#F3F3F3] text-lg">This Means</span>
+        </div>
+
+        {/* Exchange Rate */}
+        <div className="mt-8 text-[#F3F3F3] text-lg">
+          <span>1 DirhamCoin </span>
+          <span className="text-xl mx-2">=</span>
+          <span> 1 USD Dollar</span>
+        </div>
       </div>
-     
+
+      <div className="mt-20 mb-20 ms-6 me-6">
+        <GridSection />
+      </div>
     </div>
   );
 }
