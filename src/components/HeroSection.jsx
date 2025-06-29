@@ -54,7 +54,7 @@ function HeroSection() {
 
   return (
     <div
-      className="flex flex-col md:flex-row items-start justify-center w-full max-h-screen text-center relative mt-10 px-2 sm:px-4"
+      className="flex flex-col md:flex-row items-start justify-center w-full max-h-screen text-center relative mt-7  px-2 sm:px-4"
       style={{ color: '#FFF', fontFamily: 'Funnel Sans', fontStyle: 'normal', fontWeight: 300 }}
     >
       {/* Main text content */}

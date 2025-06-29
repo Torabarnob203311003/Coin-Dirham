@@ -124,10 +124,10 @@ const ContactForm = () => {
                             placeholder="Email"
                             className="w-full p-2 bg-transparent border-b border-gray-300 text-white placeholder-gray-400 focus:outline-none"
                         />
-                        <button class="flex items-center justify-between pl-8 pr-1 py-2 rounded-full border-2 border-[#1BAE6C] text-white text-lg font-light hover:cursor-pointer">
+                        <button className="flex items-center justify-between pl-8 pr-1 py-2 rounded-full border-2 border-[#1BAE6C] text-white text-lg font-light hover:cursor-pointer">
                             <span>Send Link</span>
-                            <span class="flex ml-10 items-center justify-center w-10 h-10 rounded-full bg-gradient-to-bl from-[rgba(27,174,108,0.53)] to-[rgba(7,88,52,0.53)]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
+                            <span className="flex ml-10 items-center justify-center w-10 h-10 rounded-full bg-gradient-to-bl from-[rgba(27,174,108,0.53)] to-[rgba(7,88,52,0.53)]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
                             </span>
                         </button>
                     </form>

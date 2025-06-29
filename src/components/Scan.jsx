@@ -8,7 +8,7 @@ import QrCodeSvg from "../assets/qr.svg";
 const CoinsAppIcon = () => (
   <svg width="36" height="36" fill="none" viewBox="0 0 36 36">
     <circle cx="18" cy="18" r="18" fill="#1de9b6" />
-    <path d="M12 18h12M12 22h12M12 14h12" stroke="#fff" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M12 18h12M12 22h12M12 14h12" stroke="#fff" strokeWidth={2} strokeLinecap="round" />
   </svg>
 );
 
@@ -76,12 +76,11 @@ function Scan() {
                 className="w-6 h-6 sm:w-8 sm:h-8"
               />
             </span>
-            <span className="ml-0 text-xl sm:text-2xl md:text-3xl lg:text-[100px]">on 
-               BlockPhoenix</span>
+            <span className="ml-0 text-xl sm:text-2xl md:text-3xl lg:text-[100px]">on BlockFinex</span>
           </span>
         </h1>
         <div className="flex items-center justify-center gap-4 mb-4">
-          {/* Your avatar group (currently empty in original code) */}
+          {/* Avatar group (currently empty in original code) */}
         </div>
         <div className="mt-4 sm:mt-16 md:mt-7 w-full">
           <p
@@ -123,7 +122,7 @@ function Scan() {
                   }}
                 >
                   <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-4-4 4 4-4 4"/>
+                    <path stroke="#fff" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-4-4 4 4-4 4"/>
                   </svg>
                 </span>
               </span>

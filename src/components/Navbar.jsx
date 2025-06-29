@@ -6,7 +6,17 @@ import { useState, useEffect } from "react";
 
 function WorldIcon(props) {
   return (
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
       <circle cx="12" cy="12" r="10" />
       <line x1="2" y1="12" x2="22" y2="12" />
       <path d="M12 2a15.3 15.3 0 0 1 0 20M12 2a15.3 15.3 0 0 0 0 20" />
@@ -20,44 +30,50 @@ function ThemeToggle() {
     <div
       className="relative flex items-center justify-center gap-2 px-2 py-1"
       style={{
-        width: '95px',
-        height: '47px',
+        width: "95px",
+        height: "47px",
         flexShrink: 0,
-        borderRadius: '100.528px',
-        border: '1px solid rgba(255,255,255,0.07)',
-        backdropFilter: 'blur(76.45px)',
-        overflow: 'visible'
+        borderRadius: "100.528px",
+        border: "1px solid rgba(255,255,255,0.07)",
+        backdropFilter: "blur(76.45px)",
+        overflow: "visible",
       }}
     >
       {/* Decorative gradient stroke as a div, centered and visible */}
       <div
         style={{
-          position: 'absolute',
-          left: '-40%',
-          top: '-90%',
-          transform: 'translate(-50%, -50%)',
+          position: "absolute",
+          left: "-40%",
+          top: "-90%",
+          transform: "translate(-50%, -50%)",
           width: 400,
           height: 400,
-          borderRadius: '617px',
-          opacity: 10.7, // slightly more visible
-          background: 'linear-gradient(180deg, rgba(0, 120, 67, 0.85) 0%, rgba(0, 120, 67, 0.00) 100%)', // darker green
-          filter: 'blur(32px)',
+          borderRadius: "617px",
+          opacity: 10.7,
+          background:
+            "linear-gradient(180deg, rgba(0, 120, 67, 0.85) 0%, rgba(0, 120, 67, 0.00) 100%)",
+          filter: "blur(32px)",
           zIndex: 0,
-          pointerEvents: 'none'
+          pointerEvents: "none",
         }}
       />
       {/* Sun and Moon buttons, above the stroke */}
       <div className="relative flex items-center gap-2 z-10">
         <button
           onClick={() => setTheme("light")}
-          className={`p-2 border-none outline-none flex items-center justify-center transition-all duration-300 ${theme === "light" ? "theme-btn-active" : "theme-btn-inactive"}`}
+          className={`p-2 border-none outline-none flex items-center justify-center transition-all duration-300 ${
+            theme === "light" ? "theme-btn-active" : "theme-btn-inactive"
+          }`}
           aria-label="Light mode"
           style={{
             width: 36,
             height: 36,
             flexShrink: 0,
             borderRadius: "50%",
-            background: theme === "light" ? "linear-gradient(135deg, rgba(27, 174, 108, 0.53) 4.72%, rgba(7, 88, 52, 0.53) 79.2%)" : "transparent"
+            background:
+              theme === "light"
+                ? "linear-gradient(135deg, rgba(27, 174, 108, 0.53) 4.72%, rgba(7, 88, 52, 0.53) 79.2%)"
+                : "transparent",
           }}
         >
           <img
@@ -67,22 +83,27 @@ function ThemeToggle() {
             height={24}
             style={{
               flexShrink: 0,
-              transition: 'transform 0.3s, opacity 0.3s',
-              transform: theme === "light" ? 'rotate(0deg)' : 'rotate(-90deg)',
-              opacity: theme === "light" ? 1 : 0.5
+              transition: "transform 0.3s, opacity 0.3s",
+              transform: theme === "light" ? "rotate(0deg)" : "rotate(-90deg)",
+              opacity: theme === "light" ? 1 : 0.5,
             }}
           />
         </button>
         <button
           onClick={() => setTheme("dark")}
-          className={`p-2 border-none outline-none flex items-center justify-center transition-all duration-300 ${theme === "dark" ? "theme-btn-active" : "theme-btn-inactive"}`}
+          className={`p-2 border-none outline-none flex items-center justify-center transition-all duration-300 ${
+            theme === "dark" ? "theme-btn-active" : "theme-btn-inactive"
+          }`}
           aria-label="Dark mode"
           style={{
             width: 36,
             height: 36,
             flexShrink: 0,
             borderRadius: "50%",
-            background: theme === "dark" ? "linear-gradient(135deg, rgba(27, 174, 108, 0.53) 4.72%, rgba(7, 88, 52, 0.53) 79.2%)" : "transparent"
+            background:
+              theme === "dark"
+                ? "linear-gradient(135deg, rgba(27, 174, 108, 0.53) 4.72%, rgba(7, 88, 52, 0.53) 79.2%)"
+                : "transparent",
           }}
         >
           <img
@@ -92,9 +113,9 @@ function ThemeToggle() {
             height={24}
             style={{
               flexShrink: 0,
-              transition: 'transform 0.3s, opacity 0.3s',
-              transform: theme === "dark" ? 'rotate(0deg)' : 'rotate(90deg)',
-              opacity: theme === "dark" ? 1 : 0.5
+              transition: "transform 0.3s, opacity 0.3s",
+              transform: theme === "dark" ? "rotate(0deg)" : "rotate(90deg)",
+              opacity: theme === "dark" ? 1 : 0.5,
             }}
           />
         </button>
@@ -113,8 +134,14 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`w-full flex items-center justify-between px-4 md:px-10 font-[300] text-[18px] text-white -mt-6 min-h-[165px] transition-all duration-700 ${show ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-90 blur-md'}`}
-      style={{ fontFamily: 'Funnel Sans', fontStyle: 'normal', lineHeight: 'normal' }}
+      className={`w-full flex items-center justify-between px-4 md:px-10 font-[300] text-[18px] text-white -mt-6 min-h-[165px] transition-all duration-700 ${
+        show ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-90 blur-md"
+      }`}
+      style={{
+        fontFamily: "Funnel Sans",
+        fontStyle: "normal",
+        lineHeight: "normal",
+      }}
     >
       {/* Left: Logo */}
       <div className="flex items-center gap-4">
@@ -126,57 +153,67 @@ export default function Navbar() {
       </div>
       {/* Desktop Nav Links */}
       <div className="hidden md:flex items-center gap-10">
-        <a href="#about"
+        <a
+          href="#about"
           className="flex items-center gap-2 px-4 py-3"
           style={{
-            fontFamily: 'Funnel Sans',
-            borderRadius: '100.528px',
-            border: '1px solid #1BAE6C',
-            backdropFilter: 'blur(76.45px)',
-            width: '230px',
-            height: '47px',
+            fontFamily: "Funnel Sans",
+            borderRadius: "100.528px",
+            border: "1px solid #1BAE6C",
+            backdropFilter: "blur(76.45px)",
+            width: "230px",
+            height: "47px",
             flexShrink: 0,
-            whiteSpace: 'nowrap'
+            whiteSpace: "nowrap",
           }}
         >
-          <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block animate-pulse" style={{ marginRight: '8px', display: 'inline-block' }}></span>{' '}
+          <span
+            className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block animate-pulse"
+            style={{ marginRight: "8px", display: "inline-block" }}
+          ></span>{" "}
           What is DollarCoin?
         </a>
-        <a href="#usecases"
+        <a
+          href="#usecases"
           className="flex items-center justify-center h-[47px] min-w-[148px] px-0 py-0"
           style={{
-            color: '#FFF',
-            fontFamily: 'Funnel Sans',
-            fontSize: '18px',
-            fontStyle: 'normal',
+            color: "#FFF",
+            fontFamily: "Funnel Sans",
+            fontSize: "18px",
+            fontStyle: "normal",
             fontWeight: 300,
-            lineHeight: 'normal',
-            borderRadius: '100.528px',
-            border: '1px solid rgba(255,255,255,0.07)',
-            backdropFilter: 'blur(76.45px)',
+            lineHeight: "normal",
+            borderRadius: "100.528px",
+            border: "1px solid rgba(255,255,255,0.07)",
+            backdropFilter: "blur(76.45px)",
             flexShrink: 0,
-            whiteSpace: 'nowrap',
-            textAlign: 'center'
+            whiteSpace: "nowrap",
+            textAlign: "center",
           }}
-        >Use Cases</a>
-        <a href="#buy"
+        >
+          Use Cases
+        </a>
+        <a
+          href="#buy"
           className="flex items-center justify-center h-[47px] min-w-[148px] px-6 py-0"
           style={{
-            color: '#FFF',
-            fontFamily: 'Funnel Sans',
-            fontSize: '18px',
-            fontStyle: 'normal',
+            color: "#FFF",
+            fontFamily: "Funnel Sans",
+            fontSize: "18px",
+            fontStyle: "normal",
             fontWeight: 300,
-            lineHeight: 'normal',
-            borderRadius: '100.528px',
-            border: '1px solid rgba(255,255,255,0.07)',
-            backdropFilter: 'blur(76.45px)',
+            lineHeight: "normal",
+            borderRadius: "100.528px",
+            border: "1px solid rgba(255,255,255,0.07)",
+            backdropFilter: "blur(76.45px)",
             flexShrink: 0,
-            whiteSpace: 'nowrap',
-            textAlign: 'center',
-            letterSpacing: '0.04em'
+            whiteSpace: "nowrap",
+            textAlign: "center",
+            letterSpacing: "0.04em",
           }}
-        >Buy DollarCoin</a>
+        >
+          Buy DollarCoin
+        </a>
       </div>
       {/* Desktop Right: Theme, Language, Contact */}
       <div className="hidden md:flex items-center gap-8">
@@ -186,12 +223,12 @@ export default function Navbar() {
           <select
             className="bg-transparent text-white font-[300] focus:outline-none"
             style={{
-              color: '#FFF',
-              fontFamily: 'Funnel Sans',
-              fontSize: '20px', // increased font size for EN
-              fontStyle: 'normal',
+              color: "#FFF",
+              fontFamily: "Funnel Sans",
+              fontSize: "20px",
+              fontStyle: "normal",
               fontWeight: 300,
-              lineHeight: 'normal'
+              lineHeight: "normal",
             }}
           >
             <option value="en">En</option>
@@ -214,7 +251,7 @@ export default function Navbar() {
             width: "173px",
             height: "47px",
             flexShrink: 0,
-            textDecoration: "none" // <-- correct way to add text-decoration
+            textDecoration: "none",
           }}
         >
           <span className="flex items-center w-full justify-between">
@@ -222,13 +259,20 @@ export default function Navbar() {
             <span
               className="inline-flex items-center justify-center rounded-full p-1"
               style={{
-                background: "linear-gradient(135deg, rgba(27, 174, 108, 0.53) 4.72%, rgba(7, 88, 52, 0.53) 79.2%)",
-                backdropFilter: "blur(8.25px)"
+                background:
+                  "linear-gradient(135deg, rgba(27, 174, 108, 0.53) 4.72%, rgba(7, 88, 52, 0.53) 79.2%)",
+                backdropFilter: "blur(8.25px)",
               }}
             >
               {/* Right Arrow SVG */}
               <svg width="30" height="30" fill="none" viewBox="0 0 24 24">
-                <path stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14m-4-4 4 4-4 4"/>
+                <path
+                  stroke="#fff"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M5 12h14m-4-4 4 4-4 4"
+                />
               </svg>
             </span>
           </span>
@@ -238,7 +282,10 @@ export default function Navbar() {
       <div className="flex md:hidden items-center gap-2">
         <ThemeToggle />
         {/* Hamburger Menu */}
-        <button onClick={() => setMenuOpen(!menuOpen)} className="ml-2 flex flex-col justify-center items-center w-10 h-10">
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="ml-2 flex flex-col justify-center items-center w-10 h-10"
+        >
           <span className="block w-7 h-0.5 bg-white mb-1 rounded"></span>
           <span className="block w-7 h-0.5 bg-white mb-1 rounded"></span>
           <span className="block w-7 h-0.5 bg-white rounded"></span>
@@ -247,12 +294,41 @@ export default function Navbar() {
       {/* Mobile Nav Drawer */}
       {menuOpen && (
         <div className="fixed inset-0 z-50 bg-black/70 flex flex-col items-center justify-center md:hidden">
-          <button onClick={() => setMenuOpen(false)} className="absolute top-6 right-6 text-white text-3xl">&times;</button>
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="absolute top-6 right-6 text-white text-3xl"
+          >
+            &times;
+          </button>
           <div className="flex flex-col gap-6 mt-10">
-            <a href="#about" className="text-white text-xl" onClick={() => setMenuOpen(false)}>What is DollarCoin?</a>
-            <a href="#usecases" className="text-white text-xl" onClick={() => setMenuOpen(false)}>Use Cases</a>
-            <a href="#buy" className="text-white text-xl" onClick={() => setMenuOpen(false)}>Buy DollarCoin</a>
-            <a href="#contact" className="text-white text-xl" onClick={() => setMenuOpen(false)}>Contact Us</a>
+            <a
+              href="#about"
+              className="text-white text-xl"
+              onClick={() => setMenuOpen(false)}
+            >
+              What is DollarCoin?
+            </a>
+            <a
+              href="#usecases"
+              className="text-white text-xl"
+              onClick={() => setMenuOpen(false)}
+            >
+              Use Cases
+            </a>
+            <a
+              href="#buy"
+              className="text-white text-xl"
+              onClick={() => setMenuOpen(false)}
+            >
+              Buy DollarCoin
+            </a>
+            <a
+              href="#contact"
+              className="text-white text-xl"
+              onClick={() => setMenuOpen(false)}
+            >
+              Contact Us
+            </a>
           </div>
         </div>
       )}

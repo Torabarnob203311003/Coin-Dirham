@@ -46,7 +46,7 @@ function CardSection() {
               duration: 0.7,
               ease: "power2.out"
             });
-            
+
             if (dirhamRef.current) {
               gsap.fromTo(
                 dirhamRef.current,
@@ -54,7 +54,7 @@ function CardSection() {
                 { scale: 1, opacity: 1, duration: 0.6, delay: 0.2, ease: "power1.out" }
               );
             }
-            
+
             if (bitcoinRef.current) {
               gsap.fromTo(
                 bitcoinRef.current,
@@ -62,7 +62,7 @@ function CardSection() {
                 { scale: 1, opacity: 1, duration: 0.6, delay: 0.5, ease: "power1.out" }
               );
             }
-            
+
             if (arrowRef.current) {
               gsap.fromTo(
                 arrowRef.current,
@@ -70,7 +70,7 @@ function CardSection() {
                 { scale: 1, opacity: 1, duration: 0.6, delay: 0.9, ease: "power1.out" }
               );
             }
-            
+
             if (crousupRef.current) {
               gsap.fromTo(
                 crousupRef.current,
@@ -101,7 +101,7 @@ function CardSection() {
             mobileTextElements.forEach((element) => {
               element.setAttribute('data-animated', 'true');
             });
-            
+
             const mobileSplit = new SplitText(mobileTextElements, { type: "chars,words" });
             gsap.from(mobileSplit.chars, {
               opacity: 0,
@@ -162,11 +162,11 @@ function CardSection() {
     // Add both scroll listeners
     window.addEventListener("scroll", animate, { passive: true });
     window.addEventListener("scroll", animateMobile, { passive: true });
-    
+
     // Initial checks
     animate();
     animateMobile();
-    
+
     return () => {
       window.removeEventListener("scroll", animate);
       window.removeEventListener("scroll", animateMobile);
