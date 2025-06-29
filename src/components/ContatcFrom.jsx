@@ -83,7 +83,7 @@ const ContactForm = () => {
                     <div ref={leftDivRef} className='px-20 py-10'>
                         <div className="text-white text-[20px]">
                             <p className="text-sm mb-2">Get access</p>
-                            <p className="text-sm">to DirhamCoin <span className="">↗</span></p>
+                            <p className="text-sm">to DollarCoin <span className="">↗</span></p>
                         </div>
                         <div className='h-[219px] border-[10x] bg-[#ffffff41] w-[1px] my-10'></div>
                         <div className="flex-1 flex items-center justify-center">

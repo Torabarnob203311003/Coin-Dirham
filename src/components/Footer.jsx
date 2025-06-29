@@ -78,9 +78,9 @@ const Footer = () => {
                             <span className="text-gray-400 text-4xl mr-2">Navigation</span>
                         </h2>
                         <ul className="space-y-1 text-2xl font-light">
-                            <li>What is DirhamCoin</li>
+                            <li>What is DollarCoin</li>
                             <li>UseCases</li>
-                            <li>Buy DirhamCoin</li>
+                            <li>Buy DollarCoin</li>
                             <li>Contact US</li>
                         </ul>
                     </div>
@@ -126,7 +126,7 @@ const Footer = () => {
                         ref={textRef}
                         className="text-[201.86px] font-light"
                     >
-                        DirhamCoin
+                        DollarCoin
                     </h1>
                 </div>
             </div>

@@ -149,7 +149,7 @@ function GridSection() {
               />
             </div>
             <h1 className="text-[53px] font-normal  text-white">
-              DirhamCoin
+              DollarCoin
             </h1>
           </div>
         </div>
@@ -281,7 +281,7 @@ function GridSection() {
           </p>
           <h2 className="text-4xl font-light text-white mb-3">Fast</h2>
           <p className="text-xl font-semibold text-gray-300 leading-relaxed">
-            All DirhamCoin transactions are fast and cheap, no matter where you are sending, or spending, your money.
+            All DollarCoin transactions are fast and cheap, no matter where you are sending, or spending, your money.
           </p>
         </div>
         {/* Card 2 */}
@@ -332,7 +332,7 @@ function GridSection() {
             03.
           </p>
           <h2 className="text-4xl font-light text-white mb-3">Secure</h2>
-          <p className="text-xl font-semibold text-gray-300 leading-relaxed">
+          <p className="text-xl font-normal text-gray-300 leading-relaxed">
             Dollar Coin is a currency, built as an ERC-20 token on the Ethereum blockchain with security in mind.
           </p>
         </div>

@@ -65,7 +65,7 @@ const UseCasesCard = () => {
                   fontWeight: 600,
                   lineHeight: "140%"
                 }}
-              >DirhamCoin</span> transactions are fast and Green, no matter where you are sending or spending your money.
+              >DollarCoin</span> transactions are fast and Green, no matter where you are sending or spending your money.
             </p>
             <p
               className="text-xs opacity-80 mt-2"
@@ -287,7 +287,7 @@ const UseCasesCard = () => {
                 fontWeight: 600,
                 lineHeight: "140%"
               }}
-            >DirhamCoin</span> transactions are fast and Green, no matter where you are sending or spending your money.
+            >DollarCoin</span> transactions are fast and Green, no matter where you are sending or spending your money.
           </p>
           <p
             className="text-xs opacity-80"
@@ -410,7 +410,7 @@ const UseCasesCard = () => {
                 }}
                 className="leading-relaxed max-w-xs"
               >
-                Trade DirhamCoin seamlessly on our platform with real-time pricing, deep liquidity, and secure order execution. Enjoy low fees and instant settlement for all your trading needs.
+                Trade DollarCoin seamlessly on our platform with real-time pricing, deep liquidity, and secure order execution. Enjoy low fees and instant settlement for all your trading needs.
               </p>
             )}
           </div>
@@ -523,7 +523,7 @@ const UseCasesCard = () => {
                 className="leading-relaxed max-w-xs"
               >
                 Execute fast and secure buy or sell orders with competitive rates 
-                and instant settlement for all your DirhamCoin transactions.
+                and instant settlement for all your DollarCoin transactions.
               </p>
             )}
           </div>
@@ -578,7 +578,7 @@ const UseCasesCard = () => {
                 }}
                 className="leading-relaxed max-w-xs"
               >
-                Send and receive DirhamCoin instantly with minimal fees 
+                Send and receive DollarCoin instantly with minimal fees 
                 across our secure blockchain network worldwide.
               </p>
             )}

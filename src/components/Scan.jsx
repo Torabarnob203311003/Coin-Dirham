@@ -45,7 +45,7 @@ function Scan() {
         >
           Start transacting<br />
           with <span className="inline-flex items-center gap-1 sm:gap-2">
-            DirhamCoin
+            DollarCoin
             <img
               src={FooterLogo}
               alt="Footer Logo"
@@ -113,7 +113,7 @@ function Scan() {
               }}
             >
               <span className="flex items-center w-full justify-between whitespace-nowrap">
-                <span className="mr-2 sm:mr-4">Get DirhamCoin</span>
+                <span className="mr-2 sm:mr-4">Get DollarCoin</span>
                 <span
                   className="inline-flex items-center justify-center rounded-full p-1"
                   style={{

@@ -211,7 +211,7 @@ function CardSection() {
           ref={dirhamRef}
           className="
             inline-flex items-center justify-center border border-[#1BAE6C] rounded-[51.5px] px-6
-            w-[410px] h-[72px]
+            w-[390px] h-[72px]
           "
           style={{
             fontFamily: "Funnel Sans",
@@ -227,7 +227,7 @@ function CardSection() {
             justifyContent: "center"
           }}
         >
-          DirhamCoin
+          DollarCoin
         </span>
         {" "}
         is a{" "}
@@ -279,7 +279,7 @@ function CardSection() {
             opacity: 1
           }}
         />
-        DirhamCoin = USD Dollar
+        DollarCoin = USD Dollar
       </div>
 
       {/* Mobile Version - Visible only on mobile */}
@@ -297,7 +297,7 @@ function CardSection() {
             ref={mobileDirhamRef}
             className="border-2 border-[#1BAE6C] rounded-full px-3 py-0 h-[27px] w-[148px] flex items-center justify-center flex-shrink-0"
           >
-            <span className="text-[#F3F3F3] font-light">DirhamCoin</span>
+            <span className="text-[#F3F3F3] font-light">DollarCoin</span>
           </div>
           <span className="text-[#F3F3F3] text-lg">is a</span>
           <img
@@ -355,7 +355,7 @@ function CardSection() {
 
         {/* Exchange Rate */}
         <div className="exchange-rate mt-8 text-[#F3F3F3] text-lg">
-          <span>1 DirhamCoin </span>
+          <span>1 DollarCoin </span>
           <span className="text-xl mx-2">=</span>
           <span> 1 USD Dollar</span>
         </div>

@@ -17,7 +17,7 @@ function LineSection() {
         2xl:text-4xl  // Even larger for very big screens (reduced from 5xl)
         font-thin
       '>
-        Dirham and Bitcoin are an stable coin
+        Dollar and Bitcoin are an stable coin
       </span>
       <span>
         <img
@@ -41,7 +41,7 @@ function LineSection() {
         2xl:text-4xl
         font-thin
       '>
-        Dirham and Bitcoin are an stable coin
+        Dollar and Bitcoin are an stable coin
       </span>
       <span>
         <img
@@ -65,7 +65,7 @@ function LineSection() {
         2xl:text-4xl
         font-thin
       ">
-        Buy DirhamCoin on the app at the rate of 1 USD to 1 USD
+        Buy DollarCoin on the app at the rate of 1 DUSD to 1 USD
         <span className="inline-block align-middle ml-1" style={{ position: "relative", top: "-1px" }}>
           <img
             src={VectorIcon}

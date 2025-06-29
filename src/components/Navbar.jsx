@@ -120,7 +120,7 @@ export default function Navbar() {
       <div className="flex items-center gap-4">
         <img
           src={logo}
-          alt="DirhamCoin Logo"
+          alt="DollarCoin Logo"
           className="h-14 md:h-24 object-contain"
         />
       </div>
@@ -140,7 +140,7 @@ export default function Navbar() {
           }}
         >
           <span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block animate-pulse" style={{ marginRight: '8px', display: 'inline-block' }}></span>{' '}
-          What is DirhamCoin?
+          What is DollarCoin?
         </a>
         <a href="#usecases"
           className="flex items-center justify-center h-[47px] min-w-[148px] px-0 py-0"
@@ -176,7 +176,7 @@ export default function Navbar() {
             textAlign: 'center',
             letterSpacing: '0.04em'
           }}
-        >Buy DirhamCoin</a>
+        >Buy DollarCoin</a>
       </div>
       {/* Desktop Right: Theme, Language, Contact */}
       <div className="hidden md:flex items-center gap-8">
@@ -249,9 +249,9 @@ export default function Navbar() {
         <div className="fixed inset-0 z-50 bg-black/70 flex flex-col items-center justify-center md:hidden">
           <button onClick={() => setMenuOpen(false)} className="absolute top-6 right-6 text-white text-3xl">&times;</button>
           <div className="flex flex-col gap-6 mt-10">
-            <a href="#about" className="text-white text-xl" onClick={() => setMenuOpen(false)}>What is DirhamCoin?</a>
+            <a href="#about" className="text-white text-xl" onClick={() => setMenuOpen(false)}>What is DollarCoin?</a>
             <a href="#usecases" className="text-white text-xl" onClick={() => setMenuOpen(false)}>Use Cases</a>
-            <a href="#buy" className="text-white text-xl" onClick={() => setMenuOpen(false)}>Buy DirhamCoin</a>
+            <a href="#buy" className="text-white text-xl" onClick={() => setMenuOpen(false)}>Buy DollarCoin</a>
             <a href="#contact" className="text-white text-xl" onClick={() => setMenuOpen(false)}>Contact Us</a>
           </div>
         </div>
