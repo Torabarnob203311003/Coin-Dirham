@@ -76,7 +76,8 @@ function Scan() {
                 className="w-6 h-6 sm:w-8 sm:h-8"
               />
             </span>
-            <span className="ml-0 text-xl sm:text-2xl md:text-3xl lg:text-[100px]">on Coins App</span>
+            <span className="ml-0 text-xl sm:text-2xl md:text-3xl lg:text-[100px]">on 
+               BlockPhoenix</span>
           </span>
         </h1>
         <div className="flex items-center justify-center gap-4 mb-4">
