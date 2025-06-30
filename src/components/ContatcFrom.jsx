@@ -6,7 +6,11 @@ const ContactForm = () => {
     const formRef = useRef(null);
     const sectionRef = useRef(null);
 
+    // Only animate on large screens
+    const isLargeScreen = () => typeof window !== "undefined" && window.innerWidth >= 1024;
+
     useEffect(() => {
+        if (!isLargeScreen()) return;
         import('gsap').then(({ default: gsap }) => {
             // Section fade/slide in when component mounts (only content, not bg)
             if (sectionRef.current) {
@@ -20,6 +24,7 @@ const ContactForm = () => {
     }, []);
 
     useEffect(() => {
+        if (!isLargeScreen()) return;
         let animationPlayed = false;
 
         function handleMouseEnter() {
@@ -77,32 +82,33 @@ const ContactForm = () => {
             >
                 <div
                     ref={sectionRef}
-                    className='flex justify-between items-center'
+                    className='flex flex-col md:flex-row justify-between items-center'
                 >
                     {/* left div */}
-                    <div ref={leftDivRef} className='px-20 py-10'>
-                        <div className="text-white text-[20px]">
+                    <div ref={leftDivRef} className='px-6 py-10 md:px-20 md:py-10'>
+                        <div className="text-white text-[16px] md:text-[20px]">
                             <p className="text-sm mb-2">Get access</p>
                             <p className="text-sm">to DollarCoin <span className="">↗</span></p>
                         </div>
-                        <div className='h-[219px] border-[10x] bg-[#ffffff41] w-[1px] my-10'></div>
+                        <div className='h-[1px] md:h-[219px] border-[1px] md:border-[0.5px] bg-[#ffffff41] w-full md:w-[1px] my-10'></div>
                         <div className="flex-1 flex items-center justify-center">
                             <div className="text-white">
-                                <h1 className="text-[100px] leading-[120px] tracking-normal font-light">
+                                <h1 className="text-[50px] md:text-[100px] leading-[70px] md:leading-[120px] tracking-normal font-light">
                                     Payment & *
-                                    <br /><span className='ml-20'>communication</span>
+                                    <br /><span className='ml-0 md:ml-20'>communication</span>
                                     <br />wrapped in
                                     <span className="rounded-full border leading-[0px] my-0 py-0 px-3">one</span>
                                 </h1>
                             </div>
                         </div>
                     </div>
-                    <form ref={formRef} className="space-y-20 px-24">
-                        <div className="text-[70px] leading-[70px] text-white">
+
+                    <form ref={formRef} className="space-y-20 px-6 md:px-24">
+                        <div className="text-[40px] md:text-[70px] leading-[50px] md:leading-[70px] text-white">
                             <span className="">Be one of the first</span>
-                            <div className=" flex items-center justify-center ">
-                                <div className="flex gap-2 items-center space-x-2 text-[70px] mt-2">
-                                    <span className="h-14 w-20 rounded-[2rem] flex items-center justify-center bg-gradient-to-r from-gray-900/75 via-gray-800/40 to-green-500/40 backdrop-blur-xl">
+                            <div className="flex items-center justify-center ">
+                                <div className="flex gap-2 items-center space-x-2 text-[40px] md:text-[70px] mt-2">
+                                    <span className="h-10 w-16 rounded-[2rem] flex items-center justify-center bg-gradient-to-r from-gray-900/75 via-gray-800/40 to-green-500/40 backdrop-blur-xl">
                                         <img src="/logo.png" className="h-6 w-6" alt="" />
                                     </span>
                                     <span className="text-white">to get the app</span>

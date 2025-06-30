@@ -45,7 +45,7 @@ function GridSection() {
       {/* Desktop grid (visible on sm and up) */}
       <div className="desktop-grid hidden sm:grid grid-cols-6 grid-rows-6 gap-3">
         <div ref={cardRefs[0]} className="col-span-2 row-span-4 flex items-start justify-start rounded-lg shadow relative">
-          <img src="/Grid1.png" alt="Grid 1" className="max-w-full max-h-full object-contain" />
+          <img src="/Grid1.svg" alt="Grid 1" className="max-w-full max-h-full object-contain" />
           <span
             style={{
               width: 74,
@@ -135,7 +135,7 @@ function GridSection() {
             </div>
           </div>
         </div>
-        <div ref={cardRefs[2]} className="col-span-2 row-span-2 col-start-1 row-start-5 flex items-start justify-center text-left rounded-3xl"
+        <div ref={cardRefs[2]} className="col-span-2 row-span-2 col-start-1 row-start-5 flex items-start justify-center text-left  rounded-3xl"
           style={{
             background: "linear-gradient(135deg, #03160D 0%, #1BAE6C 100%)"
           }}

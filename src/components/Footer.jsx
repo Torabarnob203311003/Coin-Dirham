@@ -1,4 +1,4 @@
-"use client";
+//"use client";
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import React, { useRef, useEffect } from "react";
 
@@ -7,7 +7,11 @@ const Footer = () => {
     const textRef = useRef(null);
     const sectionRef = useRef(null);
 
+    // Only animate on large screens
+    const isLargeScreen = () => typeof window !== "undefined" && window.innerWidth >= 1024;
+
     useEffect(() => {
+        if (!isLargeScreen()) return;
         let played = false;
         function handleMouseEnter() {
             if (played) return;
@@ -71,13 +75,13 @@ const Footer = () => {
         <footer className="bg-[#000403] text-white py-10 px-6 md:px-20">
             <div ref={sectionRef} className="flex flex-col border-b border-gray-700 pb-10">
                 {/* Links */}
-                <div className=" flex justify-end gap-52 text-sm px-52">
+                <div className="flex flex-col md:flex-row justify-between gap-12 text-sm px-6 md:px-52">
                     <div>
-                        <h2 className="font-light mb-5">
+                        <h2 className="font-light mb-5 text-lg md:text-2xl">
                             01.
-                            <span className="text-gray-400 text-4xl mr-2">Navigation</span>
+                            <span className="text-gray-400 text-xl md:text-4xl mr-2">Navigation</span>
                         </h2>
-                        <ul className="space-y-1 text-2xl font-light">
+                        <ul className="space-y-1 text-lg md:text-2xl font-light">
                             <li>What is DollarCoin</li>
                             <li>UseCases</li>
                             <li>Buy DollarCoin</li>
@@ -85,10 +89,10 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="font-light mb-5 text-[20px]">02.
-                            <span className="text-gray-400 text-4xl mr-2">Legal</span>
+                        <h2 className="font-light mb-5 text-lg md:text-2xl">02.
+                            <span className="text-gray-400 text-xl md:text-4xl mr-2">Legal</span>
                         </h2>
-                        <ul className="space-y-1 text-2xl font-light">
+                        <ul className="space-y-1 text-lg md:text-2xl font-light">
                             <li>Privacy Policy</li>
                             <li>Terms & Conditions</li>
                             <li>Disclaimer</li>
@@ -96,44 +100,42 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div>
-                        <h2 className="font-light mb-5 text-[20px]">03.
-                            <span className="text-gray-400 text-4xl mr-2">Socials</span>
+                        <h2 className="font-light mb-5 text-lg md:text-2xl">03.
+                            <span className="text-gray-400 text-xl md:text-4xl mr-2">Socials</span>
                         </h2>
                         <div className="flex gap-3">
-                                <div className="rounded-full h-12 w-12 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
-                                    <Facebook />
-                                </div>
-                                <div className="rounded-full h-12 w-12 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
-                                    <Instagram />
-                                </div>
-                                <div className="rounded-full h-12 w-12 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
-                                    <Twitter />
-                                </div>
-                           
+                            <div className="rounded-full h-12 w-12 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
+                                <Facebook />
+                            </div>
+                            <div className="rounded-full h-12 w-12 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
+                                <Instagram />
+                            </div>
+                            <div className="rounded-full h-12 w-12 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
+                                <Twitter />
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="flex items-center gap-8">
+                <div className="flex items-center gap-8 mt-6 md:mt-12">
                     <div>
                         <img
                             ref={imgRef}
                             src="/src/assets/Footer.svg"
-                            alt=""
-                            className="h-[143.00103759765625] w-[146.68617248535156]"
+                            alt="DollarCoin"
+                            className="h-36 md:h-[143px] w-36 md:w-[146px] mx-auto"
                         />
                     </div>
                     <h1
                         ref={textRef}
-                        className="text-[201.86px] font-light"
+                        className="text-5xl md:text-[201.86px] font-light text-center md:text-left"
                     >
                         DollarCoin
                     </h1>
                 </div>
             </div>
-            
 
             {/* Bottom Bar */}
-            <div className="flex flex-col md:flex-row justify-between items-center mt-6 text-sm text-gray-400 px-1">
+            <div className="flex flex-col md:flex-row justify-between items-center mt-6 text-sm text-gray-400 px-4 md:px-6">
                 <p>Copyright 2024 | All Rights Reserved</p>
                 <p>
                     Developed by <span className="text-white font-semibold">MDX</span>
