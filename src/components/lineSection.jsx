@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap'; // Import GSAP
 import VectorIcon from '../assets/Vector.svg';
 
-function LineSection() {
+function LineSection({ bgColor, textColor, borderColor,  }) {
   const marqueeRef = useRef(null);
 
   // Define the common marquee content block as a reusable component/fragment
@@ -110,7 +110,17 @@ function LineSection() {
   }, []);
 
   return (
-    <div className='bg-[#0b291a] overflow-hidden'>
+    <div
+      style={{
+        background: bgColor,
+        color: textColor,
+        borderColor: borderColor,
+        // ...other dynamic styles as needed
+      }}
+      className='
+        bg-[#0b291a] overflow-hidden
+      '
+    >
       <div
         className="
           relative

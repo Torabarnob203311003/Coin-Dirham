@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { CircleArrowRight, MoveRight } from 'lucide-react';
 
-const ContactForm = () => {
+function ContactForm({ bgColor, textColor, borderColor,  }) {
     const leftDivRef = useRef(null);
     const formRef = useRef(null);
     const sectionRef = useRef(null);
@@ -103,7 +103,16 @@ const ContactForm = () => {
                         </div>
                     </div>
 
-                    <form ref={formRef} className="space-y-20 px-6 md:px-24">
+                    <form
+                        ref={formRef}
+                        style={{
+                            background: bgColor,
+                            color: textColor,
+                            borderColor: borderColor,
+                            // ...other dynamic styles as needed
+                        }}
+                        className="space-y-20 px-6 md:px-24"
+                    >
                         <div className="text-[40px] md:text-[70px] leading-[50px] md:leading-[70px] text-white">
                             <span className="">Be one of the first</span>
                             <div className="flex items-center justify-center ">

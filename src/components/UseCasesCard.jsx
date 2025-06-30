@@ -6,7 +6,7 @@ import RightArrow from '../assets/rightarrow.png';
 import Dot from '../assets/dot.svg';
 import ShareIcon from '../assets/share.svg';
 
-const UseCasesCard = () => {
+function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
   // Responsive: show mobile or desktop layout
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
   useEffect(() => {

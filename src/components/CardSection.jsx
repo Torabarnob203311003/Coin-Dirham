@@ -4,7 +4,7 @@ import tokenBitcoin from "../assets/token_bitcoin.svg";
 import crousupLogo from "../assets/Course Up.svg";
 import GridSection from "./GridSection";
 
-function CardSection() {
+function CardSection({ bgColor, textColor, borderColor,  }) {
   const textRef = useRef(null);
   const dirhamRef = useRef(null);
   const bitcoinRef = useRef(null);
@@ -176,12 +176,14 @@ function CardSection() {
   }, []);
 
   return (
-    <div
-      className="w-full min-h-[300px] flex flex-col items-center justify-center bg-cover bg-center overflow-x-hidden relative"
+    <section
       style={{
-        backgroundImage: 'url(/BG2.jpg)',
-        filter: "brightness(0.9) contrast(1.2)",
+        background: bgColor,
+        color: textColor,
+        borderColor: borderColor,
+        // ...other dynamic styles as needed
       }}
+      className="w-full min-h-[300px] flex flex-col items-center justify-center bg-cover bg-center overflow-x-hidden relative"
     >
       {/* Desktop Version - Hidden on mobile */}
       <div
@@ -364,7 +366,7 @@ function CardSection() {
       <div className="mt-20 mb-20 ms-6 me-6">
         <GridSection />
       </div>
-    </div>
+    </section>
   );
 }
 

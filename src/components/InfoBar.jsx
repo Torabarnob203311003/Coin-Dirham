@@ -10,9 +10,17 @@ const textStyle = {
   lineHeight: 'normal',
 };
 
-function InfoBar() {
+function InfoBar({ bgColor, textColor, borderColor,  }) {
   return (
-    <div className="w-full overflow-hidden mt-8 sm:mt-28 px-2">
+    <div
+      style={{
+        background: bgColor,
+        color: textColor,
+        borderColor: borderColor,
+        // ...other dynamic styles as needed
+      }}
+      className="w-full overflow-hidden mt-8 sm:mt-28 px-2"
+    >
       <Marquee gradient={false} speed={180} pauseOnHover={true}>
         <span
           className="border border-zinc-500 rounded-full px-4 py-1 flex items-center mr-8"
@@ -40,5 +48,5 @@ function InfoBar() {
     </div>
   );
 }
-
 export default InfoBar;
+

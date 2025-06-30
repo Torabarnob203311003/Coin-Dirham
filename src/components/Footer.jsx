@@ -2,7 +2,7 @@
 import { Facebook, Instagram, Twitter } from "lucide-react";
 import React, { useRef, useEffect } from "react";
 
-const Footer = () => {
+function Footer({ bgColor, textColor, borderColor,  }) {
     const imgRef = useRef(null);
     const textRef = useRef(null);
     const sectionRef = useRef(null);
@@ -72,7 +72,15 @@ const Footer = () => {
     }, []);
 
     return (
-        <footer className="bg-[#000403] text-white py-10 px-6 md:px-20">
+        <footer
+            style={{
+                background: bgColor,
+                color: textColor,
+                borderColor: borderColor,
+                // ...other dynamic styles as needed
+            }}
+            className="bg-[#000403] text-white py-10 px-6 md:px-20"
+        >
             <div ref={sectionRef} className="flex flex-col border-b border-gray-700 pb-10">
                 {/* Links */}
                 <div className="flex flex-col md:flex-row justify-between gap-12 text-sm px-6 md:px-52">

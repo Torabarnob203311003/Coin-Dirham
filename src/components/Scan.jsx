@@ -19,16 +19,16 @@ const avatars = [
   "https://randomuser.me/api/portraits/women/46.jpg"
 ];
 
-function Scan() {
+function Scan({ bgColor, textColor, borderColor,  }) {
   return (
     <div
-      className="relative min-h-screen flex flex-col items-center justify-center bg-[#0c1813] overflow-hidden px-4 sm:px-6 md:px-8 lg:px-12"
       style={{
-        backgroundImage: "url('/bg3.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat"
+        background: bgColor,
+        color: textColor,
+        borderColor: borderColor,
+        // ...other dynamic styles as needed
       }}
+      className="relative min-h-screen flex flex-col items-center justify-center bg-[#0c1813] overflow-hidden px-4 sm:px-6 md:px-8 lg:px-12"
     >
       {/* Centered Content */}
       <div className="flex flex-col items-center justify-center pt-16 pb-32 md:pb-16 lg:pb-0">

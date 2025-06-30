@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 
-function GridSection() {
+function GridSection({ bgColor, textColor, borderColor,  }) {
   const iconRef = useRef(null);
   const cardRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
   const triggered = useRef(false);
@@ -41,7 +41,14 @@ function GridSection() {
 
   // Desktop and mobile content
   return (
-    <div>
+    <div
+      style={{
+        background: bgColor,
+        color: textColor,
+        borderColor: borderColor,
+        // ...other dynamic styles as needed
+      }}
+    >
       {/* Desktop grid (visible on sm and up) */}
       <div className="desktop-grid hidden sm:grid grid-cols-6 grid-rows-6 gap-3">
         <div ref={cardRefs[0]} className="col-span-2 row-span-4 flex items-start justify-start rounded-lg shadow relative">

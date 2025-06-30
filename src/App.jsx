@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { ThemeProvider } from "./context/ThemeContext";
+import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import BG1 from "./assets/BG1.png";
@@ -12,6 +12,7 @@ import Scan from "./components/Scan";
 import GridSection from "./components/GridSection";
 import LineSection from "./components/lineSection";
 import UseCasesCard from "./components/UseCasesCard";
+import themeStyles from "./themeStyles"; // <-- import the theme styles
 
 function App() {
   // Auto-refresh on screen size switch between mobile and desktop
@@ -30,34 +31,83 @@ function App() {
 
   return (
     <ThemeProvider>
+      <ThemeConsumerApp />
+    </ThemeProvider>
+  );
+}
+
+// New component to consume theme context
+function ThemeConsumerApp() {
+  const { theme } = useTheme();
+  const isLight = theme === "light";
+  const currentTheme = themeStyles[isLight ? "light" : "dark"];
+
+  return (
+    <>
       <div
-        className="min-h-screen h-screen overflow-x-hidden bg-zinc-800 w-full bg-cover bg-center transition-all duration-300"
+        className="min-h-screen h-screen overflow-x-hidden w-full bg-cover bg-center transition-all duration-300"
         style={{
           backgroundImage: `url(${BG1})`,
-          filter: 'contrast(1.38) brightness(1.18)'
+          filter: currentTheme.bgFilter,
+          backgroundColor: isLight ? "#fff" : currentTheme.bgColor,
         }}
       >
         <Navbar />
         <HeroSection />
-        <InfoBar />
+        <InfoBar
+          bgColor={currentTheme.bgColor}
+          textColor={currentTheme.textColor}
+          borderColor={currentTheme.borderColor}
+          accent={currentTheme.accent}
+        />
       </div>
-      <div>
-        <CardSection />
+      <div style={{ background: isLight ? "#fff" : undefined }}>
+        <CardSection
+          bgColor={currentTheme.bgColor}
+          textColor={currentTheme.textColor}
+          borderColor={currentTheme.borderColor}
+          accent={currentTheme.accent}
+        />
       </div>
-      <div>
-        <UseCasesCard />
+      <div style={{ background: isLight ? "#fff" : undefined }}>
+        <UseCasesCard
+          bgColor={currentTheme.bgColor}
+          textColor={currentTheme.textColor}
+          borderColor={currentTheme.borderColor}
+          accent={currentTheme.accent}
+        />
       </div>
-      <div>
-        <Scan />
+      <div style={{ background: isLight ? "#fff" : undefined }}>
+        <Scan
+          bgColor={currentTheme.bgColor}
+          textColor={currentTheme.textColor}
+          borderColor={currentTheme.borderColor}
+          accent={currentTheme.accent}
+        />
       </div>
-      <div>
-        <LineSection />
+      <div style={{ background: isLight ? "#fff" : undefined }}>
+        <LineSection
+          bgColor={currentTheme.bgColor}
+          textColor={currentTheme.textColor}
+          borderColor={currentTheme.borderColor}
+          accent={currentTheme.accent}
+        />
       </div>
-      <div>
-        <ContactForm />
+      <div style={{ background: isLight ? "#fff" : undefined }}>
+        <ContactForm
+          bgColor={currentTheme.bgColor}
+          textColor={currentTheme.textColor}
+          borderColor={currentTheme.borderColor}
+          accent={currentTheme.accent}
+        />
       </div>
-      <Footer />
-    </ThemeProvider>
+      <Footer
+        bgColor={currentTheme.bgColor}
+        textColor={currentTheme.textColor}
+        borderColor={currentTheme.borderColor}
+        accent={currentTheme.accent}
+      />
+    </>
   );
 }
 
