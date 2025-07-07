@@ -70,7 +70,7 @@ function GridSection({ bgColor, textColor, borderColor,  }) {
             }}
             className="block"
           >
-            01.
+            
           </span>
         </div>
         <div ref={cardRefs[1]} className="col-span-2 row-span-6 col-start-5 row-start-1">
