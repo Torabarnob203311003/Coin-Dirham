@@ -6,14 +6,57 @@ import RightArrow from '../assets/rightarrow.png';
 import Dot from '../assets/dot.svg';
 import ShareIcon from '../assets/share.svg';
 
+
 function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
   // Responsive: show mobile or desktop layout
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+  const [isMobile, setIsMobile] = useState(null);
+  const [activeSection, setActiveSection] = useState(null);
+  const stepsRef = useRef([]);
+  const intervalRef = useRef(null);
+  const userInteractedRef = useRef(false);
+
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    // Only run on client
+    if (typeof window !== 'undefined') {
+      const checkMobile = () => setIsMobile(window.innerWidth < 640);
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }
   }, []);
+
+  const sections = ['Trade', 'Hold', 'Buy/Sell', 'Transact'];
+
+  // Animation: cycle through sections every 5s unless user interacts
+  useEffect(() => {
+    // Always start with 'Hold' in focus
+    if (activeSection === null) setActiveSection('Hold');
+    if (userInteractedRef.current) return;
+
+    import('gsap').then(gsap => {
+      intervalRef.current = setInterval(() => {
+        setActiveSection(prev => {
+          const idx = sections.indexOf(prev);
+          return sections[(idx + 1) % sections.length];
+        });
+      }, 5000);
+    });
+
+    return () => {
+      clearInterval(intervalRef.current);
+    };
+    // eslint-disable-next-line
+  }, [activeSection]);
+
+  // Pause animation on user click
+  const handleSectionClick = (section) => {
+    userInteractedRef.current = true;
+    clearInterval(intervalRef.current);
+    setActiveSection(section);
+  };
+
+  // Don't render until isMobile is determined
+  if (isMobile === null) return null;
 
   // --- MOBILE LAYOUT ---
   if (isMobile) {
@@ -175,42 +218,8 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
     );
   }
 
+
   // --- DESKTOP LAYOUT ---
-  const [activeSection, setActiveSection] = useState(null);
-  const stepsRef = useRef([]);
-  const intervalRef = useRef(null);
-  const userInteractedRef = useRef(false);
-
-  const sections = ['Trade', 'Hold', 'Buy/Sell', 'Transact'];
-
-  // Animation: cycle through sections every 5s unless user interacts
-  useEffect(() => {
-    // Always start with 'Hold' in focus
-    if (activeSection === null) setActiveSection('Hold');
-    if (userInteractedRef.current) return;
-
-    import('gsap').then(gsap => {
-      intervalRef.current = setInterval(() => {
-        setActiveSection(prev => {
-          const idx = sections.indexOf(prev);
-          return sections[(idx + 1) % sections.length];
-        });
-      }, 5000);
-    });
-
-    return () => {
-      clearInterval(intervalRef.current);
-    };
-    // eslint-disable-next-line
-  }, [activeSection]);
-
-  // Pause animation on user click
-  const handleSectionClick = (section) => {
-    userInteractedRef.current = true;
-    clearInterval(intervalRef.current);
-    setActiveSection(section);
-  };
-
   return (
     <div
       className="relative min-h-screen flex flex-row items-center justify-center "
