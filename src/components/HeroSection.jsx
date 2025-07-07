@@ -145,7 +145,7 @@ function HeroSection() {
       {/* Card section - styled as in screenshot */}
       <div
         ref={cardRef}
-        className="rounded-[24px] sm:rounded-[32px] p-4 sm:p-6 md:p-8 backdrop-blur-2xl shadow-2xl flex flex-col justify-between border border-[rgba(255,255,255,0.18)] -mt-7 ms-40 sm:mt-16 md:mt-14 md:ml-8 max-w-[95vw] sm:max-w-[400px] md:max-w-none mx-auto md:mx-0"
+        className="rounded-[24px] sm:rounded-[32px] p-4 sm:p-6 md:p-8 backdrop-blur-2xl shadow-2xl flex flex-col justify-between border border-[rgba(255,255,255,0.18)] -mt-7 ms-36 sm:mt-16 md:mt-14 md:ml-8 max-w-[95vw] sm:max-w-[400px] md:max-w-none mx-auto md:mx-0"
         style={{
           width: '60%',
           //height:'50%',
