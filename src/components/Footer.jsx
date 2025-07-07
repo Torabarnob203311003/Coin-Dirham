@@ -128,7 +128,7 @@ function Footer({ bgColor, textColor, borderColor,  }) {
                     <div>
                         <img
                             ref={imgRef}
-                            src="/src/assets/Footer.svg"
+                            src="/Footer.svg"
                             alt="DollarCoin"
                             className="h-16 md:h-[143px] w-16 md:w-[146px] mx-auto"
                         />
