@@ -102,7 +102,7 @@ function HeroSection() {
           <span className="-ms-4 sm:-ms-8 md:-ms-16">
             Stable
             <img
-              src="/src/assets/Group 2.svg"
+              src="/Group 2.svg"
               alt="arrow"
               style={{
                 height: 'clamp(20px, 4vw, 60px)',

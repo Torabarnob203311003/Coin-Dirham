@@ -150,7 +150,7 @@ function GridSection({ bgColor, textColor, borderColor,  }) {
           <div className="flex justify-center items-center gap-8 mt-8 pt-11 w-full">
             <div className="items-center justify-center">
               <img
-                src="/src/assets/Footer.svg"
+                src="/Footer.svg"
                 alt=""
                 className="w-[46px] h-[66px] object-contain"
               />
