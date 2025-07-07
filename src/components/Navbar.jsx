@@ -1,4 +1,4 @@
-0import logo from "../assets/logo.png";
+import logo from "../assets/logo.png";
 import Sun from "../assets/Sun.svg";
 import Moon from "../assets/Moon.svg";
 import { useTheme } from "../context/ThemeContext";
