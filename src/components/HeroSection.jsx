@@ -113,7 +113,7 @@ function HeroSection() {
               }}
             />
           </span>
-          <span className="ms-4 sm:ms-10">Cryptocurrency</span>
+          <span className="-ms-3 sm:ms-10">Cryptocurrency</span>
           <span style={{ display: 'inline-flex', alignItems: 'center', flexWrap: 'wrap' }}>
             <span
               className="-ms-4 sm:-ms-8 md:-ms-16"

@@ -130,7 +130,7 @@ function Footer({ bgColor, textColor, borderColor,  }) {
                             ref={imgRef}
                             src="/src/assets/Footer.svg"
                             alt="DollarCoin"
-                            className="h-36 md:h-[143px] w-36 md:w-[146px] mx-auto"
+                            className="h-16 md:h-[143px] w-16 md:w-[146px] mx-auto"
                         />
                     </div>
                     <h1
