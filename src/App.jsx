@@ -93,14 +93,14 @@ function ThemeConsumerApp() {
           accent={currentTheme.accent}
         />
       </div>
-      <div style={{ background: isLight ? "#fff" : undefined }}>
+      {/* <div style={{ background: isLight ? "#fff" : undefined }}>
         <ContactForm
           bgColor={currentTheme.bgColor}
           textColor={currentTheme.textColor}
           borderColor={currentTheme.borderColor}
           accent={currentTheme.accent}
         />
-      </div>
+      </div> */}
       <Footer
         bgColor={currentTheme.bgColor}
         textColor={currentTheme.textColor}

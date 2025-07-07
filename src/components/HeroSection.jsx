@@ -169,7 +169,7 @@ function HeroSection() {
               justifyContent: 'center',
             }}
           >
-            <img src="/public/STAR.svg" alt="star" style={{ width: 'clamp(24px, 6vw, 40px)', height: 'clamp(24px, 6vw, 40px)' }} />
+            <img src="/STAR.svg" alt="star" style={{ width: 'clamp(24px, 6vw, 40px)', height: 'clamp(24px, 6vw, 40px)' }} />
           </div>
         </div>
         {/* Title - moved up with smaller margin */}
