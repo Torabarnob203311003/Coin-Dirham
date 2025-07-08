@@ -39,7 +39,6 @@ function ThemeToggle() {
         overflow: "visible",
       }}
     >
-      {/* Decorative gradient stroke as a div, centered and visible */}
       <div
         style={{
           position: "absolute",
@@ -57,7 +56,6 @@ function ThemeToggle() {
           pointerEvents: "none",
         }}
       />
-      {/* Sun and Moon buttons, above the stroke */}
       <div className="relative flex items-center gap-2 z-10">
         <button
           onClick={() => setTheme("light")}
@@ -133,205 +131,182 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav
-      className={`w-full flex items-center justify-between px-4 md:px-10 font-[300] text-[18px] text-white -mt-6 min-h-[165px] transition-all duration-700 ${
-        show ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-90 blur-md"
-      }`}
-      style={{
-        fontFamily: "Funnel Sans",
-        fontStyle: "normal",
-        lineHeight: "normal",
-      }}
-    >
-      {/* Left: Logo */}
-      <div className="flex items-center gap-4 ">
-        <img
-          src={logo}
-          alt="DollarCoin Logo"
-          className="h-14 md:h-24 object-contain"
-        />
-      </div>
-      {/* Desktop Nav Links */}
-      <div className="hidden md:flex items-center gap-10">
-        <a
-          href="#about"
-          className="flex items-center gap-2 px-4 py-3"
-          style={{
-            fontFamily: "Funnel Sans",
-            borderRadius: "100.528px",
-            border: "1px solid #1BAE6C",
-            backdropFilter: "blur(76.45px)",
-            width: "230px",
-            height: "47px",
-            flexShrink: 0,
-            whiteSpace: "nowrap",
-          }}
-        >
-          <span
-            className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block animate-pulse"
-            style={{ marginRight: "8px", display: "inline-block" }}
-          ></span>{" "}
-          What is DollarCoin?
-        </a>
-        <a
-          href="#usecases"
-          className="flex items-center justify-center h-[47px] min-w-[148px] px-0 py-0"
-          style={{
-            color: "#FFF",
-            fontFamily: "Funnel Sans",
-            fontSize: "18px",
-            fontStyle: "normal",
-            fontWeight: 300,
-            lineHeight: "normal",
-            borderRadius: "100.528px",
-            border: "1px solid rgba(255,255,255,0.07)",
-            backdropFilter: "blur(76.45px)",
-            flexShrink: 0,
-            whiteSpace: "nowrap",
-            textAlign: "center",
-          }}
-        >
-          Use Cases
-        </a>
-        <a
-          href="#buy"
-          className="flex items-center justify-center h-[47px] min-w-[148px] px-6 py-0"
-          style={{
-            color: "#FFF",
-            fontFamily: "Funnel Sans",
-            fontSize: "18px",
-            fontStyle: "normal",
-            fontWeight: 300,
-            lineHeight: "normal",
-            borderRadius: "100.528px",
-            border: "1px solid rgba(255,255,255,0.07)",
-            backdropFilter: "blur(76.45px)",
-            flexShrink: 0,
-            whiteSpace: "nowrap",
-            textAlign: "center",
-            letterSpacing: "0.04em",
-          }}
-        >
-          Buy DollarCoin
-        </a>
-      </div>
-      {/* Desktop Right: Theme, Language, Contact */}
-      <div className="hidden md:flex items-center gap-8">
-        <ThemeToggle />
-        <div className="flex items-center gap-2 px-6 py-3">
-          <WorldIcon className="text-white" />
-          <select
-            className="bg-transparent text-white font-[300] focus:outline-none"
+    <>
+      <nav
+        className={`w-full flex items-center justify-between px-4 md:px-10 font-[300] text-[18px] text-white -mt-6 min-h-[165px] transition-all duration-700 ${
+          show ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-90 blur-md"
+        }`}
+        style={{
+          fontFamily: "Funnel Sans",
+          fontStyle: "normal",
+          lineHeight: "normal",
+        }}
+      >
+        <div className="flex items-center gap-4">
+          <img
+            src={logo}
+            alt="DollarCoin Logo"
+            className="h-14 md:h-24 object-contain"
+          />
+        </div>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-10">
+          <a
+            href="#about"
+            className="flex items-center gap-2 px-4 py-3"
             style={{
-              color: "#FFF",
               fontFamily: "Funnel Sans",
-              fontSize: "20px",
-              fontStyle: "normal",
-              fontWeight: 300,
-              lineHeight: "normal",
+              borderRadius: "100.528px",
+              border: "1px solid #1BAE6C",
+              backdropFilter: "blur(76.45px)",
+              width: "230px",
+              height: "47px",
+              flexShrink: 0,
+              whiteSpace: "nowrap",
             }}
           >
-            <option value="en">En</option>
-            <option value="fr">FR</option>
-          </select>
-        </div>
-        <a
-          href="#contact"
-          className="flex items-center gap-2 hover:underline rounded-full px-7 py-3 whitespace-nowrap"
-          style={{
-            color: "#F2F2F3",
-            fontFamily: "Funnel Sans",
-            fontSize: "18px",
-            fontStyle: "normal",
-            fontWeight: 300,
-            lineHeight: "normal",
-            borderRadius: "100.528px",
-            border: "1px solid #036E47",
-            backdropFilter: "blur(76.45px)",
-            width: "173px",
-            height: "47px",
-            flexShrink: 0,
-            textDecoration: "none",
-          }}
-        >
-          <span className="flex items-center w-full justify-between">
-            <span style={{ marginRight: "18px" }}>Contact Us</span>
             <span
-              className="inline-flex items-center justify-center rounded-full p-1"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(27, 174, 108, 0.53) 4.72%, rgba(7, 88, 52, 0.53) 79.2%)",
-                backdropFilter: "blur(8.25px)",
-              }}
-            >
-              {/* Right Arrow SVG */}
-              <svg width="30" height="30" fill="none" viewBox="0 0 24 24">
-                <path
-                  stroke="#fff"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M5 12h14m-4-4 4 4-4 4"
-                />
-              </svg>
-            </span>
-          </span>
-        </a>
-      </div>
-      {/* Mobile: Theme, Menu (removed country icon, EN, and arrow) */}
-      <div className="flex md:hidden items-center gap-2">
-        <ThemeToggle />
-        {/* Hamburger Menu */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="ml-2 flex flex-col justify-center items-center w-10 h-10"
-        >
-          <span className="block w-7 h-0.5 bg-white mb-1 rounded"></span>
-          <span className="block w-7 h-0.5 bg-white mb-1 rounded"></span>
-          <span className="block w-7 h-0.5 bg-white rounded"></span>
-        </button>
-      </div>
-      {/* Mobile Nav Drawer */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-50 bg-black/70 flex flex-col items-center justify-center md:hidden">
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="absolute top-6 right-6 text-white text-3xl"
+              className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block animate-pulse"
+              style={{ marginRight: "8px" }}
+            ></span>
+            What is DollarCoin?
+          </a>
+          <a
+            href="#usecases"
+            className="flex items-center justify-center h-[47px] min-w-[148px] px-0 py-0"
+            style={{
+              borderRadius: "100.528px",
+              border: "1px solid rgba(255,255,255,0.07)",
+              backdropFilter: "blur(76.45px)",
+              flexShrink: 0,
+              whiteSpace: "nowrap",
+              textAlign: "center",
+            }}
           >
-            &times;
-          </button>
-          <div className="flex flex-col gap-6 mt-10">
-            <a
-              href="#about"
-              className="text-white text-xl"
-              onClick={() => setMenuOpen(false)}
-            >
-              What is DollarCoin?
-            </a>
-            <a
-              href="#usecases"
-              className="text-white text-xl"
-              onClick={() => setMenuOpen(false)}
-            >
-              Use Cases
-            </a>
-            <a
-              href="#buy"
-              className="text-white text-xl"
-              onClick={() => setMenuOpen(false)}
-            >
-              Buy DollarCoin
-            </a>
-            <a
-              href="#contact"
-              className="text-white text-xl"
-              onClick={() => setMenuOpen(false)}
-            >
-              Contact Us
-            </a>
-          </div>
+            Use Cases
+          </a>
+          <a
+            href="#buy"
+            className="flex items-center justify-center h-[47px] min-w-[148px] px-6 py-0"
+            style={{
+              borderRadius: "100.528px",
+              border: "1px solid rgba(255,255,255,0.07)",
+              backdropFilter: "blur(76.45px)",
+              flexShrink: 0,
+              whiteSpace: "nowrap",
+              textAlign: "center",
+              letterSpacing: "0.04em",
+            }}
+          >
+            Buy DollarCoin
+          </a>
         </div>
-      )}
-    </nav>
+
+        {/* Desktop Right: Theme, Language, Contact */}
+        <div className="hidden md:flex items-center gap-8">
+          <ThemeToggle />
+          <div className="flex items-center gap-2 px-6 py-3">
+            <WorldIcon className="text-white" />
+            <select className="bg-transparent text-white font-[300] focus:outline-none">
+              <option value="en">En</option>
+              <option value="fr">FR</option>
+            </select>
+          </div>
+          <a
+            href="#contact"
+            className="flex items-center gap-2 hover:underline rounded-full px-7 py-3 whitespace-nowrap"
+            style={{
+              color: "#F2F2F3",
+              borderRadius: "100.528px",
+              border: "1px solid #036E47",
+              backdropFilter: "blur(76.45px)",
+              width: "173px",
+              height: "47px",
+              flexShrink: 0,
+            }}
+          >
+            <span className="flex items-center w-full justify-between">
+              <span style={{ marginRight: "18px" }}>Contact Us</span>
+              <span
+                className="inline-flex items-center justify-center rounded-full p-1"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(27, 174, 108, 0.53) 4.72%, rgba(7, 88, 52, 0.53) 79.2%)",
+                  backdropFilter: "blur(8.25px)",
+                }}
+              >
+                <svg width="30" height="30" fill="none" viewBox="0 0 24 24">
+                  <path
+                    stroke="#fff"
+                    strokeWidth={2}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M5 12h14m-4-4 4 4-4 4"
+                  />
+                </svg>
+              </span>
+            </span>
+          </a>
+        </div>
+
+        {/* Mobile: Toggle + Theme */}
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="ml-2 flex flex-col justify-center items-center w-10 h-10"
+          >
+            <span className="block w-7 h-0.5 bg-white mb-1 rounded"></span>
+            <span className="block w-7 h-0.5 bg-white mb-1 rounded"></span>
+            <span className="block w-7 h-0.5 bg-white rounded"></span>
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Nav Menu (Animated) */}
+      <div
+        className={`fixed inset-0 z-40 flex flex-col justify-start  bg-black/70 md:hidden transition-all duration-500 ease-in-out ${
+          menuOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-90 invisible"
+        }`}
+      >
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="absolute top-6 right-6 text-white hover:text-green-500 text-3xl"
+        >
+          &times;
+        </button>
+        <div className="flex flex-col gap-6 bg-[#0A0A0A]  p-10">
+          <a
+            href="#about"
+            className="text-white text-xl"
+            onClick={() => setMenuOpen(false)}
+          >
+            What is DollarCoin?
+          </a>
+          <a
+            href="#usecases"
+            className="text-white text-xl"
+            onClick={() => setMenuOpen(false)}
+          >
+            Use Cases
+          </a>
+          <a
+            href="#buy"
+            className="text-white text-xl"
+            onClick={() => setMenuOpen(false)}
+          >
+            Buy DollarCoin
+          </a>
+          <a
+            href="#contact"
+            className="text-white text-xl"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </>
   );
 }
