@@ -133,7 +133,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`w-full flex items-center justify-between px-4 md:px-10 font-[300] text-[18px] text-white -mt-6 min-h-[165px] transition-all duration-700 ${
+        className={`w-full flex items-center justify-between px-4 md:px-10 font-[300] text-[18px] text-white -mt-11 min-h-[65px] transition-all duration-700 ${
           show ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-90 blur-md"
         }`}
         style={{
@@ -142,11 +142,11 @@ export default function Navbar() {
           lineHeight: "normal",
         }}
       >
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4  ">
           <img
             src={logo}
             alt="DollarCoin Logo"
-            className="h-44 md:h-54 "
+            className="h-52 md:h-54  "
           />
         </div>
 
