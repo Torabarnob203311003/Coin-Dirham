@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../assets/Group 1.svg";
 import Sun from "../assets/Sun.svg";
 import Moon from "../assets/Moon.svg";
 import { useTheme } from "../context/ThemeContext";
@@ -146,7 +146,7 @@ export default function Navbar() {
           <img
             src={logo}
             alt="DollarCoin Logo"
-            className="h-14 md:h-24 object-contain"
+            className="h-44 md:h-54 "
           />
         </div>
 
