@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { ThemeProvider, useTheme } from "./context/ThemeContext";
+import { ThemeProvider,  } from "./context/ThemeContext";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import BG1 from "./assets/BG1.png";
@@ -38,7 +38,7 @@ function App() {
 
 // New component to consume theme context
 function ThemeConsumerApp() {
-  const { theme } = useTheme();
+  const { theme } = [];
   const isLight = theme === "light";
   const currentTheme = themeStyles[isLight ? "light" : "dark"];
 
