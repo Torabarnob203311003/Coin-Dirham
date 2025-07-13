@@ -76,7 +76,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
                 className="w-6 h-6 sm:w-8 sm:h-8"
               />
             </span>
-            <span className="ml-0 text-xl sm:text-2xl md:text-3xl lg:text-[100px]">on BlockFinex</span>
+            <span className="ml-0 text-xl sm:text-2xl md:text-3xl lg:text-[100px]">on Blockfinex</span>
           </span>
         </h1>
         <div className="flex items-center justify-center gap-4 mb-4">
