@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import BG3 from '../assets/BG3.svg';
+import BG3 from '/Bg-3.jpg'; // Ensure this path is correct
 import usecaseImg from '../assets/usecase1.jpg';
 import VectorUsecase from '../assets/vectorusecase.svg';
 import RightArrow from '../assets/rightarrow.png';
@@ -56,6 +56,15 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
   };
 
   // Don't render until isMobile is determined
+
+  // Desktop background lazy-load hooks must be outside of any conditionals!
+  const [bgLoaded, setBgLoaded] = useState(false);
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = BG3;
+    img.onload = () => setBgLoaded(true);
+  }, []);
+
   if (isMobile === null) return null;
 
   // --- MOBILE LAYOUT ---
@@ -134,7 +143,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
               }}
             />
             <div className="flex space-x-4 ml-4 items-center">
-              <span className="text-xs font-semibold border text-zinc-300 border border-gray-300 rounded-full px-3 py-0.5">Exchange</span>
+              <span className="text-xs font-semibold text-zinc-300 border border-gray-300 rounded-full px-3 py-0.5">Exchange</span>
               <span className="text-xs text-zinc-300 border border-gray-300 rounded-full px-3 py-0.5">Stable</span>
               <span
                 style={{
@@ -218,27 +227,35 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
     );
   }
 
-
   // --- DESKTOP LAYOUT ---
+  // Lazy load BG3 image for desktop background
+  // Fix: If bgLoaded is false, still render the content (just no background image)
+  // const [bgLoaded, setBgLoaded] = useStateReact(false);
+  // useEffect(() => {
+  //   const img = new window.Image();
+  //   img.src = BG3;
+  //   img.onload = () => setBgLoaded(true);
+  // }, []);
   return (
     <div
-      className="relative min-h-screen flex flex-row items-center justify-center "
+      className="relative min-h-screen flex flex-row items-center justify-center"
       style={{
-        backgroundImage: `url(${BG3})`,
+        backgroundImage: bgLoaded ? `url(${BG3})` : undefined,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         overflow: "auto",
         scrollbarWidth: "none", // Firefox
-        msOverflowStyle: "none", // IE 10+
+        msOverflowStyle: "none", // IE 10+,
         filter: "brightness(1.45) contrast(1.15)",
         //width: "100vw",
         height: "100vh",
-       padding: "112px", // Add padding around the main div
+        padding: "112px", // Add padding around the main div
         boxSizing: "border-box",
         gap: "180px" // Add gap between the two main divs
       }}
     >
+    
       {/* Card Section */}
       <div
         className="bg-gradient-to-br from-green-900 via-green-800 to-green-900 rounded-2xl ms-40  p-10 text-white relative overflow-hidden flex flex-col"
@@ -327,7 +344,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
               }}
             />
             <div className="flex space-x-8 ml-6 items-center">
-              <span className="text-sm font-semibold border text-zinc-300 border border-gray-300 rounded-full px-4 py-1">Exchange</span>
+              <span className="text-sm font-semibold text-zinc-300 border border-gray-300 rounded-full px-4 py-1">Exchange</span>
               <span className="text-sm text-zinc-300 border border-gray-300 rounded-full px-4 py-1">Stable</span>
               <span
                 style={{
