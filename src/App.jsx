@@ -61,38 +61,38 @@ function ThemeConsumerApp() {
           accent={currentTheme.accent}
         />
       </div>
-      <div style={{ background: isLight ? "#fff" : undefined }}>
+     
         <CardSection
           bgColor={currentTheme.bgColor}
           textColor={currentTheme.textColor}
           borderColor={currentTheme.borderColor}
           accent={currentTheme.accent}
         />
-      </div>
-      <div style={{ background: isLight ? "#fff" : undefined }}>
+    
+    
         <UseCasesCard
           bgColor={currentTheme.bgColor}
           textColor={currentTheme.textColor}
           borderColor={currentTheme.borderColor}
           accent={currentTheme.accent}
         />
-      </div>
-      <div style={{ background: isLight ? "#fff" : undefined }}>
+      
+      
         <Scan
           bgColor={currentTheme.bgColor}
           textColor={currentTheme.textColor}
           borderColor={currentTheme.borderColor}
           accent={currentTheme.accent}
         />
-      </div>
-      <div style={{ background: isLight ? "#fff" : undefined }}>
+    
+      
         <LineSection
           bgColor={currentTheme.bgColor}
           textColor={currentTheme.textColor}
           borderColor={currentTheme.borderColor}
           accent={currentTheme.accent}
         />
-      </div>
+   
       {/* <div style={{ background: isLight ? "#fff" : undefined }}>
         <ContactForm
           bgColor={currentTheme.bgColor}

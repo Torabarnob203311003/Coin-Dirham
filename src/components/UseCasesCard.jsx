@@ -5,6 +5,8 @@ import VectorUsecase from '../assets/vectorusecase.svg';
 import RightArrow from '../assets/rightarrow.png';
 import Dot from '../assets/dot.svg';
 import ShareIcon from '../assets/share.svg';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
 function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
@@ -93,11 +95,11 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
             <div>
               <h2 className="text-3xl font-bold leading-tight">Our Use</h2>
               <span className="inline-flex items-center mt-1 text-3xl font-bold leading-tight">
-                <img src={VectorUsecase} alt="" style={{ marginRight: "8px" }} />
+                <LazyLoadImage src={VectorUsecase} alt="" style={{ marginRight: "8px" }} effect="blur" />
                 Cases
               </span>
             </div>
-            <img src={RightArrow} alt="right arrow" width={28} height={28} />
+            <LazyLoadImage src={RightArrow} alt="right arrow" width={28} height={28} effect="blur" />
           </div>
           {/* Description */}
           <div className="mb-6">
@@ -133,7 +135,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
           </div>
           {/* Dots and tags */}
           <div className="flex items-center justify-between mt-auto">
-            <img
+            <LazyLoadImage
               src={Dot}
               alt="dot"
               style={{
@@ -141,6 +143,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                 height: "10px",
                 flexShrink: 0
               }}
+              effect="blur"
             />
             <div className="flex space-x-4 ml-4 items-center">
               <span className="text-xs font-semibold text-zinc-300 border border-gray-300 rounded-full px-3 py-0.5">Exchange</span>
@@ -159,7 +162,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                   justifyContent: "center"
                 }}
               >
-                <img
+                <LazyLoadImage
                   src={ShareIcon}
                   alt="share"
                   style={{
@@ -167,6 +170,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                     height: "18px",
                     borderRadius: "100px"
                   }}
+                  effect="blur"
                 />
               </span>
             </div>
@@ -284,11 +288,11 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
               Our Use
             </h2>
             <span className="inline-flex items-center mt-2 text-4xl font-bold leading-tight">
-              <img src={VectorUsecase} alt="" style={{ marginRight: "8px" }} />
+            <LazyLoadImage src={VectorUsecase} alt="" style={{ marginRight: "8px" }} effect="blur" />
               Cases
             </span>
           </div>
-          <img src={RightArrow} alt="right arrow" width={32} height={32} />
+          <LazyLoadImage src={RightArrow} alt="right arrow" width={32} height={32} effect="blur" />
         </div>
 
         {/* Description */}
@@ -334,7 +338,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
         <div className="absolute bottom-8 left-8 right-8">
           {/* Dots indicator and tab navigation in a row */}
           <div className="flex items-center justify-between mb-6">
-            <img
+            <LazyLoadImage
               src={Dot}
               alt="dot"
               style={{
@@ -342,6 +346,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                 height: "14px",
                 flexShrink: 0
               }}
+              effect="blur"
             />
             <div className="flex space-x-8 ml-6 items-center">
               <span className="text-sm font-semibold text-zinc-300 border border-gray-300 rounded-full px-4 py-1">Exchange</span>
@@ -360,7 +365,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                   justifyContent: "center"
                 }}
               >
-                <img
+                <LazyLoadImage
                   src={ShareIcon}
                   alt="share"
                   style={{
@@ -368,6 +373,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                     height: "28px",
                     borderRadius: "100px"
                   }}
+                  effect="blur"
                 />
               </span>
             </div>
