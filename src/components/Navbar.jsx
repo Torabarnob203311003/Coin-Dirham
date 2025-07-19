@@ -40,23 +40,23 @@ function ThemeToggle() {
       }}
     >
       <div
-        style={{
-          position: "absolute",
-          left: "-40%",
-          top: "-90%",
-          transform: "translate(-50%, -50%)",
-          width: 400,
-          height: 400,
-          borderRadius: "617px",
-          opacity: 10.7,
-          background:
-            "linear-gradient(180deg, rgba(0, 120, 67, 0.85) 0%, rgba(0, 120, 67, 0.00) 100%)",
-          filter: "blur(32px)",
-          zIndex: 0,
-          pointerEvents: "none",
-        }}
+        // style={{
+        //   position: "absolute",
+        //   left: "-40%",
+        //   top: "-90%",
+        //   transform: "translate(-50%, -50%)",
+        //   width: 400,
+        //   height: 400,
+        //   borderRadius: "617px",
+        //   opacity: 10.7,
+        //   background:
+        //     "linear-gradient(180deg, rgba(0, 120, 67, 0.85) 0%, rgba(0, 120, 67, 0.00) 100%)",
+        //   filter: "blur(32px)",
+        //   zIndex: 0,
+        //   pointerEvents: "none",
+        // }}
       />
-      <div className="relative flex items-center gap-2 z-10">
+      {/* <div className="relative flex items-center gap-2 z-10">
         <button
           onClick={() => setTheme("light")}
           className={`p-2 border-none outline-none flex items-center justify-center transition-all duration-300 ${
@@ -117,7 +117,7 @@ function ThemeToggle() {
             }}
           />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }

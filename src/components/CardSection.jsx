@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { BsArrowRight } from "react-icons/bs";
-import tokenBitcoin from "../assets/token_bitcoin.svg";
+import tokenBitcoin from "/Footer.svg";
 import crousupLogo from "../assets/Course Up.svg";
 import GridSection from "./GridSection";
 
@@ -237,7 +237,7 @@ function CardSection({ bgColor, textColor, borderColor,  }) {
           ref={bitcoinRef}
           src={tokenBitcoin}
           alt="bitcoin token"
-          className="inline-block align-middle mx-2"
+          className="inline-block align-middle mx-2  pt-2 pb-2"
           style={{
             width: "78.495px",
             height: "52px",

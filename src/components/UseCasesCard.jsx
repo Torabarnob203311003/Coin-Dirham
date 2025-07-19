@@ -5,8 +5,6 @@ import VectorUsecase from '../assets/vectorusecase.svg';
 import RightArrow from '../assets/rightarrow.png';
 import Dot from '../assets/dot.svg';
 import ShareIcon from '../assets/share.svg';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
 function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
@@ -95,11 +93,11 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
             <div>
               <h2 className="text-3xl font-bold leading-tight">Our Use</h2>
               <span className="inline-flex items-center mt-1 text-3xl font-bold leading-tight">
-                <LazyLoadImage src={VectorUsecase} alt="" style={{ marginRight: "8px" }} effect="blur" />
+                <img src={VectorUsecase} alt="" style={{ marginRight: "8px" }} />
                 Cases
               </span>
             </div>
-            <LazyLoadImage src={RightArrow} alt="right arrow" width={28} height={28} effect="blur" />
+            <img src={RightArrow} alt="right arrow" width={28} height={28} />
           </div>
           {/* Description */}
           <div className="mb-6">
@@ -135,7 +133,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
           </div>
           {/* Dots and tags */}
           <div className="flex items-center justify-between mt-auto">
-            <LazyLoadImage
+            <img
               src={Dot}
               alt="dot"
               style={{
@@ -143,7 +141,6 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                 height: "10px",
                 flexShrink: 0
               }}
-              effect="blur"
             />
             <div className="flex space-x-4 ml-4 items-center">
               <span className="text-xs font-semibold text-zinc-300 border border-gray-300 rounded-full px-3 py-0.5">Exchange</span>
@@ -162,7 +159,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                   justifyContent: "center"
                 }}
               >
-                <LazyLoadImage
+                <img
                   src={ShareIcon}
                   alt="share"
                   style={{
@@ -170,7 +167,6 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                     height: "18px",
                     borderRadius: "100px"
                   }}
-                  effect="blur"
                 />
               </span>
             </div>
@@ -197,7 +193,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
               >
                 Hold *
               </h3>
-              <p
+              {/* <p
                 style={{
                   color: "#FFF",
                   fontFamily: "Funnel Sans",
@@ -209,7 +205,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                 className="leading-relaxed"
               >
                 But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
@@ -288,11 +284,11 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
               Our Use
             </h2>
             <span className="inline-flex items-center mt-2 text-4xl font-bold leading-tight">
-            <LazyLoadImage src={VectorUsecase} alt="" style={{ marginRight: "8px" }} effect="blur" />
+              <img src={VectorUsecase} alt="" style={{ marginRight: "8px" }} />
               Cases
             </span>
           </div>
-          <LazyLoadImage src={RightArrow} alt="right arrow" width={32} height={32} effect="blur" />
+          <img src={RightArrow} alt="right arrow" width={32} height={32} />
         </div>
 
         {/* Description */}
@@ -338,7 +334,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
         <div className="absolute bottom-8 left-8 right-8">
           {/* Dots indicator and tab navigation in a row */}
           <div className="flex items-center justify-between mb-6">
-            <LazyLoadImage
+            <img
               src={Dot}
               alt="dot"
               style={{
@@ -346,7 +342,6 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                 height: "14px",
                 flexShrink: 0
               }}
-              effect="blur"
             />
             <div className="flex space-x-8 ml-6 items-center">
               <span className="text-sm font-semibold text-zinc-300 border border-gray-300 rounded-full px-4 py-1">Exchange</span>
@@ -365,7 +360,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                   justifyContent: "center"
                 }}
               >
-                <LazyLoadImage
+                <img
                   src={ShareIcon}
                   alt="share"
                   style={{
@@ -373,7 +368,6 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                     height: "28px",
                     borderRadius: "100px"
                   }}
-                  effect="blur"
                 />
               </span>
             </div>
@@ -430,7 +424,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
             >
               Trade{activeSection === 'Trade' && ' *'}
             </h3>
-            {activeSection === 'Trade' && (
+            {/* {activeSection === 'Trade' && (
               <p
                 style={{
                   color: "#FFF",
@@ -444,7 +438,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
               >
                 Trade DollarCoin seamlessly on our platform with real-time pricing, deep liquidity, and secure order execution. Enjoy low fees and instant settlement for all your trading needs.
               </p>
-            )}
+            )} */}
           </div>
         </div>
         <div
@@ -482,7 +476,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
             >
               Hold{activeSection === 'Hold' && ' *'}
             </h3>
-            {activeSection === 'Hold' && (
+            {/* {activeSection === 'Hold' && (
               <p
                 style={{
                   color: "#FFF",
@@ -500,7 +494,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                 expound the actual teachings of the great explorer of 
                 the truth, the master-builder of
               </p>
-            )}
+            )} */}
           </div>
         </div>
         <div
@@ -542,7 +536,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
             >
               Buy/Sell{activeSection === 'Buy/Sell' && ' *'}
             </h3>
-            {activeSection === 'Buy/Sell' && (
+            {/* {activeSection === 'Buy/Sell' && (
               <p
                 style={{
                   color: "#FFF",
@@ -557,7 +551,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                 Execute fast and secure buy or sell orders with competitive rates 
                 and instant settlement for all your DollarCoin transactions.
               </p>
-            )}
+            )} */}
           </div>
         </div>
         <div
@@ -596,9 +590,9 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                   : {}
               }
             >
-              Transact{activeSection === 'Transact' && ' *'}
+              Send/Receive{activeSection === 'Transact' && ' *'}
             </h3>
-            {activeSection === 'Transact' && (
+            {/* {activeSection === 'Transact' && (
               <p
                 style={{
                   color: "#FFF",
@@ -613,7 +607,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                 Send and receive DollarCoin instantly with minimal fees 
                 across our secure blockchain network worldwide.
               </p>
-            )}
+            )} */}
           </div>
         </div>
       </div>

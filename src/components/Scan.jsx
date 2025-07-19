@@ -12,12 +12,12 @@ const CoinsAppIcon = () => (
   </svg>
 );
 
-const avatars = [
-  "https://randomuser.me/api/portraits/men/32.jpg",
-  "https://randomuser.me/api/portraits/women/44.jpg",
-  "https://randomuser.me/api/portraits/men/45.jpg",
-  "https://randomuser.me/api/portraits/women/46.jpg"
-];
+// const avatars = [
+//   "https://randomuser.me/api/portraits/men/32.jpg",
+//   "https://randomuser.me/api/portraits/women/44.jpg",
+//   "https://randomuser.me/api/portraits/men/45.jpg",
+//   "https://randomuser.me/api/portraits/women/46.jpg"
+// ];
 
 function Scan({ bgColor, textColor, borderColor,  }) {
   return (
@@ -31,7 +31,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
       className="relative min-h-screen flex flex-col items-center justify-center bg-[#0c1813] overflow-hidden px-4 sm:px-6 md:px-8 lg:px-12"
     >
       {/* Centered Content */}
-      <div className="flex flex-col items-center justify-center pt-16 pb-32 md:pb-16 lg:pb-0">
+      <div className="flex flex-col items-center justify-center pt-7 pb-32 md:pb-16 lg:pb-0">
         <h1
           className="text-white text-center font-[Funnel Sans] font-light mb-6
                      text-4xl leading-tight sm:text-5xl sm:leading-tight md:text-6xl md:leading-tight lg:text-[100px] lg:leading-[100px]"
@@ -43,8 +43,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
             overflowWrap: "break-word",
           }}
         >
-          Start transacting<br />
-          with <span className="inline-flex items-center gap-1 sm:gap-2">
+          Gets <span className="inline-flex items-center gap-1 sm:gap-2">
             DollarCoin
             <img
               src={FooterLogo}
@@ -55,7 +54,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
           </span>
           <br />
           <span className="inline-flex items-center gap-2 sm:gap-4 mt-4">
-            <span
+            {/* <span
               className="flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 rounded-full"
               style={{
                 width: "auto",
@@ -75,7 +74,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
                 alt="Google"
                 className="w-6 h-6 sm:w-8 sm:h-8"
               />
-            </span>
+            </span> */}
             <span className="ml-0 text-xl sm:text-2xl md:text-3xl lg:text-[100px]">on Blockfinex</span>
           </span>
         </h1>
@@ -83,7 +82,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
           {/* Avatar group (currently empty in original code) */}
         </div>
         <div className="mt-4 sm:mt-16 md:mt-7 w-full">
-          <p
+          {/* <p
             className="text-center mb-8 font-light text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed opacity-50"
             style={{
               width: "100%",
@@ -98,7 +97,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
             }}
           >
             But I must explain to you how all this mistaken idea of denouncing pleasure and praising <br className="hidden sm:inline" /> pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of...
-          </p>
+          </p> */}
           <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center items-center w-full px-4">
             <button
               className="text-white font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow transition flex items-center justify-center text-sm sm:text-base"
@@ -127,7 +126,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
                 </span>
               </span>
             </button>
-            <button
+            {/* <button
               className="text-white font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow transition flex items-center justify-center text-sm sm:text-base"
               style={{
                 width: "auto",
@@ -141,12 +140,12 @@ function Scan({ bgColor, textColor, borderColor,  }) {
               }}
             >
               Download Whitepaper
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
       {/* Bottom Left QR Card */}
-      <div className="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 w-11/12 sm:w-auto">
+      {/* <div className="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 w-11/12 sm:w-auto">
         <div className="bg-[#181f1c] bg-opacity-80 rounded-2xl p-3 sm:p-5 flex flex-row items-center shadow-lg min-w-full sm:min-w-[220px]">
           <div className="flex items-center justify-center flex-shrink-0">
             <img src={QrCodeSvg} alt="QR Code" className="w-16 h-16 sm:w-20 sm:h-20" />
@@ -156,9 +155,9 @@ function Scan({ bgColor, textColor, borderColor,  }) {
             <div className="text-[#b6eada] text-xs sm:text-sm mt-1">Download on App Store or Google Play.</div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Bottom Right Social Proof Card - HIDDEN ON MOBILE */}
-      <div className="hidden md:block absolute right-4 bottom-4 sm:right-6 sm:bottom-6 bg-[#181f1c] bg-opacity-80 rounded-2xl p-3 sm:p-5 flex flex-col items-start shadow-lg w-11/12 sm:w-auto">
+      {/* <div className="hidden md:block absolute right-4 bottom-4 sm:right-6 sm:bottom-6 bg-[#181f1c] bg-opacity-80 rounded-2xl p-3 sm:p-5 flex flex-col items-start shadow-lg w-11/12 sm:w-auto">
         <div className="text-white text-lg sm:text-xl font-bold mb-1 sm:mb-2">+25k</div>
         <div className="text-[#b6eada] text-xs sm:text-sm mb-1 sm:mb-2">People recommend</div>
         <div className="flex items-center mb-1">
@@ -173,7 +172,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
           ))}
         </div>
         <div className="text-[#b6eada] text-xs sm:text-sm">They trust, use and enjoy it</div>
-      </div>
+      </div> */}
       {/* Optional: background swirl/gradient effect */}
       <div className="pointer-events-none absolute inset-0 z-0" style={{
         background: "radial-gradient(ellipse at center, #1de9b622 0%, transparent 70%)"

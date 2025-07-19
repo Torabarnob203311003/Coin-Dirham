@@ -91,7 +91,7 @@ function Footer({ bgColor, textColor, borderColor,  }) {
                         </h2>
                         <ul className="space-y-1 text-lg md:text-2xl font-light">
                             <li>What is DollarCoin</li>
-                            <li>UseCases</li>
+                            <li>Use Cases</li>
                             <li>Buy DollarCoin</li>
                             <li>Contact US</li>
                         </ul>
@@ -104,7 +104,7 @@ function Footer({ bgColor, textColor, borderColor,  }) {
                             <li>Privacy Policy</li>
                             <li>Terms & Conditions</li>
                             <li>Disclaimer</li>
-                            <li>Cookies Policy</li>
+                            {/* <li>Cookies Policy</li> */}
                         </ul>
                     </div>
                     <div>
@@ -112,14 +112,14 @@ function Footer({ bgColor, textColor, borderColor,  }) {
                             <span className="text-gray-400 text-xl md:text-4xl mr-2">Socials</span>
                         </h2>
                         <div className="flex gap-3">
-                            <div className="rounded-full h-12 w-12 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
+                            {/* <div className="rounded-full h-12 w-12 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
                                 <Facebook />
-                            </div>
-                            <div className="rounded-full h-12 w-12 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
+                            </div> */}
+                            {/* <div className="rounded-full h-12 w-12 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
                                 <Instagram />
-                            </div>
-                            <div className="rounded-full h-12 w-12 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
-                                <Twitter />
+                            </div> */}
+                            <div className="rounded-full md:ms-7 h-10 w-10 bg-[linear-gradient(245.96deg,_rgba(255,255,255,0.1)_-6.19%,_rgba(153,153,153,0.05)_99.75%)] flex items-center justify-center">
+                                <img src="/x.png" alt="X (Twitter)" className="md:h-8 md:w-8 object-contain" />
                             </div>
                         </div>
                     </div>
@@ -144,9 +144,9 @@ function Footer({ bgColor, textColor, borderColor,  }) {
 
             {/* Bottom Bar */}
             <div className="flex flex-col md:flex-row justify-between items-center mt-6 text-sm text-gray-400 px-4 md:px-6">
-                <p>Copyright 2024 | All Rights Reserved</p>
+                <p>Copyright 2025 | All Rights Reserved</p>
                 <p>
-                    Developed by <span className="text-white font-semibold">MDX</span>
+                    Developed by <span className="text-white font-semibold">Blockfinex</span>
                 </p>
             </div>
         </footer>
