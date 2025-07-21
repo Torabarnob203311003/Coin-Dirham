@@ -127,7 +127,7 @@ function GridSection({ bgColor, textColor, borderColor,  }) {
               <p
                 style={{
                   width: 514,
-                  height: 56,
+                  height: 116,
                   fontFamily: "Funnel Sans",
                   fontWeight: 600,
                   fontSize: "20px",
@@ -137,7 +137,7 @@ function GridSection({ bgColor, textColor, borderColor,  }) {
                 }}
                 className="text-left text-gray-300"
               >
-                Dollar Coin is a currency built on ERC-20 token for the Ethereum blockchain with security in mind.
+                 Dollar Coin is a currency, built on 8 public blockchains namely Solana,SUI,Tron,Ethereum,Hype,Polygon,Arbitrum,Binance Smart Chain.
               </p>
             </div>
           </div>
@@ -264,7 +264,7 @@ function GridSection({ bgColor, textColor, borderColor,  }) {
         </div>
       </div>
       {/* Mobile grid (vertical stack, visible below sm) */}
-      <div className="mobile-grid flex flex-col gap-8 sm:hidden w-full max-w-md mx-auto">
+      <div className="mobile-grid flex flex-col gap-8 sm:hidden p-12  w-full max-w-md mx-auto">
         {/* Card 1 */}
         <div
           ref={cardRefs[0]}
@@ -340,7 +340,7 @@ function GridSection({ bgColor, textColor, borderColor,  }) {
           </p>
           <h2 className="text-4xl font-light text-white mb-3">Secure</h2>
           <p className="text-xl font-normal text-gray-300 leading-relaxed">
-            Dollar Coin is a currency, built as an ERC-20 token on the Ethereum blockchain with security in mind.
+              Dollar Coin is a currency, built on 8 public blockchains namely Solana,SUI,Tron,Ethereum,Hype, <br /> Polygon, Arbitrum,Binance Smart Chain.
           </p>
         </div>
         {/* Card 4 */}

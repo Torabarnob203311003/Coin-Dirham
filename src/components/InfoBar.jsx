@@ -19,7 +19,7 @@ function InfoBar({ bgColor, textColor, borderColor,  }) {
         borderColor: borderColor,
         // ...other dynamic styles as needed
       }}
-      className="w-full overflow-hidden mt-8 sm:mt-28 px-2"
+      className="w-full overflow-hidden mt-2 md:mt-28 px-2"
     >
       <Marquee gradient={false} speed={180} pauseOnHover={true}>
         <span

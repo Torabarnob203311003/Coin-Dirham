@@ -126,6 +126,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
                 </span>
               </span>
             </button>
+            
             {/* <button
               className="text-white font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow transition flex items-center justify-center text-sm sm:text-base"
               style={{
@@ -144,6 +145,54 @@ function Scan({ bgColor, textColor, borderColor,  }) {
           </div>
         </div>
       </div>
+
+      {/* Header */}
+      <div className="mb-2">
+        <span className="text-gray-400 text-sm font-medium">CeFi Compatible</span>
+      </div>
+      
+      {/* Main Title */}
+      <h1 className="text-4xl md:text-5xl font-bold mb-12">
+        Compatible with traditional payments
+      </h1>
+      
+      {/* Payment Methods */}
+      <div className="flex flex-col md:flex-row gap-6 max-w-6xl">
+        {/* ACH */}
+        <div className="flex-1">
+          <div className="bg-gray-900 rounded-full px-6 py-3 inline-flex items-center mb-4">
+            <div className="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
+            <span className="text-white font-semibold text-lg">ACH</span>
+          </div>
+          <p className="text-gray-400 text-base leading-relaxed">
+            Mint and Redeem with ACH directly at DollarCoin.
+          </p>
+        </div>
+        
+        {/* Wire */}
+        <div className="flex-1">
+          <div className="bg-gray-900 rounded-full px-6 py-3 inline-flex items-center mb-4">
+            <div className="w-3 h-3 bg-teal-400 rounded-full mr-3"></div>
+            <span className="text-white font-semibold text-lg">Wire</span>
+          </div>
+          <p className="text-gray-400 text-base leading-relaxed">
+            Support large transactions through wire transfer.
+          </p>
+        </div>
+        
+        {/* On-chain */}
+        <div className="flex-1">
+          <div className="bg-gray-900 rounded-full px-6 py-3 inline-flex items-center mb-4">
+            <div className="w-3 h-3 bg-green-400 rounded-full mr-3"></div>
+            <span className="text-white font-semibold text-lg">On-chain</span>
+          </div>
+          <p className="text-gray-400 text-base leading-relaxed">
+            Convert into and out of your stablecoin with DUSD TO USD.
+          </p>
+        </div>
+      </div>
+
+    
       {/* Bottom Left QR Card */}
       {/* <div className="absolute left-4 bottom-4 sm:left-6 sm:bottom-6 w-11/12 sm:w-auto">
         <div className="bg-[#181f1c] bg-opacity-80 rounded-2xl p-3 sm:p-5 flex flex-row items-center shadow-lg min-w-full sm:min-w-[220px]">
