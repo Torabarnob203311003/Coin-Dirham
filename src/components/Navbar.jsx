@@ -1,7 +1,7 @@
 import logo from "../assets/Group 1.svg";
 import Sun from "../assets/Sun.svg";
 import Moon from "../assets/Moon.svg";
-import { useTheme } from "../context/ThemeContext";
+//wimport { useTheme } from "../context/ThemeContext";
 import { useState, useEffect } from "react";
 
 function WorldIcon(props) {
@@ -25,7 +25,7 @@ function WorldIcon(props) {
 }
 
 function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+//  const { theme, setTheme } = useTheme();
   return (
     <div
       className="relative flex items-center justify-center gap-2 px-2 py-1"
