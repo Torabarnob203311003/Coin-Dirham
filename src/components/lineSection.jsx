@@ -17,7 +17,31 @@ function LineSection({ bgColor, textColor, borderColor,  }) {
         2xl:text-4xl  // Even larger for very big screens (reduced from 5xl)
         font-thin
       '>
-        Dollar and Bitcoin are an stable coin
+        DUSD launches on July 30th !
+      </span>
+      <span>
+        <img
+          src={VectorIcon}
+          alt="vector icon"
+          className="
+            w-4 h-4   // Base icon size for smallest screens
+            sm:w-5 sm:h-5 // Small breakpoint icon size
+            md:w-6 md:h-6 // Medium breakpoint icon size
+            lg:w-7 lg:h-7 // Large breakpoint icon size
+            xl:w-8 xl:h-8 // Extra large breakpoint icon size
+          "
+        />
+      </span>
+        <span className='
+        text-[11px]    // Slightly smaller base font size for smallest screens (e.g., 11px)
+        sm:text-xs    // Small breakpoint font size (e.g., 12px)
+        md:text-sm    // Medium breakpoint font size (e.g., 14px)
+        lg:text-base  // Large breakpoint font size (e.g., 16px)
+        xl:text-lg    // Extra large breakpoint font size (e.g., 18px)
+        2xl:text-4xl  // Even larger for very big screens (reduced from 5xl)
+        font-thin
+      '>
+        DUSD launches on July 30th !
       </span>
       <span>
         <img
@@ -41,7 +65,7 @@ function LineSection({ bgColor, textColor, borderColor,  }) {
         2xl:text-4xl
         font-thin
       '>
-        Dollar and Bitcoin are an stable coin
+       DUSD launches on July 30th !
       </span>
       <span>
         <img
@@ -65,7 +89,7 @@ function LineSection({ bgColor, textColor, borderColor,  }) {
         2xl:text-4xl
         font-thin
       ">
-        Buy DollarCoin on the app at the rate of 1 DUSD to 1 USD
+        DUSD launches on July 30th !
         <span className="inline-block align-middle ml-1" style={{ position: "relative", top: "-1px" }}>
           <img
             src={VectorIcon}
@@ -80,6 +104,7 @@ function LineSection({ bgColor, textColor, borderColor,  }) {
           />
         </span>
       </h2>
+      
     </>
   );
 
@@ -88,7 +113,7 @@ function LineSection({ bgColor, textColor, borderColor,  }) {
     if (marqueeElement) {
       const contentWidth = marqueeElement.scrollWidth / 2;
 
-      const speed = 200; // pixels per second (2x faster as per last request)
+      const speed = 150; // pixels per second (2x faster as per last request)
       const duration = contentWidth / speed; // duration in seconds
 
       gsap.to(marqueeElement, {

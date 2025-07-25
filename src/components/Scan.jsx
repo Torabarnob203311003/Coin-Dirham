@@ -148,7 +148,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
 
       {/* Header */}
       <div className="mb-2">
-        <span className="text-gray-400 text-sm font-medium">CeFi Compatible</span>
+        <span className="text-gray-400 text-2xl font-medium">CeFi Compatible</span>
       </div>
       
       {/* Main Title */}
@@ -226,6 +226,7 @@ function Scan({ bgColor, textColor, borderColor,  }) {
       <div className="pointer-events-none absolute inset-0 z-0" style={{
         background: "radial-gradient(ellipse at center, #1de9b622 0%, transparent 70%)"
       }} />
+      <br />
     </div>
   );
 }

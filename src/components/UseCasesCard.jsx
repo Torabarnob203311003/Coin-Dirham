@@ -117,9 +117,9 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                   fontWeight: 600,
                   lineHeight: "140%"
                 }}
-              >DollarCoin</span> transactions are fast and Green, no matter where you are sending or spending your money.
+              >DollarCoin</span>transactions are fast and secure on multiple blockchains.
             </p>
-            <p
+            {/* <p
               className="text-xs opacity-80 mt-2"
               style={{
                 color: "#D2D4D7",
@@ -129,7 +129,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
               }}
             >
               Experience seamless transactions with our advanced blockchain technology.
-            </p>
+            </p> */}
           </div>
           {/* Dots and tags */}
           <div className="flex items-center justify-between mt-auto">
@@ -292,7 +292,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
         </div>
 
         {/* Description */}
-        <div className="mb-12 space-y-4 mt-72">
+        <div className="mb-12 space-y-4 mt-96">
           <p
             className="leading-relaxed text-sm"
             style={{
@@ -313,9 +313,9 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
                 fontWeight: 600,
                 lineHeight: "140%"
               }}
-            >DollarCoin</span> transactions are fast and Green, no matter where you are sending or spending your money.
+            >DollarCoin</span> transactions are fast and secure on multiple blockchains.
           </p>
-          <p
+          {/* <p
             className="text-xs opacity-80"
             style={{
               color: "#D2D4D7",
@@ -327,7 +327,7 @@ function UseCasesCard({ bgColor, textColor, borderColor, accent }) {
             }}
           >
             Experience seamless transactions with our advanced blockchain technology.
-          </p>
+          </p> */}
         </div>
 
         {/* Bottom section */}
