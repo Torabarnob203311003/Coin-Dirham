@@ -130,12 +130,12 @@ function Footer({ bgColor, textColor, borderColor,  }) {
                             ref={imgRef}
                             src="/Footer.svg"
                             alt="DollarCoin"
-                            className="h-16 md:h-[143px] w-16 md:w-[146px] mx-auto"
+                            className="h-10 md:h-[143px] w-20 md:w-[146px] mx-auto"
                         />
                     </div>
                     <h1
                         ref={textRef}
-                        className="text-5xl md:text-[201.86px] font-light text-center md:text-left"
+                        className="text-4xl md:text-[201.86px] font-light text-center md:text-left"
                     >
                         DollarCoin
                     </h1>

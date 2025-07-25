@@ -129,7 +129,7 @@ function GridSection({ bgColor, textColor, borderColor,  }) {
                   width: 514,
                   height: 116,
                   fontFamily: "Funnel Sans",
-                  fontWeight: 600,
+                  fontWeight: 300,
                   fontSize: "20px",
                   lineHeight: "140%",
                   letterSpacing: "0%",
@@ -246,10 +246,10 @@ function GridSection({ bgColor, textColor, borderColor,  }) {
               </h2>
               <p
                 style={{
-                  width: 514,
+                  width: 414,
                   height: 84,
                   fontFamily: "Funnel Sans",
-                  fontWeight: 300,
+                  fontWeight: 350,
                   fontSize: "20px",
                   lineHeight: "140%",
                   letterSpacing: "0%",
